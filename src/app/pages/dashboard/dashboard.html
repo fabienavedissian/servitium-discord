@@ -1,0 +1,60 @@
+<div class="dash">
+  <header class="dash__top">
+    <div class="dash__brand">
+      <svt-icon name="message-circle" [size]="22" />
+      <span>Servitium <strong>for Discord</strong></span>
+    </div>
+    @if (session.user(); as u) {
+      <div class="dash__user">
+        <svt-icon name="user" [size]="16" />
+        <span>{{ u.username }}</span>
+      </div>
+    }
+  </header>
+
+  <div class="dash__guild-picker">
+    <label>Server</label>
+    <svt-select
+      size="medium"
+      [options]="guildOptions()"
+      [clearable]="false"
+      [searchable]="true"
+      placeholder="Select a Discord server"
+      [ngModel]="session.selectedGuildId() || ''"
+      [ngModelOptions]="{ standalone: true }"
+      (onSelect)="onGuildSelect($event)"
+    />
+  </div>
+
+  @if (!selectedGuild()) {
+    <svt-card className="dash__empty">
+      <svt-icon name="server" [size]="40" />
+      <h3>Pick a server to get started</h3>
+      <p>Choose a Discord server you manage to configure its welcome message and voice channels.</p>
+    </svt-card>
+  } @else if (!clientId()) {
+    <svt-card className="dash__empty">
+      <svt-icon name="link" [size]="40" />
+      <h3>This server isn't connected yet</h3>
+      <p>Add the Servitium bot to <strong>{{ selectedGuild()?.guildName }}</strong> to start configuring it.</p>
+    </svt-card>
+  } @else {
+    <div class="dash__features">
+      <svt-discord-welcome
+        [clientId]="clientId()"
+        [canEdit]="true"
+        [availableChannels]="channels()"
+        [isLoadingChannels]="loading()"
+        [serverName]="serverName()"
+        [welcomeChannelName]="config()?.welcomeChannelName || null"
+        [welcome]="welcomeSeed()"
+      />
+      <svt-discord-voice-hubs
+        [clientId]="clientId()"
+        [canEdit]="true"
+        [roles]="roles()"
+        [hubs]="voiceHubs()"
+      />
+    </div>
+  }
+</div>

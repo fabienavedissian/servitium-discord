@@ -1,0 +1,347 @@
+// =============================================================================
+// Servitium Design Tokens — Colors
+// Inspired by: Linear, Vercel, Stripe, Supabase
+// Approach: neutral grays + restrained soft indigo accent + muted status
+// Default = Dark theme. Light theme via [data-theme='light'].
+// =============================================================================
+
+:root {
+  // ===========================================================================
+  // BRAND — Soft Indigo (less aggressive than cobalt, more pro)
+  // ===========================================================================
+  --svt-primary-50:  #eef0ff;
+  --svt-primary-100: #e0e3ff;
+  --svt-primary-200: #c5cbff;
+  --svt-primary-300: #a1a8ff;
+  --svt-primary-400: #7d85ff;
+  --svt-primary-500: #5b6cff;  // Main brand
+  --svt-primary-600: #4953e5;
+  --svt-primary-700: #3940b5;
+  --svt-primary-800: #2a2f88;
+  --svt-primary-900: #1d2266;
+  --svt-primary-950: #11144d;
+  --svt-primary-rgb: 91, 108, 255;
+
+  // Secondary — Iris (companion to primary, used sparingly)
+  --svt-secondary-50:  #f4f0ff;
+  --svt-secondary-100: #e8dfff;
+  --svt-secondary-200: #d0bfff;
+  --svt-secondary-300: #b39bff;
+  --svt-secondary-400: #9678ff;
+  --svt-secondary-500: #7c5cf0;
+  --svt-secondary-600: #6447d4;
+  --svt-secondary-700: #4d36a8;
+  --svt-secondary-800: #36287a;
+  --svt-secondary-900: #211a4d;
+  --svt-secondary-950: #110d2b;
+
+  // Tertiary — Muted Teal (calmer than fluo)
+  --svt-tertiary-50:  #ecf6f4;
+  --svt-tertiary-100: #d0ebe5;
+  --svt-tertiary-200: #a3d8cd;
+  --svt-tertiary-300: #74c0b1;
+  --svt-tertiary-400: #4ba898;
+  --svt-tertiary-500: #2e9082;
+  --svt-tertiary-600: #237568;
+  --svt-tertiary-700: #1c5b51;
+  --svt-tertiary-800: #14423b;
+  --svt-tertiary-900: #0c2925;
+  --svt-tertiary-950: #061714;
+
+  // ===========================================================================
+  // GRAYSCALE — true neutral, no blue tint (zinc scale)
+  // ===========================================================================
+  --svt-gray-50:  #fafafa;
+  --svt-gray-100: #f4f4f5;
+  --svt-gray-200: #e4e4e7;
+  --svt-gray-300: #d4d4d8;
+  --svt-gray-400: #a1a1aa;
+  --svt-gray-500: #71717a;
+  --svt-gray-600: #52525b;
+  --svt-gray-700: #3f3f46;
+  --svt-gray-800: #27272a;
+  --svt-gray-900: #18181b;
+  --svt-gray-950: #09090b;
+
+  // ===========================================================================
+  // DARK THEME (default) — true neutral grays, Linear-style
+  // ===========================================================================
+
+  // Surfaces (subtle elevation steps)
+  --svt-surface-950: #09090b;
+  --svt-surface-900: #0c0c0e;
+  --svt-surface-850: #111114;
+  --svt-surface-800: #16161a;
+  --svt-surface-750: #1a1a1f;
+  --svt-surface-700: #1f1f23;
+  --svt-surface-650: #232328;
+  --svt-surface-600: #2a2a30;
+
+  // Application layers
+  --svt-bg-primary:   #0a0a0b;  // Page background — near-black neutral
+  --svt-bg-secondary: #111114;  // Panels, sub-areas
+  --svt-bg-tertiary:  #16161a;  // Subtle nested surfaces
+  --svt-bg-elevated:  #1c1c20;  // Popovers, dropdowns (stand out)
+  --svt-bg-card:      #131316;  // Cards
+  --svt-bg-panel:     #111114;  // Side panels
+
+  // Interactive overlays
+  --svt-bg-hover:  rgba(255, 255, 255, 0.04);
+  --svt-bg-active: rgba(255, 255, 255, 0.08);
+  --svt-bg-selected: rgba(91, 108, 255, 0.12);
+
+  // Header
+  --svt-header-bg: rgba(10, 10, 11, 0.85);
+
+  // Aliases
+  --svt-surface-primary:   var(--svt-bg-primary);
+  --svt-surface-secondary: var(--svt-bg-secondary);
+  --svt-surface-tertiary:  var(--svt-bg-tertiary);
+  --svt-surface-elevated:  var(--svt-bg-elevated);
+
+  // Text — soft off-white (not pure white, reduces eye strain)
+  --svt-text-primary:   #ededed;
+  --svt-text-secondary: #a1a1aa;
+  --svt-text-tertiary:  #71717a;
+  --svt-text-muted:     #52525b;
+  --svt-text-disabled:  rgba(161, 161, 170, 0.4);
+  --svt-text-inverse:   #09090b;
+  --svt-text-on-color:  #ffffff;  // Text on saturated colored backgrounds
+
+  // Borders — pronounced (no shadows so borders carry the elevation cue)
+  --svt-border-primary:   rgba(255, 255, 255, 0.12);
+  --svt-border-secondary: rgba(255, 255, 255, 0.08);
+  --svt-border-muted:     rgba(255, 255, 255, 0.1);
+  --svt-border-strong:    rgba(255, 255, 255, 0.2);
+  --svt-border-focus:     var(--svt-primary-500);
+  --svt-divider:          rgba(255, 255, 255, 0.08);
+  --svt-border-light:     var(--svt-border-muted);
+
+  // Interactive states
+  --svt-hover-overlay:    rgba(255, 255, 255, 0.04);
+  --svt-active-overlay:   rgba(255, 255, 255, 0.08);
+  --svt-focus-ring:       rgba(91, 108, 255, 0.4);
+  --svt-selection-bg:     rgba(91, 108, 255, 0.2);
+  --svt-glow-primary:     0 0 0 1px rgba(91, 108, 255, 0.35);
+  --svt-overlay-backdrop: rgba(0, 0, 0, 0.6);
+
+  // Scrollbar
+  --svt-scrollbar-thumb:       rgba(255, 255, 255, 0.1);
+  --svt-scrollbar-thumb-hover: rgba(255, 255, 255, 0.18);
+
+  // ===========================================================================
+  // STATUS — muted enterprise tones (less fluo)
+  // ===========================================================================
+  --svt-success-50:  #ecf6ef;
+  --svt-success-100: #d3ead9;
+  --svt-success-200: #a7d6b3;
+  --svt-success-300: #7ec293;
+  --svt-success-400: #58a974;
+  --svt-success-500: #3e8a5b;
+  --svt-success-600: #2f6e48;
+  --svt-success-700: #235337;
+  --svt-success-800: #173a26;
+  --svt-success-900: #0d2317;
+  --svt-success:     var(--svt-success-500);
+  --svt-success-bg:  rgba(62, 138, 91, 0.14);
+
+  --svt-warning-50:  #fef9ec;
+  --svt-warning-100: #fdeec8;
+  --svt-warning-200: #fbd986;
+  --svt-warning-300: #f9c252;
+  --svt-warning-400: #ed9c2c;
+  --svt-warning-500: #d97706;
+  --svt-warning-600: #b35d05;
+  --svt-warning-700: #8c4506;
+  --svt-warning-800: #65340a;
+  --svt-warning-900: #422109;
+  --svt-warning:     var(--svt-warning-500);
+  --svt-warning-bg:  rgba(217, 119, 6, 0.14);
+
+  --svt-error-50:  #fef2f2;
+  --svt-error-100: #fde2e2;
+  --svt-error-200: #fbc6c6;
+  --svt-error-300: #f59595;
+  --svt-error-400: #ec6868;
+  --svt-error-500: #dc2626;
+  --svt-error-600: #b91c1c;
+  --svt-error-700: #991b1b;
+  --svt-error-800: #7f1d1d;
+  --svt-error-900: #5d1414;
+  --svt-error:     var(--svt-error-500);
+  --svt-error-bg:  rgba(220, 38, 38, 0.14);
+
+  --svt-info-50:  #eff6ff;
+  --svt-info-100: #dbeafe;
+  --svt-info-200: #bfdbfe;
+  --svt-info-300: #93c5fd;
+  --svt-info-400: #60a5fa;
+  --svt-info-500: #3b82f6;
+  --svt-info-600: #2563eb;
+  --svt-info-700: #1d4ed8;
+  --svt-info-800: #1e40af;
+  --svt-info-900: #1e3a8a;
+  --svt-info:     var(--svt-info-500);
+  --svt-info-bg:  rgba(59, 130, 246, 0.14);
+
+  // ===========================================================================
+  // DOMAIN THEMING (game modules — kept restrained)
+  // ===========================================================================
+  --svt-survival-rust:    #8b4513;
+  --svt-survival-metal:   #708090;
+  --svt-survival-stone:   #696969;
+  --svt-survival-wood:    #d2691e;
+  --svt-survival-leather: #5a2d0a;
+  --svt-survival-tech:    #5b6cff;
+  --svt-survival-bronze:  #cd7f32;
+
+  // Module colors (sidebar/page accents)
+  --svt-module-dashboard:        var(--svt-primary-500);
+  --svt-module-dashboard-hover:  var(--svt-primary-400);
+  --svt-module-economy:          var(--svt-success-500);
+  --svt-module-economy-hover:    var(--svt-success-400);
+  --svt-module-protection:       var(--svt-secondary-500);
+  --svt-module-protection-hover: var(--svt-secondary-400);
+  --svt-module-players:          #f97316;
+  --svt-module-players-hover:    #fb923c;
+  --svt-module-player-stats:     var(--svt-primary-400);
+  --svt-module-player-stats-hover: var(--svt-primary-300);
+  --svt-module-tickets:          var(--svt-warning-500);
+  --svt-module-tickets-hover:    var(--svt-warning-400);
+  --svt-module-discord:          #5865f2;
+  --svt-module-discord-hover:    #7a86ff;
+  --svt-module-raid-protection:  var(--svt-error-500);
+  --svt-module-raid-protection-hover: var(--svt-error-400);
+  --svt-module-settings:         var(--svt-gray-400);
+  --svt-module-settings-hover:   var(--svt-gray-300);
+  --svt-module-team:             #f97316;
+  --svt-module-team-hover:       #fb923c;
+  --svt-module-rcon-chat:        var(--svt-info-500);
+  --svt-module-rcon-chat-hover:  var(--svt-info-400);
+  --svt-module-map:              var(--svt-tertiary-500);
+  --svt-module-map-hover:        var(--svt-tertiary-400);
+  // SUPERADMIN section — was referenced (var(--svt-module-admin)) but never
+  // defined, so those menu items showed no module color. Matches the 'users'
+  // page-header (secondary) for menu<->header consistency.
+  --svt-module-admin:            var(--svt-secondary-500);
+  --svt-module-admin-hover:      var(--svt-secondary-400);
+
+  // Section accents
+  --svt-section-servers:        var(--svt-primary-500);
+  --svt-section-economy:        var(--svt-tertiary-500);
+  --svt-section-protection:     var(--svt-secondary-500);
+  --svt-section-configuration:  var(--svt-gray-700);
+  --svt-section-discord:        #5865f2;
+  --svt-section-map:            var(--svt-info-500);
+  --svt-section-subscriptions:  #ec4899;
+  --svt-section-games:          #f97316;
+
+  // ===========================================================================
+  // LEGACY ALIASES (backwards-compat with existing component code)
+  // ===========================================================================
+  --svt-color-primary:           var(--svt-primary-500);
+  --svt-color-primary-bright:    var(--svt-primary-400);
+  --svt-color-primary-rgb:       var(--svt-primary-rgb);
+  --svt-color-primary-alpha:     rgba(91, 108, 255, 0.12);
+  --svt-color-secondary:         var(--svt-secondary-500);
+  --svt-color-secondary-alpha:   rgba(124, 92, 240, 0.14);
+  --svt-color-tertiary:          var(--svt-tertiary-500);
+  --svt-color-tertiary-alpha:    rgba(46, 144, 130, 0.14);
+  --svt-color-quaternary:        var(--svt-gray-500);
+  --svt-color-danger:            var(--svt-error);
+  --svt-color-danger-alpha:      var(--svt-error-bg);
+  --svt-color-warning:           var(--svt-warning);
+  --svt-color-warning-alpha:     var(--svt-warning-bg);
+  --svt-color-success:           var(--svt-success);
+  --svt-color-info:              var(--svt-info);
+
+  --svt-color-background-primary:    var(--svt-bg-primary);
+  --svt-color-background-secondary:  var(--svt-bg-secondary);
+  --svt-color-background-tertiary:   var(--svt-bg-tertiary);
+  --svt-color-background-quaternary: var(--svt-bg-elevated);
+
+  --svt-color-text-primary:   var(--svt-text-primary);
+  --svt-color-text-secondary: var(--svt-text-secondary);
+  --svt-color-text-tertiary:  var(--svt-text-tertiary);
+
+  --svt-color-border-primary:   var(--svt-border-primary);
+  --svt-color-border-secondary: var(--svt-border-secondary);
+}
+
+// =============================================================================
+// LIGHT THEME — warm-tinted off-white, white cards, subtle elevation
+// =============================================================================
+[data-theme='light'] {
+  // Surfaces — warm-neutral white scale
+  --svt-surface-950: #ffffff;
+  --svt-surface-900: #fafafa;
+  --svt-surface-850: #f4f4f5;
+  --svt-surface-800: #e4e4e7;
+  --svt-surface-750: #d4d4d8;
+  --svt-surface-700: #a1a1aa;
+  --svt-surface-650: #71717a;
+  --svt-surface-600: #52525b;
+
+  // Application layers — distinct grey scale, NEVER pure white
+  --svt-bg-primary:   #d6d6da;  // Page bg — clear medium grey
+  --svt-bg-secondary: #dedee2;  // Panels / section bg
+  --svt-bg-tertiary:  #dadade;  // Subtle nested
+  --svt-bg-elevated:  #eeeeF1;  // Popovers/dropdowns (lightest grey)
+  --svt-bg-card:      #e8e8ec;  // Cards — clearly grey, distinct from page
+  --svt-bg-panel:     #d2d2d6;
+
+  --svt-data-table-surface: #ffffff;
+
+  --svt-bg-hover:  rgba(0, 0, 0, 0.05);
+  --svt-bg-active: rgba(0, 0, 0, 0.09);
+  --svt-bg-selected: rgba(91, 108, 255, 0.12);
+
+  --svt-header-bg: rgba(214, 214, 218, 0.92);
+
+  // Aliases
+  --svt-surface-primary:   var(--svt-bg-primary);
+  --svt-surface-secondary: var(--svt-bg-secondary);
+  --svt-surface-tertiary:  var(--svt-bg-tertiary);
+  --svt-surface-elevated:  var(--svt-bg-elevated);
+
+  // Text — dark gray on light bg
+  --svt-text-primary:   #18181b;  // Zinc-900
+  --svt-text-secondary: #52525b;  // Zinc-600
+  --svt-text-tertiary:  #71717a;  // Zinc-500
+  --svt-text-muted:     #a1a1aa;  // Zinc-400
+  --svt-text-disabled:  rgba(82, 82, 91, 0.4);
+  --svt-text-inverse:   #ffffff;
+  --svt-text-on-color:  #ffffff;
+
+  // Borders — more pronounced in light to compensate for absence of shadows
+  --svt-border-primary:   rgba(0, 0, 0, 0.14);
+  --svt-border-secondary: rgba(0, 0, 0, 0.09);
+  --svt-border-muted:     rgba(0, 0, 0, 0.11);
+  --svt-border-strong:    rgba(0, 0, 0, 0.22);
+  --svt-border-focus:     var(--svt-primary-500);
+  --svt-divider:          rgba(0, 0, 0, 0.1);
+  --svt-border-light:     var(--svt-border-muted);
+
+  // Interactive states
+  --svt-hover-overlay:    rgba(0, 0, 0, 0.04);
+  --svt-active-overlay:   rgba(0, 0, 0, 0.08);
+  --svt-focus-ring:       rgba(91, 108, 255, 0.3);
+  --svt-selection-bg:     rgba(91, 108, 255, 0.16);
+  --svt-glow-primary:     0 0 0 1px rgba(91, 108, 255, 0.3);
+  --svt-overlay-backdrop: rgba(15, 15, 20, 0.4);
+
+  // Scrollbar
+  --svt-scrollbar-thumb:       rgba(0, 0, 0, 0.15);
+  --svt-scrollbar-thumb-hover: rgba(0, 0, 0, 0.25);
+
+  // Status bg tints (slightly more saturated since on light bg)
+  --svt-success-bg: rgba(62, 138, 91, 0.12);
+  --svt-warning-bg: rgba(217, 119, 6, 0.12);
+  --svt-error-bg:   rgba(220, 38, 38, 0.10);
+  --svt-info-bg:    rgba(59, 130, 246, 0.10);
+
+  // Legacy alias updates
+  --svt-color-primary-alpha:   rgba(91, 108, 255, 0.08);
+  --svt-color-secondary-alpha: rgba(124, 92, 240, 0.1);
+  --svt-color-tertiary-alpha:  rgba(46, 144, 130, 0.1);
+}

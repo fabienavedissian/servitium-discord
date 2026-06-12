@@ -1,0 +1,44 @@
+<div class="landing">
+  <header class="landing__nav">
+    <div class="landing__brand">
+      <svt-icon name="message-circle" [size]="26" />
+      <span>Servitium <strong>for Discord</strong></span>
+    </div>
+    <svt-button variant="ghost" size="small" (click)="login()">Sign in with Discord</svt-button>
+  </header>
+
+  <section class="landing__hero">
+    <h1 class="landing__title">The free Discord bot that grows with your community</h1>
+    <p class="landing__subtitle">
+      Welcome messages, join-to-create voice, moderation and more — free, no strings.
+      Link a game server later to unlock full server management.
+    </p>
+    <div class="landing__cta">
+      <svt-button variant="primary" (click)="login()">
+        <svt-icon name="log-in" [size]="16" /> Sign in with Discord
+      </svt-button>
+      <a [href]="inviteUrl" target="_blank" rel="noopener">
+        <svt-button variant="secondary">
+          <svt-icon name="plus" [size]="16" /> Add to Discord
+        </svt-button>
+      </a>
+    </div>
+  </section>
+
+  <section class="landing__features">
+    @for (f of features; track f.title) {
+      <svt-card className="landing__feature">
+        <div class="landing__feature-head">
+          <svt-icon [name]="f.icon" [size]="20" />
+          <h3>{{ f.title }}</h3>
+          <span class="landing__tag" [class.landing__tag--paid]="!f.free">{{ f.free ? 'Free' : 'Pro' }}</span>
+        </div>
+        <p class="landing__feature-text">{{ f.text }}</p>
+      </svt-card>
+    }
+  </section>
+
+  <footer class="landing__footer">
+    <span>Servitium</span>
+  </footer>
+</div>

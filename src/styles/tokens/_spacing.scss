@@ -1,0 +1,121 @@
+// =============================================================================
+// Servitium Design Tokens — Spacing, Layout, Radii, Shadows
+// 4pt grid system. Small/sharp radii (Linear-inspired).
+// Subtle layered shadows that work for both themes.
+// =============================================================================
+
+:root {
+  // ===========================================================================
+  // SPACING — 4pt modular grid
+  // ===========================================================================
+  --svt-space-0:    0;
+  --svt-space-px:   1px;
+  --svt-space-0-5:  0.125rem;   // 2px
+  --svt-space-1:    0.25rem;    // 4px
+  --svt-space-1-5:  0.375rem;   // 6px
+  --svt-space-2:    0.5rem;     // 8px
+  --svt-space-2-5:  0.625rem;   // 10px
+  --svt-space-3:    0.75rem;    // 12px
+  --svt-space-3-5:  0.875rem;   // 14px
+  --svt-space-4:    1rem;       // 16px
+  --svt-space-5:    1.25rem;    // 20px
+  --svt-space-6:    1.5rem;     // 24px
+  --svt-space-7:    1.75rem;    // 28px
+  --svt-space-8:    2rem;       // 32px
+  --svt-space-9:    2.25rem;    // 36px
+  --svt-space-10:   2.5rem;     // 40px
+  --svt-space-12:   3rem;       // 48px
+  --svt-space-14:   3.5rem;     // 56px
+  --svt-space-16:   4rem;       // 64px
+  --svt-space-20:   5rem;       // 80px
+  --svt-space-24:   6rem;       // 96px
+
+  // ===========================================================================
+  // SEMANTIC GAPS — used by components & layouts
+  // ===========================================================================
+  --svt-gap-tight:     var(--svt-space-1-5);   // 6px  — chips, badges
+  --svt-gap-inner:     var(--svt-space-2);     // 8px  — within a component
+  --svt-gap-component: var(--svt-space-3);     // 12px — between related items
+  --svt-gap-section:   var(--svt-space-4);     // 16px — between page sections
+  --svt-gap-layout:    clamp(1.25rem, 2vw, 2rem);
+  --svt-gap:           var(--svt-gap-component);
+
+  // ===========================================================================
+  // CONTAINERS
+  // ===========================================================================
+  --svt-shell-max-width: 1440px;
+  --svt-shell-padding:   clamp(0.75rem, 1.6vw, 1.25rem);
+  --svt-panel-padding:   var(--svt-space-4);
+  --svt-card-padding:    var(--svt-space-4);
+  --svt-toolbar-height:  3.25rem;
+
+  // ===========================================================================
+  // RADIUS — small/sharp scale (Linear-style enterprise)
+  // ===========================================================================
+  --svt-radius-none: 0;
+  --svt-radius-xs:   0.125rem;  // 2px — tiny chips
+  --svt-radius-sm:   0.25rem;   // 4px — small buttons, inputs
+  --svt-radius-md:   0.375rem;  // 6px — DEFAULT buttons, inputs
+  --svt-radius-lg:   0.5rem;    // 8px — cards
+  --svt-radius-xl:   0.625rem;  // 10px — modals
+  --svt-radius-2xl:  0.875rem;  // 14px — large surfaces
+  --svt-radius-full: 9999px;
+
+  // Legacy aliases
+  --svt-border-radius-xs: var(--svt-radius-sm);
+  --svt-border-radius-sm: var(--svt-radius-md);
+  --svt-border-radius-md: var(--svt-radius-lg);
+  --svt-border-radius-lg: var(--svt-radius-xl);
+
+  // ===========================================================================
+  // SHADOWS — disabled by design (flat enterprise style, borders carry elevation)
+  // Modal / dropdown use a barely-visible shadow purely for floating-layer cue.
+  // ===========================================================================
+  --svt-shadow-xs:    none;
+  --svt-shadow-sm:    none;
+  --svt-shadow-md:    none;
+  --svt-shadow-lg:    0 8px 24px -8px rgba(0, 0, 0, 0.4);   // popovers / dropdowns
+  --svt-shadow-xl:    0 16px 40px -12px rgba(0, 0, 0, 0.5); // modals
+  --svt-shadow-2xl:   0 24px 56px -16px rgba(0, 0, 0, 0.55); // overlays
+  --svt-shadow-inner: none;
+  --svt-shadow-ring:  none;
+
+  // ===========================================================================
+  // Z-INDEX LAYERING
+  // ===========================================================================
+  --svt-z-base:           1;
+  --svt-z-dropdown:       1000;
+  --svt-z-sticky:         1020;
+  --svt-z-fixed:          1030;
+  --svt-z-modal-backdrop: 1040;
+  --svt-z-modal:          1050;
+  --svt-z-popover:        1060;
+  --svt-z-tooltip:        1070;
+  --svt-z-toast:          1080;
+
+  // ===========================================================================
+  // ANIMATION TOKENS
+  // ===========================================================================
+  --svt-ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --svt-ease-in:     cubic-bezier(0.7, 0, 0.84, 0);
+  --svt-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --svt-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --svt-duration-fast:   120ms;
+  --svt-duration-normal: 200ms;
+  --svt-duration-slow:   320ms;
+}
+
+// =============================================================================
+// LIGHT THEME — shadows kept off, only floating popovers get a subtle one
+// =============================================================================
+[data-theme='light'] {
+  --svt-shadow-xs:    none;
+  --svt-shadow-sm:    none;
+  --svt-shadow-md:    none;
+  --svt-shadow-lg:    0 6px 16px -8px rgba(0, 0, 0, 0.15);
+  --svt-shadow-xl:    0 12px 28px -12px rgba(0, 0, 0, 0.18);
+  --svt-shadow-2xl:   0 20px 40px -16px rgba(0, 0, 0, 0.22);
+  --svt-shadow-inner: none;
+  --svt-shadow-ring:  none;
+}

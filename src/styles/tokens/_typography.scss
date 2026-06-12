@@ -1,0 +1,95 @@
+// =============================================================================
+// Servitium Design Tokens — Typography
+// System: Inter (Google Fonts) with high-quality system fallback
+// Scale: modular, 1.125 ratio, tuned for dense admin UI
+// =============================================================================
+
+:root {
+  // ===========================================================================
+  // FONT FAMILIES — system-first for performance
+  // ===========================================================================
+  --svt-font-family-base:
+    'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+
+  --svt-font-family-heading: var(--svt-font-family-base);
+
+  --svt-font-family-mono:
+    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Monaco, Consolas,
+    'Courier New', monospace;
+
+  --svt-font-family-primary: var(--svt-font-family-base);
+  --svt-font-family-display: var(--svt-font-family-heading);
+
+  // ===========================================================================
+  // TYPE SCALE — dense admin UI scale (4px grid aligned)
+  // 11/12/13/14/15/16/18/20/24/30/36
+  // ===========================================================================
+  --svt-text-2xs:  0.6875rem;  // 11px — micro labels, captions
+  --svt-text-xs:   0.75rem;    // 12px — small UI text
+  --svt-text-sm:   0.8125rem;  // 13px — secondary body
+  --svt-text-base: 0.875rem;   // 14px — DEFAULT body text
+  --svt-text-md:   0.9375rem;  // 15px — emphasized body
+  --svt-text-lg:   1rem;       // 16px — H4 / large body
+  --svt-text-xl:   1.125rem;   // 18px — H3
+  --svt-text-2xl:  1.25rem;    // 20px — H2
+  --svt-text-3xl:  1.5rem;     // 24px — H1
+  --svt-text-4xl:  1.875rem;   // 30px — page titles
+  --svt-text-5xl:  2.25rem;    // 36px — hero
+
+  // ===========================================================================
+  // FONT WEIGHTS — Inter recommended scale
+  // ===========================================================================
+  --svt-font-weight-light:    300;
+  --svt-font-weight-regular:  400;
+  --svt-font-weight-medium:   500;
+  --svt-font-weight-semibold: 600;
+  --svt-font-weight-bold:     700;
+  --svt-font-weight-normal:   var(--svt-font-weight-regular);
+
+  // ===========================================================================
+  // LINE HEIGHT — tighter for headings, comfortable for body
+  // ===========================================================================
+  --svt-leading-none:    1;
+  --svt-leading-tight:   1.2;
+  --svt-leading-snug:    1.35;
+  --svt-leading-normal:  1.5;
+  --svt-leading-relaxed: 1.6;
+  --svt-leading-loose:   1.75;
+
+  // ===========================================================================
+  // LETTER SPACING — Inter optical adjustments
+  // ===========================================================================
+  --svt-tracking-tighter: -0.025em;
+  --svt-tracking-tight:   -0.014em;  // Body default for Inter
+  --svt-tracking-normal:  0;
+  --svt-tracking-wide:    0.014em;
+  --svt-tracking-wider:   0.05em;     // Eyebrow / overline
+  --svt-tracking-widest:  0.08em;     // ALL CAPS labels
+
+  // ===========================================================================
+  // COMPOSITION TOKENS — ready-to-use type styles
+  // Format: weight size/line-height family
+  // ===========================================================================
+
+  // Page-level
+  --svt-type-display: var(--svt-font-weight-semibold) var(--svt-text-3xl) / var(--svt-leading-tight) var(--svt-font-family-heading);
+  --svt-type-h1:      var(--svt-font-weight-semibold) var(--svt-text-2xl) / var(--svt-leading-tight) var(--svt-font-family-heading);
+  --svt-type-h2:      var(--svt-font-weight-semibold) var(--svt-text-xl)  / var(--svt-leading-snug)  var(--svt-font-family-heading);
+  --svt-type-h3:      var(--svt-font-weight-semibold) var(--svt-text-lg)  / var(--svt-leading-snug)  var(--svt-font-family-heading);
+  --svt-type-h4:      var(--svt-font-weight-medium)   var(--svt-text-md)  / var(--svt-leading-snug)  var(--svt-font-family-heading);
+
+  // Section / card titles (most common in admin UI)
+  --svt-type-title:   var(--svt-font-weight-semibold) var(--svt-text-md) / var(--svt-leading-tight) var(--svt-font-family-heading);
+  --svt-type-section: var(--svt-font-weight-medium)   var(--svt-text-md) / var(--svt-leading-snug)  var(--svt-font-family-heading);
+
+  // Body
+  --svt-type-body:    var(--svt-font-weight-regular) var(--svt-text-base) / var(--svt-leading-normal) var(--svt-font-family-base);
+  --svt-type-body-sm: var(--svt-font-weight-regular) var(--svt-text-sm)   / var(--svt-leading-normal) var(--svt-font-family-base);
+
+  // Supporting
+  --svt-type-label:    var(--svt-font-weight-medium)   var(--svt-text-xs)  / var(--svt-leading-tight)  var(--svt-font-family-base);
+  --svt-type-caption:  var(--svt-font-weight-regular)  var(--svt-text-xs)  / var(--svt-leading-snug)   var(--svt-font-family-base);
+  --svt-type-overline: var(--svt-font-weight-semibold) var(--svt-text-2xs) / var(--svt-leading-tight)  var(--svt-font-family-base);
+  --svt-type-mono:     var(--svt-font-weight-regular)  var(--svt-text-sm)  / var(--svt-leading-normal) var(--svt-font-family-mono);
+}

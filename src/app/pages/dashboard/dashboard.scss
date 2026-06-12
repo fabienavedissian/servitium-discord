@@ -1,0 +1,55 @@
+.dash {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--svt-text-primary);
+    strong { color: #5865f2; }
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--svt-text-secondary);
+    font-size: 0.9rem;
+  }
+
+  &__guild-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    label {
+      font-size: var(--svt-text-sm);
+      color: var(--svt-text-secondary);
+    }
+  }
+
+  &__empty {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+
+    h3 { margin: 1rem 0 0.5rem; color: var(--svt-text-primary); }
+    p { margin: 0; color: var(--svt-text-secondary); }
+  }
+
+  &__features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}

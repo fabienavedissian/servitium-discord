@@ -1,0 +1,33 @@
+/* =============================================================================
+   Servitium for Discord — Global Styles
+   Reuses the Servitium design tokens (--svt-* CSS variables) so the shared
+   @servitium/ui + @servitium/discord components render identically to Center.
+   ========================================================================== */
+
+@use './styles/tokens' as *;
+
+// CDK overlay structural styles — required by svt-select panel / svt-modal.
+@import '@angular/cdk/overlay-prebuilt.css';
+
+.cdk-overlay-container {
+  z-index: 1090;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: var(--svt-bg-primary);
+  color: var(--svt-text-primary);
+  font-family: var(--svt-font-sans, system-ui, sans-serif);
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
