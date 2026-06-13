@@ -11,6 +11,8 @@ import {
   VoiceHub,
   DiscordGuildConfigAdvanced,
   DiscordGameAccessMode,
+  GreetingMode,
+  GreetingSettingsPayload,
 } from '@servitium/discord';
 import { environment } from '../../environments/environment';
 
@@ -85,6 +87,16 @@ export class DiscordDataAdapter implements DiscordDataPort {
     settings: { imageUrl?: string | null; thumbnailUrl?: string | null; title?: string | null; description?: string | null },
   ): Observable<{ message: string }> {
     return this.http.patch<{ message: string }>(`${this.base}/${clientId}/discord/welcome-settings`, settings);
+  }
+
+  updateGreetingChannel(clientId: string, mode: GreetingMode, channelId: string | null): Observable<{ message: string }> {
+    return this.http.patch<{ message: string }>(`${this.base}/${clientId}/discord/${mode}-channel`, { channelId });
+  }
+  updateGreetingSettings(clientId: string, mode: GreetingMode, settings: GreetingSettingsPayload): Observable<{ message: string }> {
+    return this.http.patch<{ message: string }>(`${this.base}/${clientId}/discord/${mode}-settings`, settings);
+  }
+  sendGreetingTest(clientId: string, mode: GreetingMode, sampleName?: string): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(`${this.base}/${clientId}/discord/greeting-test`, { mode, sampleName });
   }
 
   createVoiceHub(clientId: string, body: { namePattern?: string; allowedRoleIds?: string[] }): Observable<{ message: string; hub: VoiceHub }> {

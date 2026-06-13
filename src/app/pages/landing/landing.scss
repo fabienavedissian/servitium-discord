@@ -56,6 +56,12 @@
     a { text-decoration: none; }
   }
 
+  &__cta-hint {
+    margin: 0.85rem 0 0;
+    font-size: 0.85rem;
+    color: var(--svt-text-tertiary);
+  }
+
   &__features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));

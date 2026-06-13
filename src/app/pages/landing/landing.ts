@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SvtButtonComponent, SvtCardComponent, SvtIconComponent } from '@servitium/ui';
+import { AuthService } from '../../core/auth.service';
 
 interface FeatureCard {
   icon: string;
@@ -17,8 +18,7 @@ interface FeatureCard {
   styleUrl: './landing.scss',
 })
 export class LandingComponent {
-  readonly inviteUrl =
-    'https://discord.com/oauth2/authorize?client_id=&scope=bot%20applications.commands';
+  private auth = inject(AuthService);
 
   readonly features: FeatureCard[] = [
     { icon: 'message-circle', title: 'Welcome messages', text: 'Greet new members with a custom embed: your title, text, logo and banner. No imposed branding.', free: true },
@@ -29,6 +29,6 @@ export class LandingComponent {
   ];
 
   login(): void {
-    window.location.href = '/auth/login';
+    this.auth.startLogin();
   }
 }

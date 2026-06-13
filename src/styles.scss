@@ -22,10 +22,20 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100%;
-  background-color: var(--svt-bg-primary);
+}
+
+body {
+  min-height: 100vh;
   color: var(--svt-text-primary);
-  font-family: var(--svt-font-sans, system-ui, sans-serif);
+  font-family: var(--svt-font-family-base, system-ui, sans-serif);
   -webkit-text-size-adjust: 100%;
+  // Shared Servitium/Discord backdrop for every route (landing + dashboard):
+  // a soft blurple glow up top over the deep base, so nothing looks flat.
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(88, 101, 242, 0.16), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgba(124, 92, 240, 0.10), transparent 55%),
+    var(--svt-bg-primary);
+  background-attachment: fixed;
 }
 
 * {
