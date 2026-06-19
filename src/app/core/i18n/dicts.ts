@@ -25,6 +25,7 @@ export const DICTS: Record<AppLang, any> = {
       "tabGoodbye": "Goodbye",
       "tabVoice": "Voice",
       "greetingWelcomeTitle": "Welcome message",
+      "greetingInsertChannel": "Insert a channel link",
       "greetingWelcomeDesc": "Greet new members when they join.",
       "greetingWelcomeEnable": "Enable welcome message",
       "greetingGoodbyeTitle": "Goodbye message",
@@ -311,40 +312,53 @@ export const DICTS: Record<AppLang, any> = {
     },
     "discord": {
       "leveling": {
-        "title": "XP Leveling", "description": "Reward active members with XP and milestone roles.",
-        "enable": "Enable leveling", "minLength": "Minimum message length", "rewardsTitle": "Level rewards",
-        "level": "Level", "rewardLevel": "Level", "rewardRole": "Role", "saved": "Leveling settings saved.",
-        "saveFailed": "Could not save leveling settings."
+        "title": "XP Leveling", "description": "Members earn XP by chatting. Assign roles as rewards when they reach a level.",
+        "enable": "Enable leveling", "enableDescription": "Members earn XP for each message (min length + cooldown between gains). Pause at any time without losing progress.",
+        "xpRate": "XP rate", "xpHint": "Average {avgXp} XP per message, {cooldown}s cooldown. About {msgsToLvl5} messages to reach level 5.",
+        "preset": { "easy": "Easy", "normal": "Normal", "hard": "Hard" },
+        "xpMin": "Min XP / msg", "xpMax": "Max XP / msg", "cooldown": "Cooldown (s)", "minLength": "Min. message length",
+        "rewardsTitle": "Role rewards", "rewardsHint": "Assign a role automatically when a member reaches a level.",
+        "noRewards": "No rewards configured.", "level": "Level", "rewardLevel": "Level", "rewardRole": "Role",
+        "rewardRolePlaceholder": "Select a role", "saved": "Leveling settings saved.",
+        "saveFailed": "Failed to save leveling settings."
       },
       "reactionRoles": {
-        "title": "Reaction Roles", "description": "Post a button panel so members can self-assign roles.",
+        "title": "Reaction Roles", "description": "Post panels with buttons that members can click to self-assign roles.",
+        "enable": "Enable Reaction Roles", "enableDescription": "Post button panels in channels so members can self-assign roles with one click.",
         "channel": "Channel", "panelTitle": "Panel title", "panelTitlePlaceholder": "Pick your roles",
-        "panelDescription": "Description", "panelDescPlaceholder": "Click to toggle a role.",
-        "mappings": "Buttons", "role": "Role", "buttonLabel": "Button label", "post": "Post panel",
-        "roles": "role(s)", "newPanel": "New panel", "panelCreated": "Panel posted.", "panelFailed": "Could not post the panel.",
-        "panelDeleted": "Panel deleted.", "panelDeleteFailed": "Could not delete the panel."
+        "panelDescription": "Panel description", "panelDescPlaceholder": "Click a button to get a role",
+        "mappings": "Buttons", "role": "Role", "buttonLabel": "Button label", "buttonLabelPlaceholder": "e.g. Member",
+        "addMapping": "Add role", "post": "Post panel", "roles": "roles", "newPanel": "Create a panel",
+        "panelCreated": "Panel posted.", "panelFailed": "Failed to post panel.",
+        "panelDeleted": "Panel deleted.", "panelDeleteFailed": "Failed to delete panel.",
+        "saved": "Reaction roles updated.", "saveFailed": "Failed to update reaction roles."
       },
       "stats": {
-        "title": "Stats Channels", "description": "Voice channels that show live member and online counts.",
-        "memberChannel": "Members channel (voice)", "memberTemplate": "Members template",
-        "onlineChannel": "Online channel (voice)", "onlineTemplate": "Online template",
-        "templateHint": "Use {count} as placeholder.", "rateHint": "Updated every 10 minutes to respect Discord rate limits.",
-        "noChannel": "None", "saved": "Stats channels saved.", "saveFailed": "Could not save stats channels."
+        "title": "Stats Channels", "description": "Voice channels renamed every 10 min with live counters.",
+        "enable": "Enable Stats Channels", "enableDescription": "Rename voice channels every 10 minutes with live member and online counters.",
+        "memberChannel": "Member count channel", "memberTemplate": "Member template",
+        "onlineChannel": "Online count channel", "onlineTemplate": "Online template",
+        "templateHint": "Use {count} as the placeholder for the number.", "rateHint": "Channels are updated every 10 minutes (Discord rate limit).",
+        "noChannel": "— None —", "saved": "Stats channels saved.", "saveFailed": "Failed to save stats channels."
       },
       "automod": {
-        "title": "AutoMod", "description": "Native Discord rules applied directly in your server.",
-        "linkFilter": "Block external links", "linkFilterHint": "Blocks URLs posted by non-moderators.",
-        "spamFilter": "Spam filter", "spamFilterHint": "Flags repeated messages in a short time.",
-        "mentionSpam": "Mention spam", "mentionSpamHint": "Blocks messages mentioning more than 5 users.",
-        "saved": "AutoMod rule updated.", "saveFailed": "Could not apply the rule. Check bot permissions."
+        "title": "AutoMod", "enable": "Enable AutoMod", "enableDescription": "Activate native Discord auto-moderation. Individual rules can be toggled below.",
+        "customKeywords": "Custom blocked words", "customKeywordsHint": "Add words or phrases that will be automatically deleted. Discord enforces the list natively.",
+        "addKeyword": "Add a word", "keywordPlaceholder": "e.g. badword",
+        "exemptRoles": "Exempt roles", "exemptRolesHint": "Members with these roles bypass all AutoMod rules. Admin roles are always exempt.",
+        "addExemptRole": "Add a role", "saved": "AutoMod rule updated.",
+        "saveFailed": "Failed to update AutoMod rule. Make sure the bot has the Manage Guild permission.",
+        "keywordsSaved": "Custom keyword list updated.", "exemptRolesSaved": "Exempt roles updated."
       },
       "giveaways": {
-        "title": "Giveaways", "description": "Run reaction-based giveaways. Winners picked automatically.",
-        "active": "Active giveaways", "entrants": "entrant(s)", "noActive": "No active giveaways.",
-        "create": "Create a giveaway", "channel": "Channel", "prize": "Prize",
-        "prizePlaceholder": "1000 in-game coins", "duration": "Duration", "winnerCount": "Winners",
-        "start": "Start giveaway", "created": "Giveaway started.", "createFailed": "Could not start the giveaway.",
-        "deleted": "Giveaway ended.", "deleteFailed": "Could not end the giveaway."
+        "title": "Giveaways", "description": "Start a giveaway. Members react to enter. Winners are picked at expiry.",
+        "enable": "Enable Giveaways", "enableDescription": "Let admins start giveaways. Members react to enter and winners are drawn at expiry.",
+        "active": "Active giveaways", "entrants": "entries", "noActive": "No active giveaways.",
+        "create": "Start a giveaway", "channel": "Channel", "prize": "Prize",
+        "prizePlaceholder": "e.g. Discord Nitro", "duration": "Duration", "winnerCount": "Winners",
+        "start": "Start", "saved": "Giveaways updated.", "saveFailed": "Failed to update giveaways.",
+        "created": "Giveaway started!", "createFailed": "Failed to start giveaway.",
+        "deleted": "Giveaway cancelled.", "deleteFailed": "Failed to cancel giveaway."
       }
     }
   },
@@ -370,6 +384,7 @@ export const DICTS: Record<AppLang, any> = {
       "tabGoodbye": "Au revoir",
       "tabVoice": "Vocal",
       "greetingWelcomeTitle": "Message de bienvenue",
+      "greetingInsertChannel": "Insérer un lien de salon",
       "greetingWelcomeDesc": "Accueillez les nouveaux membres à leur arrivée.",
       "greetingWelcomeEnable": "Activer le message de bienvenue",
       "greetingGoodbyeTitle": "Message d'au revoir",
@@ -656,40 +671,53 @@ export const DICTS: Record<AppLang, any> = {
     },
     "discord": {
       "leveling": {
-        "title": "Niveaux XP", "description": "Récompensez les membres actifs avec de l'XP et des rôles à chaque palier.",
-        "enable": "Activer le système de niveaux", "minLength": "Longueur minimale du message", "rewardsTitle": "Récompenses par niveau",
-        "level": "Niveau", "rewardLevel": "Niveau", "rewardRole": "Rôle", "saved": "Paramètres de niveaux enregistrés.",
-        "saveFailed": "Impossible d'enregistrer."
+        "title": "Classement XP", "description": "Les membres gagnent de l'XP en chattant. Attribuez des rôles en récompense à chaque niveau.",
+        "enable": "Activer le classement", "enableDescription": "Les membres gagnent de l'XP par message (longueur min. + cooldown entre les gains). Suspendez à tout moment sans perdre la progression.",
+        "xpRate": "Taux d'XP", "xpHint": "Moyenne {avgXp} XP par message, cooldown {cooldown}s. Environ {msgsToLvl5} messages pour atteindre le niveau 5.",
+        "preset": { "easy": "Facile", "normal": "Normal", "hard": "Difficile" },
+        "xpMin": "XP min / msg", "xpMax": "XP max / msg", "cooldown": "Cooldown (s)", "minLength": "Longueur min. du message",
+        "rewardsTitle": "Récompenses de rôles", "rewardsHint": "Attribuez un rôle automatiquement quand un membre atteint un niveau.",
+        "noRewards": "Aucune récompense configurée.", "level": "Niveau", "rewardLevel": "Niveau", "rewardRole": "Rôle",
+        "rewardRolePlaceholder": "Sélectionner un rôle", "saved": "Paramètres du classement enregistrés.",
+        "saveFailed": "Échec de l'enregistrement."
       },
       "reactionRoles": {
-        "title": "Rôles boutons", "description": "Publiez un panneau pour que les membres s'attribuent eux-mêmes des rôles.",
+        "title": "Rôles boutons", "description": "Postez des panneaux avec des boutons que les membres peuvent cliquer pour s'attribuer des rôles.",
+        "enable": "Activer les rôles boutons", "enableDescription": "Postez des panneaux avec des boutons dans vos salons pour que les membres s'attribuent des rôles en un clic.",
         "channel": "Salon", "panelTitle": "Titre du panneau", "panelTitlePlaceholder": "Choisissez vos rôles",
-        "panelDescription": "Description", "panelDescPlaceholder": "Cliquez pour basculer un rôle.",
-        "mappings": "Boutons", "role": "Rôle", "buttonLabel": "Libellé du bouton", "post": "Publier le panneau",
-        "roles": "rôle(s)", "newPanel": "Nouveau panneau", "panelCreated": "Panneau publié.", "panelFailed": "Impossible de publier le panneau.",
-        "panelDeleted": "Panneau supprimé.", "panelDeleteFailed": "Impossible de supprimer le panneau."
+        "panelDescription": "Description du panneau", "panelDescPlaceholder": "Cliquez sur un bouton pour obtenir un rôle",
+        "mappings": "Boutons", "role": "Rôle", "buttonLabel": "Libellé du bouton", "buttonLabelPlaceholder": "ex. Membre",
+        "addMapping": "Ajouter un rôle", "post": "Poster le panneau", "roles": "rôles", "newPanel": "Créer un panneau",
+        "panelCreated": "Panneau posté.", "panelFailed": "Échec de la publication du panneau.",
+        "panelDeleted": "Panneau supprimé.", "panelDeleteFailed": "Échec de la suppression du panneau.",
+        "saved": "Rôles boutons mis à jour.", "saveFailed": "Échec de la mise à jour des rôles boutons."
       },
       "stats": {
-        "title": "Compteurs vocaux", "description": "Salons vocaux affichant le nombre de membres et de joueurs en ligne.",
-        "memberChannel": "Salon membres (vocal)", "memberTemplate": "Modèle membres",
-        "onlineChannel": "Salon en ligne (vocal)", "onlineTemplate": "Modèle en ligne",
-        "templateHint": "Utilisez {count} comme variable.", "rateHint": "Mis à jour toutes les 10 minutes pour respecter les limites Discord.",
-        "noChannel": "Aucun", "saved": "Compteurs vocaux enregistrés.", "saveFailed": "Impossible d'enregistrer."
+        "title": "Compteurs Discord", "description": "Salons vocaux renommés toutes les 10 min avec des compteurs en direct.",
+        "enable": "Activer les compteurs", "enableDescription": "Renomme des salons vocaux toutes les 10 minutes avec le nombre de membres et de connectés en direct.",
+        "memberChannel": "Salon membres", "memberTemplate": "Modèle membres",
+        "onlineChannel": "Salon en ligne", "onlineTemplate": "Modèle en ligne",
+        "templateHint": "Utilisez {count} comme emplacement pour le nombre.", "rateHint": "Les salons sont mis à jour toutes les 10 minutes (limite Discord).",
+        "noChannel": "— Aucun —", "saved": "Compteurs enregistrés.", "saveFailed": "Échec de l'enregistrement des compteurs."
       },
       "automod": {
-        "title": "AutoMod", "description": "Règles Discord natives appliquées directement sur votre serveur.",
-        "linkFilter": "Bloquer les liens externes", "linkFilterHint": "Bloque les URL des non-modérateurs.",
-        "spamFilter": "Filtre anti-spam", "spamFilterHint": "Signale les messages répétés sur peu de temps.",
-        "mentionSpam": "Mentions excessives", "mentionSpamHint": "Bloque les messages mentionnant plus de 5 utilisateurs.",
-        "saved": "Règle AutoMod mise à jour.", "saveFailed": "Impossible d'appliquer la règle. Vérifiez les permissions du bot."
+        "title": "AutoMod", "enable": "Activer l'AutoMod", "enableDescription": "Active la modération automatique native de Discord. Les règles individuelles sont configurables ci-dessous.",
+        "customKeywords": "Mots interdits personnalisés", "customKeywordsHint": "Ajoutez des mots ou expressions qui seront automatiquement supprimés. Discord applique la liste nativement.",
+        "addKeyword": "Ajouter un mot", "keywordPlaceholder": "ex : motinterdit",
+        "exemptRoles": "Rôles exemptés", "exemptRolesHint": "Les membres avec ces rôles contournent toutes les règles AutoMod. Les rôles admin sont toujours exemptés.",
+        "addExemptRole": "Ajouter un rôle", "saved": "Règle AutoMod mise à jour.",
+        "saveFailed": "Échec. Vérifiez que le bot a la permission Gérer le serveur.",
+        "keywordsSaved": "Liste de mots interdits mise à jour.", "exemptRolesSaved": "Rôles exemptés mis à jour."
       },
       "giveaways": {
-        "title": "Tombolas", "description": "Lancez des tombolas par réaction. Les gagnants sont tirés automatiquement.",
-        "active": "Tombolas actives", "entrants": "participant(s)", "noActive": "Aucune tombola active.",
-        "create": "Créer une tombola", "channel": "Salon", "prize": "Lot",
-        "prizePlaceholder": "1000 monnaie du jeu", "duration": "Durée", "winnerCount": "Gagnants",
-        "start": "Lancer", "created": "Tombola lancée.", "createFailed": "Impossible de lancer la tombola.",
-        "deleted": "Tombola terminée.", "deleteFailed": "Impossible de terminer la tombola."
+        "title": "Tombolas", "description": "Lancez une tombola. Les membres réagissent pour participer. Les gagnants sont tirés à l'expiration.",
+        "enable": "Activer les tombolas", "enableDescription": "Permettez aux admins de lancer des tombolas. Les membres réagissent pour participer et les gagnants sont tirés à expiration.",
+        "active": "Tombolas en cours", "entrants": "participants", "noActive": "Aucune tombola en cours.",
+        "create": "Lancer une tombola", "channel": "Salon", "prize": "Lot",
+        "prizePlaceholder": "ex. Discord Nitro", "duration": "Durée", "winnerCount": "Gagnants",
+        "start": "Lancer", "saved": "Tombolas mises à jour.", "saveFailed": "Échec de la mise à jour des tombolas.",
+        "created": "Tombola lancée !", "createFailed": "Échec du lancement de la tombola.",
+        "deleted": "Tombola annulée.", "deleteFailed": "Échec de l'annulation."
       }
     }
   },
@@ -715,6 +743,7 @@ export const DICTS: Record<AppLang, any> = {
       "tabGoodbye": "Abschied",
       "tabVoice": "Sprache",
       "greetingWelcomeTitle": "Willkommensnachricht",
+      "greetingInsertChannel": "Kanal-Link einfügen",
       "greetingWelcomeDesc": "Begrüße neue Mitglieder, wenn sie beitreten.",
       "greetingWelcomeEnable": "Willkommensnachricht aktivieren",
       "greetingGoodbyeTitle": "Abschiedsnachricht",
@@ -1001,40 +1030,53 @@ export const DICTS: Record<AppLang, any> = {
     },
     "discord": {
       "leveling": {
-        "title": "XP-Level", "description": "Belohne aktive Mitglieder mit XP und Meilenstein-Rollen.",
-        "enable": "Level-System aktivieren", "minLength": "Mindestlänge der Nachricht", "rewardsTitle": "Level-Belohnungen",
-        "level": "Level", "rewardLevel": "Level", "rewardRole": "Rolle", "saved": "Level-Einstellungen gespeichert.",
+        "title": "XP-Leveling", "description": "Mitglieder sammeln XP durch Nachrichten. Vergib Rollen als Belohnung für erreichte Level.",
+        "enable": "Leveling aktivieren", "enableDescription": "Mitglieder sammeln XP pro Nachricht (Mindestlänge + Abklingzeit). Jederzeit pausierbar ohne Datenverlust.",
+        "xpRate": "XP-Rate", "xpHint": "Durchschnittlich {avgXp} XP pro Nachricht, {cooldown}s Abklingzeit. Etwa {msgsToLvl5} Nachrichten bis Level 5.",
+        "preset": { "easy": "Einfach", "normal": "Normal", "hard": "Schwer" },
+        "xpMin": "Min XP / Nachricht", "xpMax": "Max XP / Nachricht", "cooldown": "Abklingzeit (s)", "minLength": "Mindestlänge",
+        "rewardsTitle": "Rollen-Belohnungen", "rewardsHint": "Vergib automatisch eine Rolle, wenn ein Mitglied ein Level erreicht.",
+        "noRewards": "Keine Belohnungen konfiguriert.", "level": "Level", "rewardLevel": "Level", "rewardRole": "Rolle",
+        "rewardRolePlaceholder": "Rolle auswählen", "saved": "Leveling-Einstellungen gespeichert.",
         "saveFailed": "Speichern fehlgeschlagen."
       },
       "reactionRoles": {
-        "title": "Rollenknöpfe", "description": "Poste ein Knopf-Panel, damit Mitglieder Rollen selbst wählen.",
+        "title": "Reaktionsrollen", "description": "Veröffentliche Panels mit Schaltflächen, die Mitglieder anklicken können, um sich Rollen zuzuweisen.",
+        "enable": "Reaktionsrollen aktivieren", "enableDescription": "Veröffentliche Schaltflächen-Panels in Kanälen, damit Mitglieder sich selbst Rollen mit einem Klick zuweisen können.",
         "channel": "Kanal", "panelTitle": "Panel-Titel", "panelTitlePlaceholder": "Wähle deine Rollen",
-        "panelDescription": "Beschreibung", "panelDescPlaceholder": "Klicke, um eine Rolle zu wechseln.",
-        "mappings": "Knöpfe", "role": "Rolle", "buttonLabel": "Knopf-Beschriftung", "post": "Panel posten",
-        "roles": "Rolle(n)", "newPanel": "Neues Panel", "panelCreated": "Panel gepostet.", "panelFailed": "Panel konnte nicht gepostet werden.",
-        "panelDeleted": "Panel gelöscht.", "panelDeleteFailed": "Panel konnte nicht gelöscht werden."
+        "panelDescription": "Panel-Beschreibung", "panelDescPlaceholder": "Klicke eine Schaltfläche für eine Rolle",
+        "mappings": "Schaltflächen", "role": "Rolle", "buttonLabel": "Schaltflächentext", "buttonLabelPlaceholder": "z.B. Mitglied",
+        "addMapping": "Rolle hinzufügen", "post": "Panel veröffentlichen", "roles": "Rollen", "newPanel": "Panel erstellen",
+        "panelCreated": "Panel veröffentlicht.", "panelFailed": "Veröffentlichung fehlgeschlagen.",
+        "panelDeleted": "Panel gelöscht.", "panelDeleteFailed": "Löschen fehlgeschlagen.",
+        "saved": "Reaktionsrollen aktualisiert.", "saveFailed": "Aktualisierung fehlgeschlagen."
       },
       "stats": {
-        "title": "Statistik-Kanäle", "description": "Sprachkanäle mit Live-Mitglieder- und Online-Zählern.",
-        "memberChannel": "Mitglieder-Kanal (Sprache)", "memberTemplate": "Vorlage Mitglieder",
-        "onlineChannel": "Online-Kanal (Sprache)", "onlineTemplate": "Vorlage Online",
-        "templateHint": "Nutze {count} als Platzhalter.", "rateHint": "Alle 10 Minuten aktualisiert.",
-        "noChannel": "Keiner", "saved": "Statistik-Kanäle gespeichert.", "saveFailed": "Speichern fehlgeschlagen."
+        "title": "Statistikkanäle", "description": "Sprachkanäle werden alle 10 Min. mit Live-Zählern umbenannt.",
+        "enable": "Statistikkanäle aktivieren", "enableDescription": "Sprachkanäle alle 10 Minuten mit Live-Mitglieder- und Online-Zählern umbenennen.",
+        "memberChannel": "Mitglieder-Kanal", "memberTemplate": "Mitglieder-Vorlage",
+        "onlineChannel": "Online-Kanal", "onlineTemplate": "Online-Vorlage",
+        "templateHint": "Verwende {count} als Platzhalter für die Zahl.", "rateHint": "Kanäle werden alle 10 Minuten aktualisiert (Discord-Ratenlimit).",
+        "noChannel": "— Keiner —", "saved": "Statistikkanäle gespeichert.", "saveFailed": "Speichern fehlgeschlagen."
       },
       "automod": {
-        "title": "AutoMod", "description": "Native Discord-Regeln direkt auf deinem Server.",
-        "linkFilter": "Externe Links sperren", "linkFilterHint": "Sperrt URLs von Nicht-Moderatoren.",
-        "spamFilter": "Spam-Filter", "spamFilterHint": "Erkennt Wiederholungsnachrichten.",
-        "mentionSpam": "Massen-Erwähnungen", "mentionSpamHint": "Sperrt Nachrichten mit mehr als 5 Erwähnungen.",
-        "saved": "AutoMod-Regel aktualisiert.", "saveFailed": "Regel konnte nicht angewendet werden."
+        "title": "AutoMod", "enable": "AutoMod aktivieren", "enableDescription": "Native Discord-Automoderation aktivieren. Einzelne Regeln sind unten konfigurierbar.",
+        "customKeywords": "Benutzerdefinierte gesperrte Wörter", "customKeywordsHint": "Wörter oder Phrasen hinzufügen, die automatisch gelöscht werden. Discord wendet die Liste nativ an.",
+        "addKeyword": "Wort hinzufügen", "keywordPlaceholder": "z.B. schlechteswort",
+        "exemptRoles": "Ausgenommene Rollen", "exemptRolesHint": "Mitglieder mit diesen Rollen umgehen alle AutoMod-Regeln. Admin-Rollen sind immer ausgenommen.",
+        "addExemptRole": "Rolle hinzufügen", "saved": "AutoMod-Regel aktualisiert.",
+        "saveFailed": "Fehler. Prüfe ob der Bot die Berechtigung 'Server verwalten' hat.",
+        "keywordsSaved": "Stichwortliste aktualisiert.", "exemptRolesSaved": "Ausgenommene Rollen aktualisiert."
       },
       "giveaways": {
-        "title": "Gewinnspiele", "description": "Reaktions-Gewinnspiele mit automatischer Gewinnermittlung.",
+        "title": "Gewinnspiele", "description": "Starte ein Gewinnspiel. Mitglieder reagieren zum Teilnehmen.",
+        "enable": "Gewinnspiele aktivieren", "enableDescription": "Admins können Gewinnspiele starten. Mitglieder reagieren zum Mitmachen; Gewinner werden bei Ablauf gezogen.",
         "active": "Aktive Gewinnspiele", "entrants": "Teilnehmer", "noActive": "Keine aktiven Gewinnspiele.",
-        "create": "Gewinnspiel erstellen", "channel": "Kanal", "prize": "Preis",
-        "prizePlaceholder": "1000 Spielwährung", "duration": "Dauer", "winnerCount": "Gewinner",
-        "start": "Starten", "created": "Gewinnspiel gestartet.", "createFailed": "Gewinnspiel konnte nicht gestartet werden.",
-        "deleted": "Gewinnspiel beendet.", "deleteFailed": "Gewinnspiel konnte nicht beendet werden."
+        "create": "Gewinnspiel starten", "channel": "Kanal", "prize": "Preis",
+        "prizePlaceholder": "z.B. Discord Nitro", "duration": "Dauer", "winnerCount": "Gewinner",
+        "start": "Starten", "saved": "Gewinnspiele aktualisiert.", "saveFailed": "Aktualisierung fehlgeschlagen.",
+        "created": "Gewinnspiel gestartet!", "createFailed": "Gewinnspiel konnte nicht gestartet werden.",
+        "deleted": "Gewinnspiel abgebrochen.", "deleteFailed": "Abbrechen fehlgeschlagen."
       }
     }
   },
@@ -1060,6 +1102,7 @@ export const DICTS: Record<AppLang, any> = {
       "tabGoodbye": "Despedida",
       "tabVoice": "Voz",
       "greetingWelcomeTitle": "Mensaje de bienvenida",
+      "greetingInsertChannel": "Insertar un enlace de canal",
       "greetingWelcomeDesc": "Saluda a los nuevos miembros cuando entran.",
       "greetingWelcomeEnable": "Activar mensaje de bienvenida",
       "greetingGoodbyeTitle": "Mensaje de despedida",
@@ -1346,40 +1389,53 @@ export const DICTS: Record<AppLang, any> = {
     },
     "discord": {
       "leveling": {
-        "title": "Niveles XP", "description": "Premia a los miembros activos con XP y roles por hito.",
-        "enable": "Activar niveles", "minLength": "Longitud mínima de mensaje", "rewardsTitle": "Recompensas por nivel",
-        "level": "Nivel", "rewardLevel": "Nivel", "rewardRole": "Rol", "saved": "Ajustes de niveles guardados.",
-        "saveFailed": "No se pudieron guardar los ajustes."
+        "title": "Niveles XP", "description": "Los miembros ganan XP chateando. Asigna roles como recompensa al alcanzar un nivel.",
+        "enable": "Activar niveles", "enableDescription": "Los miembros ganan XP por mensaje (longitud mínima + cooldown). Se puede pausar sin perder datos.",
+        "xpRate": "Tasa de XP", "xpHint": "Promedio {avgXp} XP por mensaje, cooldown {cooldown}s. Unos {msgsToLvl5} mensajes para llegar al nivel 5.",
+        "preset": { "easy": "Fácil", "normal": "Normal", "hard": "Difícil" },
+        "xpMin": "XP mín / msg", "xpMax": "XP máx / msg", "cooldown": "Cooldown (s)", "minLength": "Longitud mínima",
+        "rewardsTitle": "Recompensas de roles", "rewardsHint": "Asigna un rol automáticamente cuando un miembro alcanza un nivel.",
+        "noRewards": "Sin recompensas configuradas.", "level": "Nivel", "rewardLevel": "Nivel", "rewardRole": "Rol",
+        "rewardRolePlaceholder": "Seleccionar un rol", "saved": "Configuración de niveles guardada.",
+        "saveFailed": "Error al guardar la configuración."
       },
       "reactionRoles": {
-        "title": "Roles botones", "description": "Publica un panel para que los miembros elijan roles.",
+        "title": "Roles con botones", "description": "Publica paneles con botones que los miembros pueden pulsar para asignarse roles.",
+        "enable": "Activar roles con botones", "enableDescription": "Publica paneles con botones en canales para que los miembros se asignen roles con un clic.",
         "channel": "Canal", "panelTitle": "Título del panel", "panelTitlePlaceholder": "Elige tus roles",
-        "panelDescription": "Descripción", "panelDescPlaceholder": "Haz clic para cambiar un rol.",
-        "mappings": "Botones", "role": "Rol", "buttonLabel": "Etiqueta del botón", "post": "Publicar panel",
-        "roles": "rol(es)", "newPanel": "Nuevo panel", "panelCreated": "Panel publicado.", "panelFailed": "No se pudo publicar el panel.",
-        "panelDeleted": "Panel eliminado.", "panelDeleteFailed": "No se pudo eliminar el panel."
+        "panelDescription": "Descripción del panel", "panelDescPlaceholder": "Pulsa un botón para obtener un rol",
+        "mappings": "Botones", "role": "Rol", "buttonLabel": "Texto del botón", "buttonLabelPlaceholder": "ej. Miembro",
+        "addMapping": "Añadir rol", "post": "Publicar panel", "roles": "roles", "newPanel": "Crear panel",
+        "panelCreated": "Panel publicado.", "panelFailed": "Error al publicar el panel.",
+        "panelDeleted": "Panel eliminado.", "panelDeleteFailed": "Error al eliminar el panel.",
+        "saved": "Roles con botones actualizados.", "saveFailed": "Error al actualizar roles con botones."
       },
       "stats": {
-        "title": "Canales de estadísticas", "description": "Canales de voz con contadores en vivo.",
-        "memberChannel": "Canal miembros (voz)", "memberTemplate": "Plantilla miembros",
-        "onlineChannel": "Canal en línea (voz)", "onlineTemplate": "Plantilla en línea",
-        "templateHint": "Usa {count} como variable.", "rateHint": "Actualizado cada 10 minutos.",
-        "noChannel": "Ninguno", "saved": "Canales guardados.", "saveFailed": "No se pudieron guardar."
+        "title": "Canales de estadísticas", "description": "Canales de voz renombrados cada 10 min con contadores en vivo.",
+        "enable": "Activar canales de estadísticas", "enableDescription": "Renombra canales de voz cada 10 minutos con contadores en vivo de miembros y conectados.",
+        "memberChannel": "Canal de miembros", "memberTemplate": "Plantilla de miembros",
+        "onlineChannel": "Canal de en línea", "onlineTemplate": "Plantilla de en línea",
+        "templateHint": "Usa {count} como marcador de posición para el número.", "rateHint": "Los canales se actualizan cada 10 minutos (límite de Discord).",
+        "noChannel": "— Ninguno —", "saved": "Canales de estadísticas guardados.", "saveFailed": "Error al guardar los canales."
       },
       "automod": {
-        "title": "AutoMod", "description": "Reglas nativas de Discord en tu servidor.",
-        "linkFilter": "Bloquear enlaces externos", "linkFilterHint": "Bloquea URLs de no moderadores.",
-        "spamFilter": "Filtro de spam", "spamFilterHint": "Detecta mensajes repetidos.",
-        "mentionSpam": "Spam de menciones", "mentionSpamHint": "Bloquea mensajes con más de 5 menciones.",
-        "saved": "Regla AutoMod actualizada.", "saveFailed": "No se pudo aplicar la regla."
+        "title": "AutoMod", "enable": "Activar AutoMod", "enableDescription": "Activa la moderación automática nativa de Discord. Las reglas individuales se configuran abajo.",
+        "customKeywords": "Palabras prohibidas personalizadas", "customKeywordsHint": "Agrega palabras o frases que se eliminarán automáticamente. Discord aplica la lista de forma nativa.",
+        "addKeyword": "Agregar palabra", "keywordPlaceholder": "ej: palabrafea",
+        "exemptRoles": "Roles exentos", "exemptRolesHint": "Los miembros con estos roles omiten todas las reglas AutoMod. Los roles de admin siempre están exentos.",
+        "addExemptRole": "Añadir un rol", "saved": "Regla AutoMod actualizada.",
+        "saveFailed": "Error. Verifica que el bot tenga el permiso Gestionar servidor.",
+        "keywordsSaved": "Lista de palabras prohibidas actualizada.", "exemptRolesSaved": "Roles exentos actualizados."
       },
       "giveaways": {
-        "title": "Sorteos", "description": "Sorteos por reacción con ganadores automáticos.",
-        "active": "Sorteos activos", "entrants": "participante(s)", "noActive": "No hay sorteos activos.",
-        "create": "Crear sorteo", "channel": "Canal", "prize": "Premio",
-        "prizePlaceholder": "1000 monedas del juego", "duration": "Duración", "winnerCount": "Ganadores",
-        "start": "Iniciar", "created": "Sorteo iniciado.", "createFailed": "No se pudo iniciar el sorteo.",
-        "deleted": "Sorteo finalizado.", "deleteFailed": "No se pudo finalizar el sorteo."
+        "title": "Sorteos", "description": "Inicia un sorteo. Los miembros reaccionan para participar.",
+        "enable": "Activar sorteos", "enableDescription": "Permite a los admins iniciar sorteos. Los miembros reaccionan para participar y los ganadores se eligen al expirar.",
+        "active": "Sorteos activos", "entrants": "participantes", "noActive": "No hay sorteos activos.",
+        "create": "Iniciar sorteo", "channel": "Canal", "prize": "Premio",
+        "prizePlaceholder": "ej. Discord Nitro", "duration": "Duración", "winnerCount": "Ganadores",
+        "start": "Iniciar", "saved": "Sorteos actualizados.", "saveFailed": "Error al actualizar sorteos.",
+        "created": "Sorteo iniciado!", "createFailed": "Error al iniciar el sorteo.",
+        "deleted": "Sorteo cancelado.", "deleteFailed": "Error al cancelar el sorteo."
       }
     }
   },
@@ -1405,6 +1461,7 @@ export const DICTS: Record<AppLang, any> = {
       "tabGoodbye": "Despedida",
       "tabVoice": "Voz",
       "greetingWelcomeTitle": "Mensagem de boas-vindas",
+      "greetingInsertChannel": "Inserir um link de canal",
       "greetingWelcomeDesc": "Receba novos membros quando entram.",
       "greetingWelcomeEnable": "Ativar mensagem de boas-vindas",
       "greetingGoodbyeTitle": "Mensagem de despedida",
@@ -1691,40 +1748,53 @@ export const DICTS: Record<AppLang, any> = {
     },
     "discord": {
       "leveling": {
-        "title": "Níveis XP", "description": "Recompense membros ativos com XP e roles por marco.",
-        "enable": "Ativar níveis", "minLength": "Comprimento mínimo da mensagem", "rewardsTitle": "Recompensas por nível",
-        "level": "Nível", "rewardLevel": "Nível", "rewardRole": "Cargo", "saved": "Configurações de níveis salvas.",
-        "saveFailed": "Não foi possível salvar."
+        "title": "Níveis XP", "description": "Membros ganham XP conversando. Atribua cargos como recompensa ao atingir um nível.",
+        "enable": "Ativar níveis", "enableDescription": "Membros ganham XP por mensagem (comprimento mínimo + cooldown). Pode ser pausado sem perder dados.",
+        "xpRate": "Taxa de XP", "xpHint": "Média {avgXp} XP por mensagem, cooldown {cooldown}s. Cerca de {msgsToLvl5} mensagens para o nível 5.",
+        "preset": { "easy": "Fácil", "normal": "Normal", "hard": "Difícil" },
+        "xpMin": "XP mín / msg", "xpMax": "XP máx / msg", "cooldown": "Cooldown (s)", "minLength": "Comprimento mínimo",
+        "rewardsTitle": "Recompensas de cargos", "rewardsHint": "Atribua um cargo automaticamente quando um membro atingir um nível.",
+        "noRewards": "Nenhuma recompensa configurada.", "level": "Nível", "rewardLevel": "Nível", "rewardRole": "Cargo",
+        "rewardRolePlaceholder": "Selecionar um cargo", "saved": "Configurações de níveis salvas.",
+        "saveFailed": "Erro ao salvar as configurações."
       },
       "reactionRoles": {
-        "title": "Roles botões", "description": "Publique um painel para membros escolherem cargos.",
+        "title": "Cargos por botão", "description": "Publique painéis com botões que os membros podem clicar para se atribuir cargos.",
+        "enable": "Ativar cargos por botão", "enableDescription": "Publique painéis com botões em canais para que membros se atribuam cargos com um clique.",
         "channel": "Canal", "panelTitle": "Título do painel", "panelTitlePlaceholder": "Escolha seus cargos",
-        "panelDescription": "Descrição", "panelDescPlaceholder": "Clique para alternar um cargo.",
-        "mappings": "Botões", "role": "Cargo", "buttonLabel": "Rótulo do botão", "post": "Publicar painel",
-        "roles": "cargo(s)", "newPanel": "Novo painel", "panelCreated": "Painel publicado.", "panelFailed": "Não foi possível publicar.",
-        "panelDeleted": "Painel excluído.", "panelDeleteFailed": "Não foi possível excluir."
+        "panelDescription": "Descrição do painel", "panelDescPlaceholder": "Clique num botão para obter um cargo",
+        "mappings": "Botões", "role": "Cargo", "buttonLabel": "Texto do botão", "buttonLabelPlaceholder": "ex. Membro",
+        "addMapping": "Adicionar papel", "post": "Publicar painel", "roles": "cargos", "newPanel": "Criar painel",
+        "panelCreated": "Painel publicado.", "panelFailed": "Erro ao publicar o painel.",
+        "panelDeleted": "Painel removido.", "panelDeleteFailed": "Erro ao remover o painel.",
+        "saved": "Cargos por botão atualizados.", "saveFailed": "Erro ao atualizar cargos por botão."
       },
       "stats": {
-        "title": "Canais de estatísticas", "description": "Canais de voz com contadores em tempo real.",
-        "memberChannel": "Canal membros (voz)", "memberTemplate": "Modelo membros",
-        "onlineChannel": "Canal online (voz)", "onlineTemplate": "Modelo online",
-        "templateHint": "Use {count} como variável.", "rateHint": "Atualizado a cada 10 minutos.",
-        "noChannel": "Nenhum", "saved": "Canais salvos.", "saveFailed": "Não foi possível salvar."
+        "title": "Canais de estatísticas", "description": "Canais de voz renomeados a cada 10 min com contadores ao vivo.",
+        "enable": "Ativar canais de estatísticas", "enableDescription": "Renomeia canais de voz a cada 10 minutos com contadores ao vivo de membros e conectados.",
+        "memberChannel": "Canal de membros", "memberTemplate": "Modelo de membros",
+        "onlineChannel": "Canal de online", "onlineTemplate": "Modelo de online",
+        "templateHint": "Use {count} como marcador para o número.", "rateHint": "Os canais são atualizados a cada 10 minutos (limite do Discord).",
+        "noChannel": "— Nenhum —", "saved": "Canais de estatísticas salvos.", "saveFailed": "Erro ao salvar os canais."
       },
       "automod": {
-        "title": "AutoMod", "description": "Regras nativas do Discord no seu servidor.",
-        "linkFilter": "Bloquear links externos", "linkFilterHint": "Bloqueia URLs de não-moderadores.",
-        "spamFilter": "Filtro de spam", "spamFilterHint": "Detecta mensagens repetidas.",
-        "mentionSpam": "Spam de menções", "mentionSpamHint": "Bloqueia mensagens com mais de 5 menções.",
-        "saved": "Regra AutoMod atualizada.", "saveFailed": "Não foi possível aplicar a regra."
+        "title": "AutoMod", "enable": "Ativar AutoMod", "enableDescription": "Ativa a moderação automática nativa do Discord. Regras individuais são configuráveis abaixo.",
+        "customKeywords": "Palavras proibidas personalizadas", "customKeywordsHint": "Adicione palavras ou frases que serão excluídas automaticamente. O Discord aplica a lista nativamente.",
+        "addKeyword": "Adicionar palavra", "keywordPlaceholder": "ex: palavraruim",
+        "exemptRoles": "Cargos isentos", "exemptRolesHint": "Membros com estes cargos ignoram todas as regras AutoMod. Cargos de admin são sempre isentos.",
+        "addExemptRole": "Adicionar um cargo", "saved": "Regra AutoMod atualizada.",
+        "saveFailed": "Erro. Verifique se o bot tem a permissão Gerenciar servidor.",
+        "keywordsSaved": "Lista de palavras proibidas atualizada.", "exemptRolesSaved": "Cargos isentos atualizados."
       },
       "giveaways": {
-        "title": "Sorteios", "description": "Sorteios por reação com vencedores automáticos.",
-        "active": "Sorteios ativos", "entrants": "participante(s)", "noActive": "Nenhum sorteio ativo.",
-        "create": "Criar sorteio", "channel": "Canal", "prize": "Prêmio",
-        "prizePlaceholder": "1000 moedas do jogo", "duration": "Duração", "winnerCount": "Vencedores",
-        "start": "Iniciar", "created": "Sorteio iniciado.", "createFailed": "Não foi possível iniciar.",
-        "deleted": "Sorteio encerrado.", "deleteFailed": "Não foi possível encerrar."
+        "title": "Sorteios", "description": "Inicie um sorteio. Membros reagem para participar.",
+        "enable": "Ativar sorteios", "enableDescription": "Permite aos admins iniciar sorteios. Membros reagem para participar e vencedores são sorteados ao expirar.",
+        "active": "Sorteios ativos", "entrants": "participantes", "noActive": "Nenhum sorteio ativo.",
+        "create": "Iniciar sorteio", "channel": "Canal", "prize": "Prêmio",
+        "prizePlaceholder": "ex. Discord Nitro", "duration": "Duração", "winnerCount": "Vencedores",
+        "start": "Iniciar", "saved": "Sorteios atualizados.", "saveFailed": "Erro ao atualizar sorteios.",
+        "created": "Sorteio iniciado!", "createFailed": "Erro ao iniciar o sorteio.",
+        "deleted": "Sorteio cancelado.", "deleteFailed": "Erro ao cancelar o sorteio."
       }
     }
   },
@@ -1750,6 +1820,7 @@ export const DICTS: Record<AppLang, any> = {
       "tabGoodbye": "Прощание",
       "tabVoice": "Голос",
       "greetingWelcomeTitle": "Приветственное сообщение",
+      "greetingInsertChannel": "Вставить ссылку на канал",
       "greetingWelcomeDesc": "Приветствуйте новых участников при входе.",
       "greetingWelcomeEnable": "Включить приветственное сообщение",
       "greetingGoodbyeTitle": "Прощальное сообщение",
@@ -2036,40 +2107,53 @@ export const DICTS: Record<AppLang, any> = {
     },
     "discord": {
       "leveling": {
-        "title": "Уровни XP", "description": "Награждайте активных участников XP и ролями за достижения.",
-        "enable": "Включить систему уровней", "minLength": "Минимальная длина сообщения", "rewardsTitle": "Награды за уровни",
-        "level": "Уровень", "rewardLevel": "Уровень", "rewardRole": "Роль", "saved": "Настройки уровней сохранены.",
-        "saveFailed": "Не удалось сохранить."
+        "title": "Уровни XP", "description": "Участники получают XP за общение. Назначайте роли как награду за достигнутые уровни.",
+        "enable": "Включить уровни", "enableDescription": "Участники получают XP за сообщение (мин. длина + задержка). Можно приостановить без потери прогресса.",
+        "xpRate": "Скорость XP", "xpHint": "В среднем {avgXp} XP за сообщение, задержка {cooldown}с. Около {msgsToLvl5} сообщений до уровня 5.",
+        "preset": { "easy": "Легко", "normal": "Нормально", "hard": "Сложно" },
+        "xpMin": "XP мин / сообщение", "xpMax": "XP макс / сообщение", "cooldown": "Задержка (с)", "minLength": "Мин. длина сообщения",
+        "rewardsTitle": "Награды за роли", "rewardsHint": "Автоматически назначайте роль при достижении уровня.",
+        "noRewards": "Нет настроенных наград.", "level": "Уровень", "rewardLevel": "Уровень", "rewardRole": "Роль",
+        "rewardRolePlaceholder": "Выберите роль", "saved": "Настройки уровней сохранены.",
+        "saveFailed": "Ошибка при сохранении."
       },
       "reactionRoles": {
-        "title": "Роли кнопками", "description": "Опубликуйте панель кнопок для самостоятельного выбора ролей.",
+        "title": "Роли по кнопкам", "description": "Публикуйте панели с кнопками, нажав которые участники получают роли.",
+        "enable": "Включить роли по кнопкам", "enableDescription": "Публикуйте панели с кнопками в каналах, чтобы участники назначали себе роли одним нажатием.",
         "channel": "Канал", "panelTitle": "Заголовок панели", "panelTitlePlaceholder": "Выберите роли",
-        "panelDescription": "Описание", "panelDescPlaceholder": "Нажмите, чтобы переключить роль.",
-        "mappings": "Кнопки", "role": "Роль", "buttonLabel": "Текст кнопки", "post": "Опубликовать панель",
-        "roles": "роль(и)", "newPanel": "Новая панель", "panelCreated": "Панель опубликована.", "panelFailed": "Не удалось опубликовать.",
-        "panelDeleted": "Панель удалена.", "panelDeleteFailed": "Не удалось удалить."
+        "panelDescription": "Описание панели", "panelDescPlaceholder": "Нажмите кнопку для получения роли",
+        "mappings": "Кнопки", "role": "Роль", "buttonLabel": "Текст кнопки", "buttonLabelPlaceholder": "напр. Участник",
+        "addMapping": "Добавить роль", "post": "Опубликовать панель", "roles": "ролей", "newPanel": "Создать панель",
+        "panelCreated": "Панель опубликована.", "panelFailed": "Ошибка публикации панели.",
+        "panelDeleted": "Панель удалена.", "panelDeleteFailed": "Ошибка удаления панели.",
+        "saved": "Роли по кнопкам обновлены.", "saveFailed": "Ошибка обновления ролей по кнопкам."
       },
       "stats": {
-        "title": "Счётчики участников", "description": "Голосовые каналы с живыми счётчиками.",
-        "memberChannel": "Канал участников (голос)", "memberTemplate": "Шаблон участников",
-        "onlineChannel": "Канал онлайн (голос)", "onlineTemplate": "Шаблон онлайн",
-        "templateHint": "Используйте {count} как переменную.", "rateHint": "Обновляется каждые 10 минут.",
-        "noChannel": "Нет", "saved": "Счётчики сохранены.", "saveFailed": "Не удалось сохранить."
+        "title": "Каналы статистики", "description": "Голосовые каналы переименовываются каждые 10 мин с актуальными счётчиками.",
+        "enable": "Включить каналы статистики", "enableDescription": "Переименовывайте голосовые каналы каждые 10 минут с актуальными счётчиками участников и онлайн.",
+        "memberChannel": "Канал участников", "memberTemplate": "Шаблон участников",
+        "onlineChannel": "Канал онлайн", "onlineTemplate": "Шаблон онлайн",
+        "templateHint": "Используйте {count} как заполнитель для числа.", "rateHint": "Каналы обновляются каждые 10 минут (ограничение Discord).",
+        "noChannel": "— Нет —", "saved": "Каналы статистики сохранены.", "saveFailed": "Ошибка сохранения каналов."
       },
       "automod": {
-        "title": "AutoMod", "description": "Встроенные правила Discord для вашего сервера.",
-        "linkFilter": "Блокировать внешние ссылки", "linkFilterHint": "Блокирует URL от не-модераторов.",
-        "spamFilter": "Фильтр спама", "spamFilterHint": "Обнаруживает повторяющиеся сообщения.",
-        "mentionSpam": "Массовые упоминания", "mentionSpamHint": "Блокирует сообщения с более чем 5 упоминаниями.",
-        "saved": "Правило AutoMod обновлено.", "saveFailed": "Не удалось применить правило."
+        "title": "АвтоМод", "enable": "Включить АвтоМод", "enableDescription": "Активировать нативную автомодерацию Discord. Отдельные правила настраиваются ниже.",
+        "customKeywords": "Запрещённые слова", "customKeywordsHint": "Добавьте слова или фразы, которые будут автоматически удаляться. Discord применяет список нативно.",
+        "addKeyword": "Добавить слово", "keywordPlaceholder": "напр.: запрещслово",
+        "exemptRoles": "Исключённые роли", "exemptRolesHint": "Участники с этими ролями обходят все правила АвтоМода. Роли администраторов всегда исключены.",
+        "addExemptRole": "Добавить роль", "saved": "Правило АвтоМод обновлено.",
+        "saveFailed": "Ошибка. Убедитесь, что бот имеет право Управление сервером.",
+        "keywordsSaved": "Список запрещённых слов обновлён.", "exemptRolesSaved": "Исключённые роли обновлены."
       },
       "giveaways": {
-        "title": "Розыгрыши", "description": "Розыгрыши по реакциям с автовыбором победителей.",
-        "active": "Активные розыгрыши", "entrants": "участник(ов)", "noActive": "Нет активных розыгрышей.",
-        "create": "Создать розыгрыш", "channel": "Канал", "prize": "Приз",
-        "prizePlaceholder": "1000 игровых монет", "duration": "Длительность", "winnerCount": "Победители",
-        "start": "Запустить", "created": "Розыгрыш запущен.", "createFailed": "Не удалось запустить.",
-        "deleted": "Розыгрыш завершён.", "deleteFailed": "Не удалось завершить."
+        "title": "Розыгрыши", "description": "Запустите розыгрыш. Участники реагируют для участия.",
+        "enable": "Включить розыгрыши", "enableDescription": "Позвольте администраторам запускать розыгрыши. Участники реагируют для участия; победители выбираются по истечении времени.",
+        "active": "Активные розыгрыши", "entrants": "участников", "noActive": "Нет активных розыгрышей.",
+        "create": "Запустить розыгрыш", "channel": "Канал", "prize": "Приз",
+        "prizePlaceholder": "напр. Discord Nitro", "duration": "Длительность", "winnerCount": "Победителей",
+        "start": "Запустить", "saved": "Розыгрыши обновлены.", "saveFailed": "Ошибка обновления розыгрышей.",
+        "created": "Розыгрыш запущен!", "createFailed": "Ошибка запуска розыгрыша.",
+        "deleted": "Розыгрыш отменён.", "deleteFailed": "Ошибка отмены розыгрыша."
       }
     }
   }

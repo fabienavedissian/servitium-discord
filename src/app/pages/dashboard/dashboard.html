@@ -161,6 +161,7 @@
       } @else if (activeTab() === 'automod') {
         <svt-discord-automod
           [clientId]="clientId()"
+          [roles]="roles()"
         />
       } @else if (activeTab() === 'giveaways') {
         <svt-discord-giveaways
