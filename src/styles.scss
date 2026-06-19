@@ -5,6 +5,7 @@
    ========================================================================== */
 
 @use './styles/tokens' as *;
+@use './styles/parameters-form';
 
 // CDK overlay structural styles — required by svt-select panel / svt-modal.
 @import '@angular/cdk/overlay-prebuilt.css';
