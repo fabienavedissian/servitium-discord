@@ -21,6 +21,8 @@ import {
   StatsChannelsConfig,
   DiscordGiveaway,
   CreateGiveawayPayload,
+  ReactionRolesFeature,
+  GiveawaysFeature,
 } from '@servitium/discord';
 import { environment } from '../../environments/environment';
 
@@ -144,6 +146,14 @@ export class DiscordDataAdapter implements DiscordDataPort {
     return this.http.get<LevelEntry[]>(`${this.base}/${clientId}/discord/leveling/leaderboard`);
   }
 
+  // Reaction-roles feature switch (free)
+  getReactionRolesFeature(clientId: string): Observable<ReactionRolesFeature> {
+    return this.http.get<ReactionRolesFeature>(`${this.base}/${clientId}/discord/reaction-roles-feature`);
+  }
+  updateReactionRolesFeature(clientId: string, payload: Partial<ReactionRolesFeature>): Observable<{ message: string }> {
+    return this.http.put<{ message: string }>(`${this.base}/${clientId}/discord/reaction-roles-feature`, payload);
+  }
+
   // Reaction-role panels (free)
   getReactionPanels(clientId: string): Observable<ReactionPanel[]> {
     return this.http.get<ReactionPanel[]>(`${this.base}/${clientId}/discord/reaction-panels`);
@@ -180,6 +190,14 @@ export class DiscordDataAdapter implements DiscordDataPort {
   }
   deleteGiveaway(clientId: string, giveawayId: string): Observable<{ message: string }> {
     return this.http.delete<{ message: string }>(`${this.base}/${clientId}/discord/giveaways/${giveawayId}`);
+  }
+
+  // Giveaways feature switch (free)
+  getGiveawaysFeature(clientId: string): Observable<GiveawaysFeature> {
+    return this.http.get<GiveawaysFeature>(`${this.base}/${clientId}/discord/giveaways-feature`);
+  }
+  updateGiveawaysFeature(clientId: string, payload: Partial<GiveawaysFeature>): Observable<{ message: string }> {
+    return this.http.put<{ message: string }>(`${this.base}/${clientId}/discord/giveaways-feature`, payload);
   }
 
   // Agent (paid) — not exposed in the standalone free UI, but the port requires them.
