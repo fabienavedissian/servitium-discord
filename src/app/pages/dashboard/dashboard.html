@@ -92,6 +92,26 @@
         <svt-icon name="mic" [size]="16" />
         {{ 'discordApp.tabVoice' | localize }}
       </button>
+      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'leveling'" (click)="setTab('leveling')">
+        <svt-icon name="trending-up" [size]="16" />
+        {{ 'discordApp.tabLeveling' | localize }}
+      </button>
+      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'reaction-roles'" (click)="setTab('reaction-roles')">
+        <svt-icon name="check-square" [size]="16" />
+        {{ 'discordApp.tabReactionRoles' | localize }}
+      </button>
+      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'stats'" (click)="setTab('stats')">
+        <svt-icon name="bar-chart-2" [size]="16" />
+        {{ 'discordApp.tabStats' | localize }}
+      </button>
+      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'automod'" (click)="setTab('automod')">
+        <svt-icon name="shield" [size]="16" />
+        {{ 'discordApp.tabAutomod' | localize }}
+      </button>
+      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'giveaways'" (click)="setTab('giveaways')">
+        <svt-icon name="gift" [size]="16" />
+        {{ 'discordApp.tabGiveaways' | localize }}
+      </button>
     </nav>
 
     <div class="dash__features">
@@ -115,12 +135,37 @@
           [serverName]="serverName()"
           [greeting]="goodbyeSeed()"
         />
-      } @else {
+      } @else if (activeTab() === 'voice') {
         <svt-discord-voice-hubs
           [clientId]="clientId()"
           [canEdit]="true"
           [roles]="roles()"
           [hubs]="voiceHubs()"
+        />
+      } @else if (activeTab() === 'leveling') {
+        <svt-discord-leveling
+          [clientId]="clientId()"
+          [roles]="roles()"
+        />
+      } @else if (activeTab() === 'reaction-roles') {
+        <svt-discord-reaction-roles
+          [clientId]="clientId()"
+          [roles]="roles()"
+          [channels]="channels()"
+        />
+      } @else if (activeTab() === 'stats') {
+        <svt-discord-stats
+          [clientId]="clientId()"
+          [channels]="channels()"
+        />
+      } @else if (activeTab() === 'automod') {
+        <svt-discord-automod
+          [clientId]="clientId()"
+        />
+      } @else if (activeTab() === 'giveaways') {
+        <svt-discord-giveaways
+          [clientId]="clientId()"
+          [channels]="channels()"
         />
       }
     </div>

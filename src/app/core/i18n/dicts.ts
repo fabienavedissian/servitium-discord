@@ -52,11 +52,19 @@ export const DICTS: Record<AppLang, any> = {
       "greetingTestSent": "Test message sent to the channel.",
       "greetingTestFailed": "Could not send the test. Check the channel is set.",
       "greetingSaved": "Saved.",
-      "greetingSaveFailed": "Could not save. Try again."
+      "greetingSaveFailed": "Could not save. Try again.",
+      "tabLeveling": "Leveling",
+      "tabReactionRoles": "Reaction Roles",
+      "tabStats": "Stats",
+      "tabAutomod": "AutoMod",
+      "tabGiveaways": "Giveaways"
     },
     "common": {
       "success": "Success",
-      "error": "Error"
+      "error": "Error",
+      "loading": "Loading...",
+      "save": "Save",
+      "saving": "Saving..."
     },
     "discordPage": {
       "loadingConfig": "Loading Discord configuration...",
@@ -300,6 +308,44 @@ export const DICTS: Record<AppLang, any> = {
       "voiceHubRolesHint": "Only these roles can join. Leave empty to allow everyone.",
       "voiceHubAddRole": "Add a role",
       "voiceHubRolesOpen": "Open to everyone"
+    },
+    "discord": {
+      "leveling": {
+        "title": "XP Leveling", "description": "Reward active members with XP and milestone roles.",
+        "enable": "Enable leveling", "minLength": "Minimum message length", "rewardsTitle": "Level rewards",
+        "level": "Level", "rewardLevel": "Level", "rewardRole": "Role", "saved": "Leveling settings saved.",
+        "saveFailed": "Could not save leveling settings."
+      },
+      "reactionRoles": {
+        "title": "Reaction Roles", "description": "Post a button panel so members can self-assign roles.",
+        "channel": "Channel", "panelTitle": "Panel title", "panelTitlePlaceholder": "Pick your roles",
+        "panelDescription": "Description", "panelDescPlaceholder": "Click to toggle a role.",
+        "mappings": "Buttons", "role": "Role", "buttonLabel": "Button label", "post": "Post panel",
+        "roles": "role(s)", "newPanel": "New panel", "panelCreated": "Panel posted.", "panelFailed": "Could not post the panel.",
+        "panelDeleted": "Panel deleted.", "panelDeleteFailed": "Could not delete the panel."
+      },
+      "stats": {
+        "title": "Stats Channels", "description": "Voice channels that show live member and online counts.",
+        "memberChannel": "Members channel (voice)", "memberTemplate": "Members template",
+        "onlineChannel": "Online channel (voice)", "onlineTemplate": "Online template",
+        "templateHint": "Use {count} as placeholder.", "rateHint": "Updated every 10 minutes to respect Discord rate limits.",
+        "noChannel": "None", "saved": "Stats channels saved.", "saveFailed": "Could not save stats channels."
+      },
+      "automod": {
+        "title": "AutoMod", "description": "Native Discord rules applied directly in your server.",
+        "linkFilter": "Block external links", "linkFilterHint": "Blocks URLs posted by non-moderators.",
+        "spamFilter": "Spam filter", "spamFilterHint": "Flags repeated messages in a short time.",
+        "mentionSpam": "Mention spam", "mentionSpamHint": "Blocks messages mentioning more than 5 users.",
+        "saved": "AutoMod rule updated.", "saveFailed": "Could not apply the rule. Check bot permissions."
+      },
+      "giveaways": {
+        "title": "Giveaways", "description": "Run reaction-based giveaways. Winners picked automatically.",
+        "active": "Active giveaways", "entrants": "entrant(s)", "noActive": "No active giveaways.",
+        "create": "Create a giveaway", "channel": "Channel", "prize": "Prize",
+        "prizePlaceholder": "1000 in-game coins", "duration": "Duration", "winnerCount": "Winners",
+        "start": "Start giveaway", "created": "Giveaway started.", "createFailed": "Could not start the giveaway.",
+        "deleted": "Giveaway ended.", "deleteFailed": "Could not end the giveaway."
+      }
     }
   },
   "fr": {
@@ -351,11 +397,19 @@ export const DICTS: Record<AppLang, any> = {
       "greetingTestSent": "Message de test envoyé dans le salon.",
       "greetingTestFailed": "Impossible d'envoyer le test. Vérifiez que le salon est défini.",
       "greetingSaved": "Enregistré.",
-      "greetingSaveFailed": "Impossible d'enregistrer. Réessayez."
+      "greetingSaveFailed": "Impossible d'enregistrer. Réessayez.",
+      "tabLeveling": "Classement XP",
+      "tabReactionRoles": "Rôles boutons",
+      "tabStats": "Compteurs",
+      "tabAutomod": "AutoMod",
+      "tabGiveaways": "Tombolas"
     },
     "common": {
       "success": "Succès",
-      "error": "Erreur"
+      "error": "Erreur",
+      "loading": "Chargement...",
+      "save": "Enregistrer",
+      "saving": "Enregistrement..."
     },
     "discordPage": {
       "loadingConfig": "Chargement de la configuration Discord...",
@@ -599,6 +653,44 @@ export const DICTS: Record<AppLang, any> = {
       "voiceHubRolesHint": "Seuls ces roles peuvent rejoindre. Laissez vide pour autoriser tout le monde.",
       "voiceHubAddRole": "Ajouter un role",
       "voiceHubRolesOpen": "Ouvert a tous"
+    },
+    "discord": {
+      "leveling": {
+        "title": "Niveaux XP", "description": "Récompensez les membres actifs avec de l'XP et des rôles à chaque palier.",
+        "enable": "Activer le système de niveaux", "minLength": "Longueur minimale du message", "rewardsTitle": "Récompenses par niveau",
+        "level": "Niveau", "rewardLevel": "Niveau", "rewardRole": "Rôle", "saved": "Paramètres de niveaux enregistrés.",
+        "saveFailed": "Impossible d'enregistrer."
+      },
+      "reactionRoles": {
+        "title": "Rôles boutons", "description": "Publiez un panneau pour que les membres s'attribuent eux-mêmes des rôles.",
+        "channel": "Salon", "panelTitle": "Titre du panneau", "panelTitlePlaceholder": "Choisissez vos rôles",
+        "panelDescription": "Description", "panelDescPlaceholder": "Cliquez pour basculer un rôle.",
+        "mappings": "Boutons", "role": "Rôle", "buttonLabel": "Libellé du bouton", "post": "Publier le panneau",
+        "roles": "rôle(s)", "newPanel": "Nouveau panneau", "panelCreated": "Panneau publié.", "panelFailed": "Impossible de publier le panneau.",
+        "panelDeleted": "Panneau supprimé.", "panelDeleteFailed": "Impossible de supprimer le panneau."
+      },
+      "stats": {
+        "title": "Compteurs vocaux", "description": "Salons vocaux affichant le nombre de membres et de joueurs en ligne.",
+        "memberChannel": "Salon membres (vocal)", "memberTemplate": "Modèle membres",
+        "onlineChannel": "Salon en ligne (vocal)", "onlineTemplate": "Modèle en ligne",
+        "templateHint": "Utilisez {count} comme variable.", "rateHint": "Mis à jour toutes les 10 minutes pour respecter les limites Discord.",
+        "noChannel": "Aucun", "saved": "Compteurs vocaux enregistrés.", "saveFailed": "Impossible d'enregistrer."
+      },
+      "automod": {
+        "title": "AutoMod", "description": "Règles Discord natives appliquées directement sur votre serveur.",
+        "linkFilter": "Bloquer les liens externes", "linkFilterHint": "Bloque les URL des non-modérateurs.",
+        "spamFilter": "Filtre anti-spam", "spamFilterHint": "Signale les messages répétés sur peu de temps.",
+        "mentionSpam": "Mentions excessives", "mentionSpamHint": "Bloque les messages mentionnant plus de 5 utilisateurs.",
+        "saved": "Règle AutoMod mise à jour.", "saveFailed": "Impossible d'appliquer la règle. Vérifiez les permissions du bot."
+      },
+      "giveaways": {
+        "title": "Tombolas", "description": "Lancez des tombolas par réaction. Les gagnants sont tirés automatiquement.",
+        "active": "Tombolas actives", "entrants": "participant(s)", "noActive": "Aucune tombola active.",
+        "create": "Créer une tombola", "channel": "Salon", "prize": "Lot",
+        "prizePlaceholder": "1000 monnaie du jeu", "duration": "Durée", "winnerCount": "Gagnants",
+        "start": "Lancer", "created": "Tombola lancée.", "createFailed": "Impossible de lancer la tombola.",
+        "deleted": "Tombola terminée.", "deleteFailed": "Impossible de terminer la tombola."
+      }
     }
   },
   "de": {
@@ -650,11 +742,19 @@ export const DICTS: Record<AppLang, any> = {
       "greetingTestSent": "Testnachricht an den Kanal gesendet.",
       "greetingTestFailed": "Test konnte nicht gesendet werden. Prüfe den Kanal.",
       "greetingSaved": "Gespeichert.",
-      "greetingSaveFailed": "Speichern fehlgeschlagen. Versuche es erneut."
+      "greetingSaveFailed": "Speichern fehlgeschlagen. Versuche es erneut.",
+      "tabLeveling": "XP-Level",
+      "tabReactionRoles": "Rollenknöpfe",
+      "tabStats": "Statistik",
+      "tabAutomod": "AutoMod",
+      "tabGiveaways": "Gewinnspiele"
     },
     "common": {
       "success": "Erfolg",
-      "error": "Fehler"
+      "error": "Fehler",
+      "loading": "Laden...",
+      "save": "Speichern",
+      "saving": "Wird gespeichert..."
     },
     "discordPage": {
       "loadingConfig": "Discord-Konfiguration wird geladen...",
@@ -898,6 +998,44 @@ export const DICTS: Record<AppLang, any> = {
       "voiceHubRolesHint": "Nur diese Rollen koennen beitreten. Leer lassen, um alle zuzulassen.",
       "voiceHubAddRole": "Rolle hinzufuegen",
       "voiceHubRolesOpen": "Fuer alle offen"
+    },
+    "discord": {
+      "leveling": {
+        "title": "XP-Level", "description": "Belohne aktive Mitglieder mit XP und Meilenstein-Rollen.",
+        "enable": "Level-System aktivieren", "minLength": "Mindestlänge der Nachricht", "rewardsTitle": "Level-Belohnungen",
+        "level": "Level", "rewardLevel": "Level", "rewardRole": "Rolle", "saved": "Level-Einstellungen gespeichert.",
+        "saveFailed": "Speichern fehlgeschlagen."
+      },
+      "reactionRoles": {
+        "title": "Rollenknöpfe", "description": "Poste ein Knopf-Panel, damit Mitglieder Rollen selbst wählen.",
+        "channel": "Kanal", "panelTitle": "Panel-Titel", "panelTitlePlaceholder": "Wähle deine Rollen",
+        "panelDescription": "Beschreibung", "panelDescPlaceholder": "Klicke, um eine Rolle zu wechseln.",
+        "mappings": "Knöpfe", "role": "Rolle", "buttonLabel": "Knopf-Beschriftung", "post": "Panel posten",
+        "roles": "Rolle(n)", "newPanel": "Neues Panel", "panelCreated": "Panel gepostet.", "panelFailed": "Panel konnte nicht gepostet werden.",
+        "panelDeleted": "Panel gelöscht.", "panelDeleteFailed": "Panel konnte nicht gelöscht werden."
+      },
+      "stats": {
+        "title": "Statistik-Kanäle", "description": "Sprachkanäle mit Live-Mitglieder- und Online-Zählern.",
+        "memberChannel": "Mitglieder-Kanal (Sprache)", "memberTemplate": "Vorlage Mitglieder",
+        "onlineChannel": "Online-Kanal (Sprache)", "onlineTemplate": "Vorlage Online",
+        "templateHint": "Nutze {count} als Platzhalter.", "rateHint": "Alle 10 Minuten aktualisiert.",
+        "noChannel": "Keiner", "saved": "Statistik-Kanäle gespeichert.", "saveFailed": "Speichern fehlgeschlagen."
+      },
+      "automod": {
+        "title": "AutoMod", "description": "Native Discord-Regeln direkt auf deinem Server.",
+        "linkFilter": "Externe Links sperren", "linkFilterHint": "Sperrt URLs von Nicht-Moderatoren.",
+        "spamFilter": "Spam-Filter", "spamFilterHint": "Erkennt Wiederholungsnachrichten.",
+        "mentionSpam": "Massen-Erwähnungen", "mentionSpamHint": "Sperrt Nachrichten mit mehr als 5 Erwähnungen.",
+        "saved": "AutoMod-Regel aktualisiert.", "saveFailed": "Regel konnte nicht angewendet werden."
+      },
+      "giveaways": {
+        "title": "Gewinnspiele", "description": "Reaktions-Gewinnspiele mit automatischer Gewinnermittlung.",
+        "active": "Aktive Gewinnspiele", "entrants": "Teilnehmer", "noActive": "Keine aktiven Gewinnspiele.",
+        "create": "Gewinnspiel erstellen", "channel": "Kanal", "prize": "Preis",
+        "prizePlaceholder": "1000 Spielwährung", "duration": "Dauer", "winnerCount": "Gewinner",
+        "start": "Starten", "created": "Gewinnspiel gestartet.", "createFailed": "Gewinnspiel konnte nicht gestartet werden.",
+        "deleted": "Gewinnspiel beendet.", "deleteFailed": "Gewinnspiel konnte nicht beendet werden."
+      }
     }
   },
   "es": {
@@ -949,11 +1087,19 @@ export const DICTS: Record<AppLang, any> = {
       "greetingTestSent": "Mensaje de prueba enviado al canal.",
       "greetingTestFailed": "No se pudo enviar la prueba. Comprueba que el canal esté configurado.",
       "greetingSaved": "Guardado.",
-      "greetingSaveFailed": "No se pudo guardar. Inténtalo de nuevo."
+      "greetingSaveFailed": "No se pudo guardar. Inténtalo de nuevo.",
+      "tabLeveling": "Niveles XP",
+      "tabReactionRoles": "Roles botones",
+      "tabStats": "Estadísticas",
+      "tabAutomod": "AutoMod",
+      "tabGiveaways": "Sorteos"
     },
     "common": {
       "success": "Éxito",
-      "error": "Error"
+      "error": "Error",
+      "loading": "Cargando...",
+      "save": "Guardar",
+      "saving": "Guardando..."
     },
     "discordPage": {
       "loadingConfig": "Cargando configuración Discord...",
@@ -1197,6 +1343,44 @@ export const DICTS: Record<AppLang, any> = {
       "voiceHubRolesHint": "Solo estos roles pueden unirse. Dejar vacio para permitir a todos.",
       "voiceHubAddRole": "Anadir un rol",
       "voiceHubRolesOpen": "Abierto a todos"
+    },
+    "discord": {
+      "leveling": {
+        "title": "Niveles XP", "description": "Premia a los miembros activos con XP y roles por hito.",
+        "enable": "Activar niveles", "minLength": "Longitud mínima de mensaje", "rewardsTitle": "Recompensas por nivel",
+        "level": "Nivel", "rewardLevel": "Nivel", "rewardRole": "Rol", "saved": "Ajustes de niveles guardados.",
+        "saveFailed": "No se pudieron guardar los ajustes."
+      },
+      "reactionRoles": {
+        "title": "Roles botones", "description": "Publica un panel para que los miembros elijan roles.",
+        "channel": "Canal", "panelTitle": "Título del panel", "panelTitlePlaceholder": "Elige tus roles",
+        "panelDescription": "Descripción", "panelDescPlaceholder": "Haz clic para cambiar un rol.",
+        "mappings": "Botones", "role": "Rol", "buttonLabel": "Etiqueta del botón", "post": "Publicar panel",
+        "roles": "rol(es)", "newPanel": "Nuevo panel", "panelCreated": "Panel publicado.", "panelFailed": "No se pudo publicar el panel.",
+        "panelDeleted": "Panel eliminado.", "panelDeleteFailed": "No se pudo eliminar el panel."
+      },
+      "stats": {
+        "title": "Canales de estadísticas", "description": "Canales de voz con contadores en vivo.",
+        "memberChannel": "Canal miembros (voz)", "memberTemplate": "Plantilla miembros",
+        "onlineChannel": "Canal en línea (voz)", "onlineTemplate": "Plantilla en línea",
+        "templateHint": "Usa {count} como variable.", "rateHint": "Actualizado cada 10 minutos.",
+        "noChannel": "Ninguno", "saved": "Canales guardados.", "saveFailed": "No se pudieron guardar."
+      },
+      "automod": {
+        "title": "AutoMod", "description": "Reglas nativas de Discord en tu servidor.",
+        "linkFilter": "Bloquear enlaces externos", "linkFilterHint": "Bloquea URLs de no moderadores.",
+        "spamFilter": "Filtro de spam", "spamFilterHint": "Detecta mensajes repetidos.",
+        "mentionSpam": "Spam de menciones", "mentionSpamHint": "Bloquea mensajes con más de 5 menciones.",
+        "saved": "Regla AutoMod actualizada.", "saveFailed": "No se pudo aplicar la regla."
+      },
+      "giveaways": {
+        "title": "Sorteos", "description": "Sorteos por reacción con ganadores automáticos.",
+        "active": "Sorteos activos", "entrants": "participante(s)", "noActive": "No hay sorteos activos.",
+        "create": "Crear sorteo", "channel": "Canal", "prize": "Premio",
+        "prizePlaceholder": "1000 monedas del juego", "duration": "Duración", "winnerCount": "Ganadores",
+        "start": "Iniciar", "created": "Sorteo iniciado.", "createFailed": "No se pudo iniciar el sorteo.",
+        "deleted": "Sorteo finalizado.", "deleteFailed": "No se pudo finalizar el sorteo."
+      }
     }
   },
   "pt": {
@@ -1248,11 +1432,19 @@ export const DICTS: Record<AppLang, any> = {
       "greetingTestSent": "Mensagem de teste enviada ao canal.",
       "greetingTestFailed": "Não foi possível enviar o teste. Verifique se o canal está definido.",
       "greetingSaved": "Guardado.",
-      "greetingSaveFailed": "Não foi possível guardar. Tente novamente."
+      "greetingSaveFailed": "Não foi possível guardar. Tente novamente.",
+      "tabLeveling": "Níveis XP",
+      "tabReactionRoles": "Roles botões",
+      "tabStats": "Estatísticas",
+      "tabAutomod": "AutoMod",
+      "tabGiveaways": "Sorteios"
     },
     "common": {
       "success": "Sucesso",
-      "error": "Erro"
+      "error": "Erro",
+      "loading": "Carregando...",
+      "save": "Salvar",
+      "saving": "Salvando..."
     },
     "discordPage": {
       "loadingConfig": "Carregando configuração do Discord...",
@@ -1496,6 +1688,44 @@ export const DICTS: Record<AppLang, any> = {
       "voiceHubRolesHint": "Apenas estes cargos podem entrar. Deixe vazio para permitir todos.",
       "voiceHubAddRole": "Adicionar um cargo",
       "voiceHubRolesOpen": "Aberto a todos"
+    },
+    "discord": {
+      "leveling": {
+        "title": "Níveis XP", "description": "Recompense membros ativos com XP e roles por marco.",
+        "enable": "Ativar níveis", "minLength": "Comprimento mínimo da mensagem", "rewardsTitle": "Recompensas por nível",
+        "level": "Nível", "rewardLevel": "Nível", "rewardRole": "Cargo", "saved": "Configurações de níveis salvas.",
+        "saveFailed": "Não foi possível salvar."
+      },
+      "reactionRoles": {
+        "title": "Roles botões", "description": "Publique um painel para membros escolherem cargos.",
+        "channel": "Canal", "panelTitle": "Título do painel", "panelTitlePlaceholder": "Escolha seus cargos",
+        "panelDescription": "Descrição", "panelDescPlaceholder": "Clique para alternar um cargo.",
+        "mappings": "Botões", "role": "Cargo", "buttonLabel": "Rótulo do botão", "post": "Publicar painel",
+        "roles": "cargo(s)", "newPanel": "Novo painel", "panelCreated": "Painel publicado.", "panelFailed": "Não foi possível publicar.",
+        "panelDeleted": "Painel excluído.", "panelDeleteFailed": "Não foi possível excluir."
+      },
+      "stats": {
+        "title": "Canais de estatísticas", "description": "Canais de voz com contadores em tempo real.",
+        "memberChannel": "Canal membros (voz)", "memberTemplate": "Modelo membros",
+        "onlineChannel": "Canal online (voz)", "onlineTemplate": "Modelo online",
+        "templateHint": "Use {count} como variável.", "rateHint": "Atualizado a cada 10 minutos.",
+        "noChannel": "Nenhum", "saved": "Canais salvos.", "saveFailed": "Não foi possível salvar."
+      },
+      "automod": {
+        "title": "AutoMod", "description": "Regras nativas do Discord no seu servidor.",
+        "linkFilter": "Bloquear links externos", "linkFilterHint": "Bloqueia URLs de não-moderadores.",
+        "spamFilter": "Filtro de spam", "spamFilterHint": "Detecta mensagens repetidas.",
+        "mentionSpam": "Spam de menções", "mentionSpamHint": "Bloqueia mensagens com mais de 5 menções.",
+        "saved": "Regra AutoMod atualizada.", "saveFailed": "Não foi possível aplicar a regra."
+      },
+      "giveaways": {
+        "title": "Sorteios", "description": "Sorteios por reação com vencedores automáticos.",
+        "active": "Sorteios ativos", "entrants": "participante(s)", "noActive": "Nenhum sorteio ativo.",
+        "create": "Criar sorteio", "channel": "Canal", "prize": "Prêmio",
+        "prizePlaceholder": "1000 moedas do jogo", "duration": "Duração", "winnerCount": "Vencedores",
+        "start": "Iniciar", "created": "Sorteio iniciado.", "createFailed": "Não foi possível iniciar.",
+        "deleted": "Sorteio encerrado.", "deleteFailed": "Não foi possível encerrar."
+      }
     }
   },
   "ru": {
@@ -1547,11 +1777,19 @@ export const DICTS: Record<AppLang, any> = {
       "greetingTestSent": "Тестовое сообщение отправлено в канал.",
       "greetingTestFailed": "Не удалось отправить тест. Проверьте, что канал задан.",
       "greetingSaved": "Сохранено.",
-      "greetingSaveFailed": "Не удалось сохранить. Попробуйте снова."
+      "greetingSaveFailed": "Не удалось сохранить. Попробуйте снова.",
+      "tabLeveling": "Уровни XP",
+      "tabReactionRoles": "Роли кнопками",
+      "tabStats": "Счётчики",
+      "tabAutomod": "AutoMod",
+      "tabGiveaways": "Розыгрыши"
     },
     "common": {
       "success": "Успешно",
-      "error": "Ошибка"
+      "error": "Ошибка",
+      "loading": "Загрузка...",
+      "save": "Сохранить",
+      "saving": "Сохранение..."
     },
     "discordPage": {
       "loadingConfig": "Загрузка конфигурации Discord...",
@@ -1795,6 +2033,44 @@ export const DICTS: Record<AppLang, any> = {
       "voiceHubRolesHint": "Только эти роли могут заходить. Оставьте пустым, чтобы разрешить всем.",
       "voiceHubAddRole": "Добавить роль",
       "voiceHubRolesOpen": "Открыто для всех"
+    },
+    "discord": {
+      "leveling": {
+        "title": "Уровни XP", "description": "Награждайте активных участников XP и ролями за достижения.",
+        "enable": "Включить систему уровней", "minLength": "Минимальная длина сообщения", "rewardsTitle": "Награды за уровни",
+        "level": "Уровень", "rewardLevel": "Уровень", "rewardRole": "Роль", "saved": "Настройки уровней сохранены.",
+        "saveFailed": "Не удалось сохранить."
+      },
+      "reactionRoles": {
+        "title": "Роли кнопками", "description": "Опубликуйте панель кнопок для самостоятельного выбора ролей.",
+        "channel": "Канал", "panelTitle": "Заголовок панели", "panelTitlePlaceholder": "Выберите роли",
+        "panelDescription": "Описание", "panelDescPlaceholder": "Нажмите, чтобы переключить роль.",
+        "mappings": "Кнопки", "role": "Роль", "buttonLabel": "Текст кнопки", "post": "Опубликовать панель",
+        "roles": "роль(и)", "newPanel": "Новая панель", "panelCreated": "Панель опубликована.", "panelFailed": "Не удалось опубликовать.",
+        "panelDeleted": "Панель удалена.", "panelDeleteFailed": "Не удалось удалить."
+      },
+      "stats": {
+        "title": "Счётчики участников", "description": "Голосовые каналы с живыми счётчиками.",
+        "memberChannel": "Канал участников (голос)", "memberTemplate": "Шаблон участников",
+        "onlineChannel": "Канал онлайн (голос)", "onlineTemplate": "Шаблон онлайн",
+        "templateHint": "Используйте {count} как переменную.", "rateHint": "Обновляется каждые 10 минут.",
+        "noChannel": "Нет", "saved": "Счётчики сохранены.", "saveFailed": "Не удалось сохранить."
+      },
+      "automod": {
+        "title": "AutoMod", "description": "Встроенные правила Discord для вашего сервера.",
+        "linkFilter": "Блокировать внешние ссылки", "linkFilterHint": "Блокирует URL от не-модераторов.",
+        "spamFilter": "Фильтр спама", "spamFilterHint": "Обнаруживает повторяющиеся сообщения.",
+        "mentionSpam": "Массовые упоминания", "mentionSpamHint": "Блокирует сообщения с более чем 5 упоминаниями.",
+        "saved": "Правило AutoMod обновлено.", "saveFailed": "Не удалось применить правило."
+      },
+      "giveaways": {
+        "title": "Розыгрыши", "description": "Розыгрыши по реакциям с автовыбором победителей.",
+        "active": "Активные розыгрыши", "entrants": "участник(ов)", "noActive": "Нет активных розыгрышей.",
+        "create": "Создать розыгрыш", "channel": "Канал", "prize": "Приз",
+        "prizePlaceholder": "1000 игровых монет", "duration": "Длительность", "winnerCount": "Победители",
+        "start": "Запустить", "created": "Розыгрыш запущен.", "createFailed": "Не удалось запустить.",
+        "deleted": "Розыгрыш завершён.", "deleteFailed": "Не удалось завершить."
+      }
     }
   }
 };

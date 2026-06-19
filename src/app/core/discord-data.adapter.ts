@@ -13,6 +13,14 @@ import {
   DiscordGameAccessMode,
   GreetingMode,
   GreetingSettingsPayload,
+  LevelingConfig,
+  LevelEntry,
+  ReactionPanel,
+  CreateReactionPanelPayload,
+  AutomodConfig,
+  StatsChannelsConfig,
+  DiscordGiveaway,
+  CreateGiveawayPayload,
 } from '@servitium/discord';
 import { environment } from '../../environments/environment';
 
@@ -123,6 +131,55 @@ export class DiscordDataAdapter implements DiscordDataPort {
   }
   setupSelectionPanel(clientId: string): Observable<{ success: boolean; guildConfig: DiscordGuildConfigAdvanced }> {
     return this.http.post<any>(`${this.base}/${clientId}/discord/advanced/setup-selection`, {});
+  }
+
+  // Leveling (free)
+  getLevelingConfig(clientId: string): Observable<LevelingConfig> {
+    return this.http.get<LevelingConfig>(`${this.base}/${clientId}/discord/leveling`);
+  }
+  updateLevelingConfig(clientId: string, config: Partial<LevelingConfig>): Observable<{ message: string }> {
+    return this.http.put<{ message: string }>(`${this.base}/${clientId}/discord/leveling`, config);
+  }
+  getLevelingLeaderboard(clientId: string): Observable<LevelEntry[]> {
+    return this.http.get<LevelEntry[]>(`${this.base}/${clientId}/discord/leveling/leaderboard`);
+  }
+
+  // Reaction-role panels (free)
+  getReactionPanels(clientId: string): Observable<ReactionPanel[]> {
+    return this.http.get<ReactionPanel[]>(`${this.base}/${clientId}/discord/reaction-panels`);
+  }
+  createReactionPanel(clientId: string, payload: CreateReactionPanelPayload): Observable<{ message: string; panel: ReactionPanel }> {
+    return this.http.post<{ message: string; panel: ReactionPanel }>(`${this.base}/${clientId}/discord/reaction-panels`, payload);
+  }
+  deleteReactionPanel(clientId: string, panelId: string): Observable<{ message: string }> {
+    return this.http.delete<{ message: string }>(`${this.base}/${clientId}/discord/reaction-panels/${panelId}`);
+  }
+
+  // AutoMod (free)
+  getAutomodConfig(clientId: string): Observable<AutomodConfig> {
+    return this.http.get<AutomodConfig>(`${this.base}/${clientId}/discord/automod`);
+  }
+  updateAutomodConfig(clientId: string, config: Partial<AutomodConfig>): Observable<{ message: string }> {
+    return this.http.put<{ message: string }>(`${this.base}/${clientId}/discord/automod`, config);
+  }
+
+  // Stats voice channels (free)
+  getStatsChannels(clientId: string): Observable<StatsChannelsConfig> {
+    return this.http.get<StatsChannelsConfig>(`${this.base}/${clientId}/discord/stats-channels`);
+  }
+  updateStatsChannels(clientId: string, config: Partial<StatsChannelsConfig>): Observable<{ message: string }> {
+    return this.http.put<{ message: string }>(`${this.base}/${clientId}/discord/stats-channels`, config);
+  }
+
+  // Giveaways (free)
+  getGiveaways(clientId: string): Observable<DiscordGiveaway[]> {
+    return this.http.get<DiscordGiveaway[]>(`${this.base}/${clientId}/discord/giveaways`);
+  }
+  createGiveaway(clientId: string, payload: CreateGiveawayPayload): Observable<{ message: string; giveaway: DiscordGiveaway }> {
+    return this.http.post<{ message: string; giveaway: DiscordGiveaway }>(`${this.base}/${clientId}/discord/giveaways`, payload);
+  }
+  deleteGiveaway(clientId: string, giveawayId: string): Observable<{ message: string }> {
+    return this.http.delete<{ message: string }>(`${this.base}/${clientId}/discord/giveaways/${giveawayId}`);
   }
 
   // Agent (paid) — not exposed in the standalone free UI, but the port requires them.
