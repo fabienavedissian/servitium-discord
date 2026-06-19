@@ -378,6 +378,7 @@ export const DICTS: Record<AppLang, any> = {
         "noChannel": "— None —", "saved": "Stats channels saved.", "saveFailed": "Failed to save stats channels."
       },
       "automod": {
+        "applying": "Applying settings to your server…",
         "presetTitle": "Protection level",
         "presetHint": "Pick a preset. Light is a safe default; raise it as your community grows.",
         "tuneTitle": "Fine-tune",
@@ -817,6 +818,7 @@ export const DICTS: Record<AppLang, any> = {
         "noChannel": "— Aucun —", "saved": "Compteurs enregistrés.", "saveFailed": "Échec de l'enregistrement des compteurs."
       },
       "automod": {
+        "applying": "Application des réglages sur ton serveur…",
         "presetTitle": "Niveau de protection",
         "presetHint": "Choisis un preset. Light est un défaut sûr ; monte d'un cran selon ta communauté.",
         "tuneTitle": "Réglages fins",
@@ -1256,6 +1258,7 @@ export const DICTS: Record<AppLang, any> = {
         "noChannel": "— Keiner —", "saved": "Statistikkanäle gespeichert.", "saveFailed": "Speichern fehlgeschlagen."
       },
       "automod": {
+        "applying": "Einstellungen werden angewendet…",
         "presetTitle": "Schutzstufe",
         "presetHint": "Wähle eine Voreinstellung. Light ist ein sicherer Standard.",
         "tuneTitle": "Feinabstimmung",
@@ -1695,6 +1698,7 @@ export const DICTS: Record<AppLang, any> = {
         "noChannel": "— Ninguno —", "saved": "Canales de estadísticas guardados.", "saveFailed": "Error al guardar los canales."
       },
       "automod": {
+        "applying": "Aplicando ajustes a tu servidor…",
         "presetTitle": "Nivel de protección",
         "presetHint": "Elige un preset. Light es un valor seguro por defecto.",
         "tuneTitle": "Ajuste fino",
@@ -2134,6 +2138,7 @@ export const DICTS: Record<AppLang, any> = {
         "noChannel": "— Nenhum —", "saved": "Canais de estatísticas salvos.", "saveFailed": "Erro ao salvar os canais."
       },
       "automod": {
+        "applying": "A aplicar definições ao teu servidor…",
         "presetTitle": "Nível de proteção",
         "presetHint": "Escolhe um preset. Light é um padrão seguro.",
         "tuneTitle": "Ajuste fino",
@@ -2573,6 +2578,7 @@ export const DICTS: Record<AppLang, any> = {
         "noChannel": "— Нет —", "saved": "Каналы статистики сохранены.", "saveFailed": "Ошибка сохранения каналов."
       },
       "automod": {
+        "applying": "Применяю настройки на сервере…",
         "presetTitle": "Уровень защиты",
         "presetHint": "Выберите пресет. Light — безопасный вариант по умолчанию.",
         "tuneTitle": "Тонкая настройка",
