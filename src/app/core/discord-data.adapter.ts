@@ -24,6 +24,7 @@ import {
   ReactionRolesFeature,
   GiveawaysFeature,
   VerificationConfig,
+  GreetingBlock,
 } from '@servitium/discord';
 import { environment } from '../../environments/environment';
 
@@ -108,6 +109,14 @@ export class DiscordDataAdapter implements DiscordDataPort {
   }
   sendGreetingTest(clientId: string, mode: GreetingMode, sampleName?: string): Observable<{ message: string }> {
     return this.http.post<{ message: string }>(`${this.base}/${clientId}/discord/greeting-test`, { mode, sampleName });
+  }
+  updateGreetingBlocks(clientId: string, mode: GreetingMode, blocks: GreetingBlock[]): Observable<{ message: string }> {
+    return this.http.put<{ message: string }>(`${this.base}/${clientId}/discord/greeting/${mode}/blocks`, { blocks });
+  }
+  uploadGreetingImage(clientId: string, file: File): Observable<{ url: string }> {
+    const form = new FormData();
+    form.append('file', file);
+    return this.http.post<{ url: string }>(`${this.base}/${clientId}/discord/upload-image`, form);
   }
 
   createVoiceHub(clientId: string, body: { namePattern?: string; allowedRoleIds?: string[] }): Observable<{ message: string; hub: VoiceHub }> {

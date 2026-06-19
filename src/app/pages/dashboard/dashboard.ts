@@ -121,6 +121,7 @@ export class DashboardComponent implements OnInit {
       ping: mode === 'welcome' ? c.welcomePing !== false : false,
       bannerEnabled: c[`${mode}BannerEnabled`] === true,
       bannerColor: c[`${mode}BannerColor`] ?? '',
+      blocks: c[`${mode}Blocks`] ?? [],
     };
   }
   welcomeSeed = computed<GreetingSeed>(() => this.seed('welcome'));
