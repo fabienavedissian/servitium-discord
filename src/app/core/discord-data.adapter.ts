@@ -72,6 +72,22 @@ export class DiscordDataAdapter implements DiscordDataPort {
     return this.http.post<{ channel: DiscordChannel }>(`${this.base}/${clientId}/discord/channels`, { name });
   }
 
+  // ── Welcome channel / "Salon d'accueil" (static rich block message) ──
+  getWelcomeChannelComposer(clientId: string): Observable<{ channelId: string | null; messageId: string | null; blocks: GreetingBlock[] }> {
+    return this.http.get<{ channelId: string | null; messageId: string | null; blocks: GreetingBlock[] }>(
+      `${this.base}/${clientId}/discord/welcome-channel`,
+    );
+  }
+  setWelcomeChannelTarget(clientId: string, channelId: string | null): Observable<{ message: string }> {
+    return this.http.put<{ message: string }>(`${this.base}/${clientId}/discord/welcome-channel/target`, { channelId });
+  }
+  updateWelcomeChannelBlocks(clientId: string, blocks: GreetingBlock[]): Observable<{ message: string }> {
+    return this.http.put<{ message: string }>(`${this.base}/${clientId}/discord/welcome-channel/blocks`, { blocks });
+  }
+  publishWelcomeChannel(clientId: string): Observable<{ message: string; messageId: string }> {
+    return this.http.post<{ message: string; messageId: string }>(`${this.base}/${clientId}/discord/welcome-channel/publish`, {});
+  }
+
   configureChannel(clientId: string, channelType: string, config: Partial<DiscordChannelConfig>): Observable<{ message: string }> {
     return this.http.patch<{ message: string }>(`${this.base}/${clientId}/discord/channels/${channelType}`, config);
   }

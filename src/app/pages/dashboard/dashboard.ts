@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import {
-  DiscordGreetingComponent,
+  DiscordMessageComponent,
+  DiscordWelcomeChannelComponent,
   DiscordVoiceHubsComponent,
   DiscordLevelingComponent,
   DiscordReactionRolesComponent,
@@ -13,6 +14,7 @@ import {
   DiscordVerificationComponent,
   LocalizePipe,
   GreetingSeed,
+  WelcomeChannelSeed,
   DiscordChannel,
   DiscordRole,
   VoiceHub,
@@ -47,7 +49,8 @@ type GuildState = 'idle' | 'checking' | 'needs-bot' | 'needs-connect' | 'connect
     SvtCardComponent,
     SvtIconComponent,
     SvtSelectComponent,
-    DiscordGreetingComponent,
+    DiscordMessageComponent,
+    DiscordWelcomeChannelComponent,
     DiscordVoiceHubsComponent,
     DiscordLevelingComponent,
     DiscordReactionRolesComponent,
@@ -87,12 +90,12 @@ export class DashboardComponent implements OnInit {
   loading = signal<boolean>(false);
   state = signal<GuildState>('idle');
   inviteUrl = signal<string>('');
-  activeTab = signal<'welcome' | 'goodbye' | 'voice' | 'verification' | 'leveling' | 'reaction-roles' | 'stats' | 'automod' | 'giveaways'>('welcome');
+  activeTab = signal<'welcome' | 'goodbye' | 'salon' | 'voice' | 'verification' | 'leveling' | 'reaction-roles' | 'stats' | 'automod' | 'giveaways'>('welcome');
   private _config = signal<DiscordConfig | null>(null);
   channels = signal<DiscordChannel[]>([]);
   roles = signal<DiscordRole[]>([]);
 
-  setTab(tab: 'welcome' | 'goodbye' | 'voice' | 'verification' | 'leveling' | 'reaction-roles' | 'stats' | 'automod' | 'giveaways'): void { this.activeTab.set(tab); }
+  setTab(tab: 'welcome' | 'goodbye' | 'salon' | 'voice' | 'verification' | 'leveling' | 'reaction-roles' | 'stats' | 'automod' | 'giveaways'): void { this.activeTab.set(tab); }
 
   guildOptions = computed<SelectOption[]>(() =>
     this.session.guilds().map(g => ({ value: g.guildId, label: g.guildName })),
@@ -126,6 +129,10 @@ export class DashboardComponent implements OnInit {
   }
   welcomeSeed = computed<GreetingSeed>(() => this.seed('welcome'));
   goodbyeSeed = computed<GreetingSeed>(() => this.seed('goodbye'));
+  welcomeChannelSeed = computed<WelcomeChannelSeed>(() => {
+    const wc = (this._config() as any)?.welcomeChannel || {};
+    return { channelId: wc.channelId ?? null, messageId: wc.messageId ?? null, blocks: wc.blocks ?? [] };
+  });
   voiceHubs = computed<VoiceHub[]>(() => (this._config() as any)?.voiceHubs || []);
 
   onGuildSelect(option: SelectOption | null): void {
