@@ -68,6 +68,9 @@ export class DiscordDataAdapter implements DiscordDataPort {
   getAvailableChannels(clientId: string): Observable<DiscordChannel[]> {
     return this.http.get<DiscordChannel[]>(`${this.base}/${clientId}/discord/channels/list`);
   }
+  createChannel(clientId: string, name: string): Observable<{ channel: DiscordChannel }> {
+    return this.http.post<{ channel: DiscordChannel }>(`${this.base}/${clientId}/discord/channels`, { name });
+  }
 
   configureChannel(clientId: string, channelType: string, config: Partial<DiscordChannelConfig>): Observable<{ message: string }> {
     return this.http.patch<{ message: string }>(`${this.base}/${clientId}/discord/channels/${channelType}`, config);
