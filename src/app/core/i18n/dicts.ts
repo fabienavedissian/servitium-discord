@@ -104,11 +104,13 @@ export const DICTS: Record<AppLang, any> = {
       "saving": "Saving..."
     },
     "discordPage": {
+        "voiceHubOwnerControls": "Creator controls",
+        "voiceHubOwnerControlsHint": "Off by default. When on, the creator owns their channel and gets a control panel (lock, limit, rename, kick, claim).",
         "voiceHubLimit": "User limit",
         "voiceHubLimitHint": "Max users in each created channel (0 = unlimited).",
         "voiceHubLocked": "Locked by default",
         "voiceHubLockedHint": "Created channels start private; the owner unlocks from the panel.",
-        "voiceHubPanelNote": "Each created channel gets a control panel (lock, limit, rename, kick, claim) — the owner manages it from there.",
+        "voiceHubPanelNote": "Each hub creates temporary channels. Optionally give the creator a control panel below.",
       "loadingConfig": "Loading Discord configuration...",
       "advancedRolesTitle": "Advanced game/server roles",
       "advancedRolesDescription": "Create one Discord role per game server and control access via a selection panel.",
@@ -549,11 +551,13 @@ export const DICTS: Record<AppLang, any> = {
       "saving": "Enregistrement..."
     },
     "discordPage": {
+        "voiceHubOwnerControls": "Contrôle du créateur",
+        "voiceHubOwnerControlsHint": "Désactivé par défaut. Activé, le créateur possède son salon et obtient un panneau (verrouiller, limite, renommer, expulser, récupérer).",
         "voiceHubLimit": "Limite d'utilisateurs",
         "voiceHubLimitHint": "Nombre max d'utilisateurs par salon créé (0 = illimité).",
         "voiceHubLocked": "Verrouillé par défaut",
         "voiceHubLockedHint": "Les salons créés démarrent privés ; le propriétaire déverrouille depuis le panneau.",
-        "voiceHubPanelNote": "Chaque salon créé a un panneau de contrôle (verrouiller, limite, renommer, expulser, récupérer). Le propriétaire le gère de là.",
+        "voiceHubPanelNote": "Chaque hub crée des salons temporaires. Donne éventuellement un panneau de contrôle au créateur ci-dessous.",
       "loadingConfig": "Chargement de la configuration Discord...",
       "advancedRolesTitle": "Rôles avancés jeu/serveur",
       "advancedRolesDescription": "Créez un rôle Discord par serveur de jeu et contrôlez l'accès via un panneau de sélection.",
@@ -994,11 +998,13 @@ export const DICTS: Record<AppLang, any> = {
       "saving": "Wird gespeichert..."
     },
     "discordPage": {
+        "voiceHubOwnerControls": "Ersteller-Steuerung",
+        "voiceHubOwnerControlsHint": "Standardmäßig aus. An: Der Ersteller besitzt seinen Kanal und erhält ein Panel (sperren, Limit, umbenennen, kicken, übernehmen).",
         "voiceHubLimit": "Benutzerlimit",
         "voiceHubLimitHint": "Max. Nutzer pro erstelltem Kanal (0 = unbegrenzt).",
         "voiceHubLocked": "Standardmäßig gesperrt",
         "voiceHubLockedHint": "Erstellte Kanäle starten privat; der Besitzer entsperrt im Panel.",
-        "voiceHubPanelNote": "Jeder erstellte Kanal hat ein Kontrollpanel (sperren, Limit, umbenennen, kicken, übernehmen) — der Besitzer verwaltet ihn dort.",
+        "voiceHubPanelNote": "Jeder Hub erstellt temporäre Kanäle. Optional unten dem Ersteller ein Kontrollpanel geben.",
       "loadingConfig": "Discord-Konfiguration wird geladen...",
       "advancedRolesTitle": "Erweiterte Spiel-/Server-Rollen",
       "advancedRolesDescription": "Erstellen Sie eine Discord-Rolle pro Spielserver und kontrollieren Sie den Zugang über ein Auswahl-Panel.",
@@ -1439,11 +1445,13 @@ export const DICTS: Record<AppLang, any> = {
       "saving": "Guardando..."
     },
     "discordPage": {
+        "voiceHubOwnerControls": "Controles del creador",
+        "voiceHubOwnerControlsHint": "Desactivado por defecto. Activado, el creador es dueño de su canal y obtiene un panel (bloquear, límite, renombrar, expulsar, reclamar).",
         "voiceHubLimit": "Límite de usuarios",
         "voiceHubLimitHint": "Usuarios máx. por canal creado (0 = ilimitado).",
         "voiceHubLocked": "Bloqueado por defecto",
         "voiceHubLockedHint": "Los canales creados empiezan privados; el dueño los desbloquea desde el panel.",
-        "voiceHubPanelNote": "Cada canal creado tiene un panel de control (bloquear, límite, renombrar, expulsar, reclamar); el dueño lo gestiona desde ahí.",
+        "voiceHubPanelNote": "Cada hub crea canales temporales. Opcionalmente da un panel de control al creador abajo.",
       "loadingConfig": "Cargando configuración Discord...",
       "advancedRolesTitle": "Roles avanzados juego/servidor",
       "advancedRolesDescription": "Crea un rol Discord por servidor de juego y controla el acceso vía un panel de selección.",
@@ -1884,11 +1892,13 @@ export const DICTS: Record<AppLang, any> = {
       "saving": "Salvando..."
     },
     "discordPage": {
+        "voiceHubOwnerControls": "Controlos do criador",
+        "voiceHubOwnerControlsHint": "Desligado por defeito. Ligado, o criador é dono do seu canal e recebe um painel (bloquear, limite, renomear, expulsar, reivindicar).",
         "voiceHubLimit": "Limite de utilizadores",
         "voiceHubLimitHint": "Utilizadores máx. por canal criado (0 = ilimitado).",
         "voiceHubLocked": "Bloqueado por defeito",
         "voiceHubLockedHint": "Os canais criados começam privados; o dono desbloqueia no painel.",
-        "voiceHubPanelNote": "Cada canal criado tem um painel de controlo (bloquear, limite, renomear, expulsar, reivindicar); o dono gere-o a partir daí.",
+        "voiceHubPanelNote": "Cada hub cria canais temporários. Opcionalmente dá um painel de controlo ao criador abaixo.",
       "loadingConfig": "Carregando configuração do Discord...",
       "advancedRolesTitle": "Funções avançadas de jogo/servidor",
       "advancedRolesDescription": "Crie uma função do Discord por servidor de jogo e controle o acesso via um painel de seleção.",
@@ -2329,11 +2339,13 @@ export const DICTS: Record<AppLang, any> = {
       "saving": "Сохранение..."
     },
     "discordPage": {
+        "voiceHubOwnerControls": "Управление создателем",
+        "voiceHubOwnerControlsHint": "По умолчанию выкл. Включено: создатель владеет каналом и получает панель (блокировка, лимит, переименование, кик, захват).",
         "voiceHubLimit": "Лимит участников",
         "voiceHubLimitHint": "Макс. участников в созданном канале (0 = без лимита).",
         "voiceHubLocked": "Заблокирован по умолчанию",
         "voiceHubLockedHint": "Созданные каналы приватны; владелец разблокирует в панели.",
-        "voiceHubPanelNote": "У каждого созданного канала есть панель управления (блокировка, лимит, переименование, кик, захват) — владелец управляет оттуда.",
+        "voiceHubPanelNote": "Каждый хаб создаёт временные каналы. При желании дайте создателю панель управления ниже.",
       "loadingConfig": "Загрузка конфигурации Discord...",
       "advancedRolesTitle": "Расширенные роли игр/серверов",
       "advancedRolesDescription": "Создать по одной Discord-роли на каждый игровой сервер и управлять доступом через панель выбора.",
