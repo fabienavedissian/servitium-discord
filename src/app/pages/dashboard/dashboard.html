@@ -97,11 +97,11 @@
         {{ 'discordApp.tabLeveling' | localize }}
       </button>
       <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'reaction-roles'" (click)="setTab('reaction-roles')">
-        <svt-icon name="check-square" [size]="16" />
+        <svt-icon name="square-check" [size]="16" />
         {{ 'discordApp.tabReactionRoles' | localize }}
       </button>
       <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'stats'" (click)="setTab('stats')">
-        <svt-icon name="bar-chart-2" [size]="16" />
+        <svt-icon name="chart-bar" [size]="16" />
         {{ 'discordApp.tabStats' | localize }}
       </button>
       <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'automod'" (click)="setTab('automod')">
