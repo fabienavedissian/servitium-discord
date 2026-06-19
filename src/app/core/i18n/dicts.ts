@@ -93,7 +93,7 @@ export const DICTS: Record<AppLang, any> = {
       "tabLeveling": "Leveling",
       "tabReactionRoles": "Reaction Roles",
       "tabStats": "Stats",
-      "tabAutomod": "AutoMod",
+      "tabAutomod": "Moderation",
       "tabGiveaways": "Giveaways"
     },
     "common": {
@@ -378,6 +378,30 @@ export const DICTS: Record<AppLang, any> = {
         "noChannel": "— None —", "saved": "Stats channels saved.", "saveFailed": "Failed to save stats channels."
       },
       "automod": {
+        "presetTitle": "Protection level",
+        "presetHint": "Pick a preset. Light is a safe default; raise it as your community grows.",
+        "tuneTitle": "Fine-tune",
+        "tuneHint": "Changing any rule switches the preset to Custom.",
+        "mentionLimit": "Max mentions",
+        "sanctionsTitle": "Sanctions",
+        "timeout": "Auto timeout",
+        "timeoutHint": "Temporarily mute the author when a rule triggers.",
+        "timeoutDuration": "Duration",
+        "logChannel": "Log channel",
+        "logChannelHint": "Post every moderation action to this channel.",
+        "patterns": "Custom patterns (regex)",
+        "patternsHint": "Advanced: block messages matching a regular expression.",
+        "addPattern": "Add a pattern",
+        "patternsSaved": "Patterns saved",
+        "preset": {
+          "light": "Light",
+          "lightTag": "Spam + mention protection. Blocks only.",
+          "medium": "Medium",
+          "mediumTag": "Links, caps & content filter + short timeout.",
+          "hard": "Hard",
+          "hardTag": "Strictest filters + 10 min timeout.",
+          "customActive": "Custom settings"
+        },
         "title": "AutoMod", "enable": "Enable AutoMod", "enableDescription": "Activate native Discord auto-moderation. Individual rules can be toggled below.",
         "customKeywords": "Custom blocked words", "customKeywordsHint": "Add words or phrases that will be automatically deleted. Discord enforces the list natively.",
         "addKeyword": "Add a word", "keywordPlaceholder": "e.g. badword",
@@ -508,7 +532,7 @@ export const DICTS: Record<AppLang, any> = {
       "tabLeveling": "Classement XP",
       "tabReactionRoles": "Rôles boutons",
       "tabStats": "Compteurs",
-      "tabAutomod": "AutoMod",
+      "tabAutomod": "Modération",
       "tabGiveaways": "Tombolas"
     },
     "common": {
@@ -793,6 +817,30 @@ export const DICTS: Record<AppLang, any> = {
         "noChannel": "— Aucun —", "saved": "Compteurs enregistrés.", "saveFailed": "Échec de l'enregistrement des compteurs."
       },
       "automod": {
+        "presetTitle": "Niveau de protection",
+        "presetHint": "Choisis un preset. Light est un défaut sûr ; monte d'un cran selon ta communauté.",
+        "tuneTitle": "Réglages fins",
+        "tuneHint": "Modifier une règle passe le preset en Custom.",
+        "mentionLimit": "Mentions max",
+        "sanctionsTitle": "Sanctions",
+        "timeout": "Timeout auto",
+        "timeoutHint": "Exclut temporairement l'auteur quand une règle se déclenche.",
+        "timeoutDuration": "Durée",
+        "logChannel": "Salon de logs",
+        "logChannelHint": "Poste chaque action de modération dans ce salon.",
+        "patterns": "Motifs personnalisés (regex)",
+        "patternsHint": "Avancé : bloque les messages correspondant à une expression régulière.",
+        "addPattern": "Ajouter un motif",
+        "patternsSaved": "Motifs enregistrés",
+        "preset": {
+          "light": "Light",
+          "lightTag": "Anti-spam + mentions. Bloque seulement.",
+          "medium": "Medium",
+          "mediumTag": "Liens, majuscules & filtre contenu + timeout court.",
+          "hard": "Hard",
+          "hardTag": "Filtres les plus stricts + timeout 10 min.",
+          "customActive": "Réglages personnalisés"
+        },
         "title": "AutoMod", "enable": "Activer l'AutoMod", "enableDescription": "Active la modération automatique native de Discord. Les règles individuelles sont configurables ci-dessous.",
         "customKeywords": "Mots interdits personnalisés", "customKeywordsHint": "Ajoutez des mots ou expressions qui seront automatiquement supprimés. Discord applique la liste nativement.",
         "addKeyword": "Ajouter un mot", "keywordPlaceholder": "ex : motinterdit",
@@ -923,7 +971,7 @@ export const DICTS: Record<AppLang, any> = {
       "tabLeveling": "XP-Level",
       "tabReactionRoles": "Rollenknöpfe",
       "tabStats": "Statistik",
-      "tabAutomod": "AutoMod",
+      "tabAutomod": "Moderation",
       "tabGiveaways": "Gewinnspiele"
     },
     "common": {
@@ -1208,6 +1256,30 @@ export const DICTS: Record<AppLang, any> = {
         "noChannel": "— Keiner —", "saved": "Statistikkanäle gespeichert.", "saveFailed": "Speichern fehlgeschlagen."
       },
       "automod": {
+        "presetTitle": "Schutzstufe",
+        "presetHint": "Wähle eine Voreinstellung. Light ist ein sicherer Standard.",
+        "tuneTitle": "Feinabstimmung",
+        "tuneHint": "Eine Regel zu ändern wechselt auf Custom.",
+        "mentionLimit": "Max. Erwähnungen",
+        "sanctionsTitle": "Sanktionen",
+        "timeout": "Auto-Timeout",
+        "timeoutHint": "Schließt den Autor bei Regelverstoß kurz aus.",
+        "timeoutDuration": "Dauer",
+        "logChannel": "Log-Kanal",
+        "logChannelHint": "Postet jede Moderationsaktion in diesen Kanal.",
+        "patterns": "Eigene Muster (Regex)",
+        "patternsHint": "Erweitert: blockiert Nachrichten, die einem regulären Ausdruck entsprechen.",
+        "addPattern": "Muster hinzufügen",
+        "patternsSaved": "Muster gespeichert",
+        "preset": {
+          "light": "Light",
+          "lightTag": "Spam- + Erwähnungsschutz. Nur blockieren.",
+          "medium": "Medium",
+          "mediumTag": "Links, Großschrift & Inhaltsfilter + kurzer Timeout.",
+          "hard": "Hard",
+          "hardTag": "Strengste Filter + 10 Min Timeout.",
+          "customActive": "Eigene Einstellungen"
+        },
         "title": "AutoMod", "enable": "AutoMod aktivieren", "enableDescription": "Native Discord-Automoderation aktivieren. Einzelne Regeln sind unten konfigurierbar.",
         "customKeywords": "Benutzerdefinierte gesperrte Wörter", "customKeywordsHint": "Wörter oder Phrasen hinzufügen, die automatisch gelöscht werden. Discord wendet die Liste nativ an.",
         "addKeyword": "Wort hinzufügen", "keywordPlaceholder": "z.B. schlechteswort",
@@ -1338,7 +1410,7 @@ export const DICTS: Record<AppLang, any> = {
       "tabLeveling": "Niveles XP",
       "tabReactionRoles": "Roles botones",
       "tabStats": "Estadísticas",
-      "tabAutomod": "AutoMod",
+      "tabAutomod": "Moderación",
       "tabGiveaways": "Sorteos"
     },
     "common": {
@@ -1623,6 +1695,30 @@ export const DICTS: Record<AppLang, any> = {
         "noChannel": "— Ninguno —", "saved": "Canales de estadísticas guardados.", "saveFailed": "Error al guardar los canales."
       },
       "automod": {
+        "presetTitle": "Nivel de protección",
+        "presetHint": "Elige un preset. Light es un valor seguro por defecto.",
+        "tuneTitle": "Ajuste fino",
+        "tuneHint": "Cambiar una regla pasa a Custom.",
+        "mentionLimit": "Menciones máx.",
+        "sanctionsTitle": "Sanciones",
+        "timeout": "Timeout automático",
+        "timeoutHint": "Silencia temporalmente al autor al saltar una regla.",
+        "timeoutDuration": "Duración",
+        "logChannel": "Canal de registro",
+        "logChannelHint": "Publica cada acción de moderación en este canal.",
+        "patterns": "Patrones personalizados (regex)",
+        "patternsHint": "Avanzado: bloquea mensajes que coincidan con una expresión regular.",
+        "addPattern": "Añadir patrón",
+        "patternsSaved": "Patrones guardados",
+        "preset": {
+          "light": "Light",
+          "lightTag": "Anti-spam + menciones. Solo bloquea.",
+          "medium": "Medium",
+          "mediumTag": "Enlaces, mayúsculas y filtro + timeout corto.",
+          "hard": "Hard",
+          "hardTag": "Filtros más estrictos + timeout 10 min.",
+          "customActive": "Ajustes personalizados"
+        },
         "title": "AutoMod", "enable": "Activar AutoMod", "enableDescription": "Activa la moderación automática nativa de Discord. Las reglas individuales se configuran abajo.",
         "customKeywords": "Palabras prohibidas personalizadas", "customKeywordsHint": "Agrega palabras o frases que se eliminarán automáticamente. Discord aplica la lista de forma nativa.",
         "addKeyword": "Agregar palabra", "keywordPlaceholder": "ej: palabrafea",
@@ -1753,7 +1849,7 @@ export const DICTS: Record<AppLang, any> = {
       "tabLeveling": "Níveis XP",
       "tabReactionRoles": "Roles botões",
       "tabStats": "Estatísticas",
-      "tabAutomod": "AutoMod",
+      "tabAutomod": "Moderação",
       "tabGiveaways": "Sorteios"
     },
     "common": {
@@ -2038,6 +2134,30 @@ export const DICTS: Record<AppLang, any> = {
         "noChannel": "— Nenhum —", "saved": "Canais de estatísticas salvos.", "saveFailed": "Erro ao salvar os canais."
       },
       "automod": {
+        "presetTitle": "Nível de proteção",
+        "presetHint": "Escolhe um preset. Light é um padrão seguro.",
+        "tuneTitle": "Ajuste fino",
+        "tuneHint": "Alterar uma regra muda para Custom.",
+        "mentionLimit": "Menções máx.",
+        "sanctionsTitle": "Sanções",
+        "timeout": "Timeout automático",
+        "timeoutHint": "Silencia temporariamente o autor quando uma regra dispara.",
+        "timeoutDuration": "Duração",
+        "logChannel": "Canal de registo",
+        "logChannelHint": "Publica cada ação de moderação neste canal.",
+        "patterns": "Padrões personalizados (regex)",
+        "patternsHint": "Avançado: bloqueia mensagens que correspondam a uma expressão regular.",
+        "addPattern": "Adicionar padrão",
+        "patternsSaved": "Padrões guardados",
+        "preset": {
+          "light": "Light",
+          "lightTag": "Anti-spam + menções. Apenas bloqueia.",
+          "medium": "Medium",
+          "mediumTag": "Links, maiúsculas e filtro + timeout curto.",
+          "hard": "Hard",
+          "hardTag": "Filtros mais rígidos + timeout 10 min.",
+          "customActive": "Definições personalizadas"
+        },
         "title": "AutoMod", "enable": "Ativar AutoMod", "enableDescription": "Ativa a moderação automática nativa do Discord. Regras individuais são configuráveis abaixo.",
         "customKeywords": "Palavras proibidas personalizadas", "customKeywordsHint": "Adicione palavras ou frases que serão excluídas automaticamente. O Discord aplica a lista nativamente.",
         "addKeyword": "Adicionar palavra", "keywordPlaceholder": "ex: palavraruim",
@@ -2168,7 +2288,7 @@ export const DICTS: Record<AppLang, any> = {
       "tabLeveling": "Уровни XP",
       "tabReactionRoles": "Роли кнопками",
       "tabStats": "Счётчики",
-      "tabAutomod": "AutoMod",
+      "tabAutomod": "Модерация",
       "tabGiveaways": "Розыгрыши"
     },
     "common": {
@@ -2453,6 +2573,30 @@ export const DICTS: Record<AppLang, any> = {
         "noChannel": "— Нет —", "saved": "Каналы статистики сохранены.", "saveFailed": "Ошибка сохранения каналов."
       },
       "automod": {
+        "presetTitle": "Уровень защиты",
+        "presetHint": "Выберите пресет. Light — безопасный вариант по умолчанию.",
+        "tuneTitle": "Тонкая настройка",
+        "tuneHint": "Изменение правила переключает пресет на Custom.",
+        "mentionLimit": "Макс. упоминаний",
+        "sanctionsTitle": "Санкции",
+        "timeout": "Авто тайм-аут",
+        "timeoutHint": "Временно заглушает автора при срабатывании правила.",
+        "timeoutDuration": "Длительность",
+        "logChannel": "Канал логов",
+        "logChannelHint": "Публикует каждое действие модерации в этот канал.",
+        "patterns": "Свои шаблоны (regex)",
+        "patternsHint": "Продвинуто: блокирует сообщения по регулярному выражению.",
+        "addPattern": "Добавить шаблон",
+        "patternsSaved": "Шаблоны сохранены",
+        "preset": {
+          "light": "Light",
+          "lightTag": "Защита от спама и упоминаний. Только блокировка.",
+          "medium": "Medium",
+          "mediumTag": "Ссылки, капс и фильтр + короткий тайм-аут.",
+          "hard": "Hard",
+          "hardTag": "Самые строгие фильтры + тайм-аут 10 мин.",
+          "customActive": "Свои настройки"
+        },
         "title": "АвтоМод", "enable": "Включить АвтоМод", "enableDescription": "Активировать нативную автомодерацию Discord. Отдельные правила настраиваются ниже.",
         "customKeywords": "Запрещённые слова", "customKeywordsHint": "Добавьте слова или фразы, которые будут автоматически удаляться. Discord применяет список нативно.",
         "addKeyword": "Добавить слово", "keywordPlaceholder": "напр.: запрещслово",

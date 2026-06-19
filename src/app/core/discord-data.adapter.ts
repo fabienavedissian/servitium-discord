@@ -201,6 +201,12 @@ export class DiscordDataAdapter implements DiscordDataPort {
   updateAutomodConfig(clientId: string, config: Partial<AutomodConfig>): Observable<{ message: string }> {
     return this.http.put<{ message: string }>(`${this.base}/${clientId}/discord/automod`, config);
   }
+  setAutomodPreset(clientId: string, body: { enabled?: boolean; preset?: string }): Observable<{ message: string }> {
+    return this.http.put<{ message: string }>(`${this.base}/${clientId}/discord/automod/preset`, body);
+  }
+  updateAutomodSettings(clientId: string, settings: any): Observable<{ message: string }> {
+    return this.http.put<{ message: string }>(`${this.base}/${clientId}/discord/automod/settings`, settings);
+  }
   updateAutomodKeywords(clientId: string, keywords: string[]): Observable<{ message: string }> {
     return this.http.put<{ message: string }>(`${this.base}/${clientId}/discord/automod/keywords`, { keywords });
   }
