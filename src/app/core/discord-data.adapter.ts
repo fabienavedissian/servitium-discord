@@ -172,6 +172,9 @@ export class DiscordDataAdapter implements DiscordDataPort {
   updateAutomodConfig(clientId: string, config: Partial<AutomodConfig>): Observable<{ message: string }> {
     return this.http.put<{ message: string }>(`${this.base}/${clientId}/discord/automod`, config);
   }
+  updateAutomodKeywords(clientId: string, keywords: string[]): Observable<{ message: string }> {
+    return this.http.put<{ message: string }>(`${this.base}/${clientId}/discord/automod/keywords`, { keywords });
+  }
 
   // Stats voice channels (free)
   getStatsChannels(clientId: string): Observable<StatsChannelsConfig> {
