@@ -141,7 +141,7 @@ export class DiscordDataAdapter implements DiscordDataPort {
   createVoiceHub(clientId: string, body: { namePattern?: string; allowedRoleIds?: string[] }): Observable<{ message: string; hub: VoiceHub }> {
     return this.http.post<{ message: string; hub: VoiceHub }>(`${this.base}/${clientId}/discord/voice-hubs`, body);
   }
-  updateVoiceHub(clientId: string, channelId: string, body: { namePattern?: string; allowedRoleIds?: string[] }): Observable<{ message: string }> {
+  updateVoiceHub(clientId: string, channelId: string, body: { namePattern?: string; allowedRoleIds?: string[]; userLimit?: number; locked?: boolean }): Observable<{ message: string }> {
     return this.http.patch<{ message: string }>(`${this.base}/${clientId}/discord/voice-hubs/${channelId}`, body);
   }
   deleteVoiceHub(clientId: string, channelId: string): Observable<{ message: string }> {

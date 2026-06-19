@@ -104,6 +104,11 @@ export const DICTS: Record<AppLang, any> = {
       "saving": "Saving..."
     },
     "discordPage": {
+        "voiceHubLimit": "User limit",
+        "voiceHubLimitHint": "Max users in each created channel (0 = unlimited).",
+        "voiceHubLocked": "Locked by default",
+        "voiceHubLockedHint": "Created channels start private; the owner unlocks from the panel.",
+        "voiceHubPanelNote": "Each created channel gets a control panel (lock, limit, rename, kick, claim) — the owner manages it from there.",
       "loadingConfig": "Loading Discord configuration...",
       "advancedRolesTitle": "Advanced game/server roles",
       "advancedRolesDescription": "Create one Discord role per game server and control access via a selection panel.",
@@ -544,6 +549,11 @@ export const DICTS: Record<AppLang, any> = {
       "saving": "Enregistrement..."
     },
     "discordPage": {
+        "voiceHubLimit": "Limite d'utilisateurs",
+        "voiceHubLimitHint": "Nombre max d'utilisateurs par salon créé (0 = illimité).",
+        "voiceHubLocked": "Verrouillé par défaut",
+        "voiceHubLockedHint": "Les salons créés démarrent privés ; le propriétaire déverrouille depuis le panneau.",
+        "voiceHubPanelNote": "Chaque salon créé a un panneau de contrôle (verrouiller, limite, renommer, expulser, récupérer). Le propriétaire le gère de là.",
       "loadingConfig": "Chargement de la configuration Discord...",
       "advancedRolesTitle": "Rôles avancés jeu/serveur",
       "advancedRolesDescription": "Créez un rôle Discord par serveur de jeu et contrôlez l'accès via un panneau de sélection.",
@@ -984,6 +994,11 @@ export const DICTS: Record<AppLang, any> = {
       "saving": "Wird gespeichert..."
     },
     "discordPage": {
+        "voiceHubLimit": "Benutzerlimit",
+        "voiceHubLimitHint": "Max. Nutzer pro erstelltem Kanal (0 = unbegrenzt).",
+        "voiceHubLocked": "Standardmäßig gesperrt",
+        "voiceHubLockedHint": "Erstellte Kanäle starten privat; der Besitzer entsperrt im Panel.",
+        "voiceHubPanelNote": "Jeder erstellte Kanal hat ein Kontrollpanel (sperren, Limit, umbenennen, kicken, übernehmen) — der Besitzer verwaltet ihn dort.",
       "loadingConfig": "Discord-Konfiguration wird geladen...",
       "advancedRolesTitle": "Erweiterte Spiel-/Server-Rollen",
       "advancedRolesDescription": "Erstellen Sie eine Discord-Rolle pro Spielserver und kontrollieren Sie den Zugang über ein Auswahl-Panel.",
@@ -1424,6 +1439,11 @@ export const DICTS: Record<AppLang, any> = {
       "saving": "Guardando..."
     },
     "discordPage": {
+        "voiceHubLimit": "Límite de usuarios",
+        "voiceHubLimitHint": "Usuarios máx. por canal creado (0 = ilimitado).",
+        "voiceHubLocked": "Bloqueado por defecto",
+        "voiceHubLockedHint": "Los canales creados empiezan privados; el dueño los desbloquea desde el panel.",
+        "voiceHubPanelNote": "Cada canal creado tiene un panel de control (bloquear, límite, renombrar, expulsar, reclamar); el dueño lo gestiona desde ahí.",
       "loadingConfig": "Cargando configuración Discord...",
       "advancedRolesTitle": "Roles avanzados juego/servidor",
       "advancedRolesDescription": "Crea un rol Discord por servidor de juego y controla el acceso vía un panel de selección.",
@@ -1864,6 +1884,11 @@ export const DICTS: Record<AppLang, any> = {
       "saving": "Salvando..."
     },
     "discordPage": {
+        "voiceHubLimit": "Limite de utilizadores",
+        "voiceHubLimitHint": "Utilizadores máx. por canal criado (0 = ilimitado).",
+        "voiceHubLocked": "Bloqueado por defeito",
+        "voiceHubLockedHint": "Os canais criados começam privados; o dono desbloqueia no painel.",
+        "voiceHubPanelNote": "Cada canal criado tem um painel de controlo (bloquear, limite, renomear, expulsar, reivindicar); o dono gere-o a partir daí.",
       "loadingConfig": "Carregando configuração do Discord...",
       "advancedRolesTitle": "Funções avançadas de jogo/servidor",
       "advancedRolesDescription": "Crie uma função do Discord por servidor de jogo e controle o acesso via um painel de seleção.",
@@ -2304,6 +2329,11 @@ export const DICTS: Record<AppLang, any> = {
       "saving": "Сохранение..."
     },
     "discordPage": {
+        "voiceHubLimit": "Лимит участников",
+        "voiceHubLimitHint": "Макс. участников в созданном канале (0 = без лимита).",
+        "voiceHubLocked": "Заблокирован по умолчанию",
+        "voiceHubLockedHint": "Созданные каналы приватны; владелец разблокирует в панели.",
+        "voiceHubPanelNote": "У каждого созданного канала есть панель управления (блокировка, лимит, переименование, кик, захват) — владелец управляет оттуда.",
       "loadingConfig": "Загрузка конфигурации Discord...",
       "advancedRolesTitle": "Расширенные роли игр/серверов",
       "advancedRolesDescription": "Создать по одной Discord-роли на каждый игровой сервер и управлять доступом через панель выбора.",
