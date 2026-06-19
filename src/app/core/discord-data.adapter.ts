@@ -171,6 +171,9 @@ export class DiscordDataAdapter implements DiscordDataPort {
   updateLevelingConfig(clientId: string, config: Partial<LevelingConfig>): Observable<{ message: string }> {
     return this.http.put<{ message: string }>(`${this.base}/${clientId}/discord/leveling`, config);
   }
+  setLevelingPreset(clientId: string, body: { enabled?: boolean; preset?: string }): Observable<{ message: string }> {
+    return this.http.put<{ message: string }>(`${this.base}/${clientId}/discord/leveling/preset`, body);
+  }
   getLevelingLeaderboard(clientId: string): Observable<LevelEntry[]> {
     return this.http.get<LevelEntry[]>(`${this.base}/${clientId}/discord/leveling/leaderboard`);
   }
