@@ -24,6 +24,7 @@ export const DICTS: Record<AppLang, any> = {
       "tabWelcome": "Welcome",
       "tabGoodbye": "Goodbye",
       "tabVoice": "Voice",
+      "tabVerification": "Verification",
       "greetingWelcomeTitle": "Welcome message",
       "greetingInsertChannel": "Insert a channel link",
       "greetingWelcomeDesc": "Greet new members when they join.",
@@ -359,6 +360,26 @@ export const DICTS: Record<AppLang, any> = {
         "start": "Start", "saved": "Giveaways updated.", "saveFailed": "Failed to update giveaways.",
         "created": "Giveaway started!", "createFailed": "Failed to start giveaway.",
         "deleted": "Giveaway cancelled.", "deleteFailed": "Failed to cancel giveaway."
+      },
+      "verification": {
+        "title": "Verification gate", "enable": "Enable verification gate",
+        "enableDescription": "Require new members to verify before they can access the server.",
+        "embedTitle": "Embed title", "embedDescription": "Message",
+        "embedDescriptionHint": "Shown in the verification embed. Supports line breaks and emojis.",
+        "buttonLabel": "Button label", "captcha": "Require a captcha",
+        "captchaHint": "Ask a quick challenge before granting access, to block bots.",
+        "whatHappens": "When you set this up:",
+        "what1": "A #verification channel is created, visible to everyone.",
+        "what2": "A Verified role is created.",
+        "what3": "All other channels are hidden from unverified members.",
+        "what4": "Current members are kept verified, so no one is locked out.",
+        "what5": "A Verify button is posted in the verification channel.",
+        "active": "Verification gate is active.", "setupButton": "Set up the gate",
+        "settingUp": "Setting up...", "setupDone": "Verification gate is live.",
+        "setupFailed": "Could not set up the verification gate.",
+        "disableButton": "Disable gate",
+        "disabledToast": "Verification gate disabled. Members can see the server again.",
+        "saved": "Verification settings saved.", "saveFailed": "Could not save verification settings."
       }
     }
   },
@@ -383,6 +404,7 @@ export const DICTS: Record<AppLang, any> = {
       "tabWelcome": "Bienvenue",
       "tabGoodbye": "Au revoir",
       "tabVoice": "Vocal",
+      "tabVerification": "Vérification",
       "greetingWelcomeTitle": "Message de bienvenue",
       "greetingInsertChannel": "Insérer un lien de salon",
       "greetingWelcomeDesc": "Accueillez les nouveaux membres à leur arrivée.",
@@ -718,6 +740,26 @@ export const DICTS: Record<AppLang, any> = {
         "start": "Lancer", "saved": "Tombolas mises à jour.", "saveFailed": "Échec de la mise à jour des tombolas.",
         "created": "Tombola lancée !", "createFailed": "Échec du lancement de la tombola.",
         "deleted": "Tombola annulée.", "deleteFailed": "Échec de l'annulation."
+      },
+      "verification": {
+        "title": "Filtre de vérification", "enable": "Activer le filtre de vérification",
+        "enableDescription": "Obligez les nouveaux membres à se vérifier avant d'accéder au serveur.",
+        "embedTitle": "Titre de l'encart", "embedDescription": "Message",
+        "embedDescriptionHint": "Affiché dans l'encart de vérification. Accepte les retours à la ligne et les emojis.",
+        "buttonLabel": "Libellé du bouton", "captcha": "Exiger un captcha",
+        "captchaHint": "Posez un petit défi avant de donner l'accès, pour bloquer les bots.",
+        "whatHappens": "À la mise en place :",
+        "what1": "Un salon #verification est créé, visible par tous.",
+        "what2": "Un rôle Vérifié est créé.",
+        "what3": "Tous les autres salons sont masqués aux membres non vérifiés.",
+        "what4": "Les membres actuels restent vérifiés, personne n'est bloqué.",
+        "what5": "Un bouton Vérifier est publié dans le salon de vérification.",
+        "active": "Le filtre de vérification est actif.", "setupButton": "Mettre en place le filtre",
+        "settingUp": "Mise en place...", "setupDone": "Le filtre de vérification est en place.",
+        "setupFailed": "Impossible de mettre en place le filtre de vérification.",
+        "disableButton": "Désactiver le filtre",
+        "disabledToast": "Filtre de vérification désactivé. Les membres revoient le serveur.",
+        "saved": "Paramètres de vérification enregistrés.", "saveFailed": "Impossible d'enregistrer les paramètres de vérification."
       }
     }
   },
@@ -742,6 +784,7 @@ export const DICTS: Record<AppLang, any> = {
       "tabWelcome": "Willkommen",
       "tabGoodbye": "Abschied",
       "tabVoice": "Sprache",
+      "tabVerification": "Verifizierung",
       "greetingWelcomeTitle": "Willkommensnachricht",
       "greetingInsertChannel": "Kanal-Link einfügen",
       "greetingWelcomeDesc": "Begrüße neue Mitglieder, wenn sie beitreten.",
@@ -1077,6 +1120,26 @@ export const DICTS: Record<AppLang, any> = {
         "start": "Starten", "saved": "Gewinnspiele aktualisiert.", "saveFailed": "Aktualisierung fehlgeschlagen.",
         "created": "Gewinnspiel gestartet!", "createFailed": "Gewinnspiel konnte nicht gestartet werden.",
         "deleted": "Gewinnspiel abgebrochen.", "deleteFailed": "Abbrechen fehlgeschlagen."
+      },
+      "verification": {
+        "title": "Verifizierungssperre", "enable": "Verifizierungssperre aktivieren",
+        "enableDescription": "Neue Mitglieder müssen sich verifizieren, bevor sie auf den Server zugreifen können.",
+        "embedTitle": "Embed-Titel", "embedDescription": "Nachricht",
+        "embedDescriptionHint": "Wird im Verifizierungs-Embed angezeigt. Unterstützt Zeilenumbrüche und Emojis.",
+        "buttonLabel": "Beschriftung des Buttons", "captcha": "Captcha verlangen",
+        "captchaHint": "Stelle vor der Freigabe eine kurze Aufgabe, um Bots zu blockieren.",
+        "whatHappens": "Beim Einrichten passiert Folgendes:",
+        "what1": "Ein Kanal #verification wird erstellt, für alle sichtbar.",
+        "what2": "Eine Rolle Verifiziert wird erstellt.",
+        "what3": "Alle anderen Kanäle werden für nicht verifizierte Mitglieder ausgeblendet.",
+        "what4": "Aktuelle Mitglieder bleiben verifiziert, niemand wird ausgesperrt.",
+        "what5": "Ein Verifizieren-Button wird im Verifizierungskanal gepostet.",
+        "active": "Die Verifizierungssperre ist aktiv.", "setupButton": "Sperre einrichten",
+        "settingUp": "Wird eingerichtet...", "setupDone": "Die Verifizierungssperre ist aktiv.",
+        "setupFailed": "Die Verifizierungssperre konnte nicht eingerichtet werden.",
+        "disableButton": "Sperre deaktivieren",
+        "disabledToast": "Verifizierungssperre deaktiviert. Mitglieder sehen den Server wieder.",
+        "saved": "Verifizierungseinstellungen gespeichert.", "saveFailed": "Verifizierungseinstellungen konnten nicht gespeichert werden."
       }
     }
   },
@@ -1101,6 +1164,7 @@ export const DICTS: Record<AppLang, any> = {
       "tabWelcome": "Bienvenida",
       "tabGoodbye": "Despedida",
       "tabVoice": "Voz",
+      "tabVerification": "Verificación",
       "greetingWelcomeTitle": "Mensaje de bienvenida",
       "greetingInsertChannel": "Insertar un enlace de canal",
       "greetingWelcomeDesc": "Saluda a los nuevos miembros cuando entran.",
@@ -1436,6 +1500,26 @@ export const DICTS: Record<AppLang, any> = {
         "start": "Iniciar", "saved": "Sorteos actualizados.", "saveFailed": "Error al actualizar sorteos.",
         "created": "Sorteo iniciado!", "createFailed": "Error al iniciar el sorteo.",
         "deleted": "Sorteo cancelado.", "deleteFailed": "Error al cancelar el sorteo."
+      },
+      "verification": {
+        "title": "Filtro de verificación", "enable": "Activar filtro de verificación",
+        "enableDescription": "Obliga a los nuevos miembros a verificarse antes de acceder al servidor.",
+        "embedTitle": "Título del embed", "embedDescription": "Mensaje",
+        "embedDescriptionHint": "Se muestra en el embed de verificación. Admite saltos de línea y emojis.",
+        "buttonLabel": "Texto del botón", "captcha": "Exigir un captcha",
+        "captchaHint": "Plantea un breve reto antes de dar acceso, para bloquear bots.",
+        "whatHappens": "Cuando lo configures:",
+        "what1": "Se crea un canal #verification, visible para todos.",
+        "what2": "Se crea un rol Verificado.",
+        "what3": "El resto de canales se ocultan a los miembros sin verificar.",
+        "what4": "Los miembros actuales quedan verificados, nadie se queda fuera.",
+        "what5": "Se publica un botón Verificar en el canal de verificación.",
+        "active": "El filtro de verificación está activo.", "setupButton": "Configurar el filtro",
+        "settingUp": "Configurando...", "setupDone": "El filtro de verificación está activo.",
+        "setupFailed": "No se pudo configurar el filtro de verificación.",
+        "disableButton": "Desactivar filtro",
+        "disabledToast": "Filtro de verificación desactivado. Los miembros vuelven a ver el servidor.",
+        "saved": "Ajustes de verificación guardados.", "saveFailed": "No se pudieron guardar los ajustes de verificación."
       }
     }
   },
@@ -1460,6 +1544,7 @@ export const DICTS: Record<AppLang, any> = {
       "tabWelcome": "Boas-vindas",
       "tabGoodbye": "Despedida",
       "tabVoice": "Voz",
+      "tabVerification": "Verificação",
       "greetingWelcomeTitle": "Mensagem de boas-vindas",
       "greetingInsertChannel": "Inserir um link de canal",
       "greetingWelcomeDesc": "Receba novos membros quando entram.",
@@ -1795,6 +1880,26 @@ export const DICTS: Record<AppLang, any> = {
         "start": "Iniciar", "saved": "Sorteios atualizados.", "saveFailed": "Erro ao atualizar sorteios.",
         "created": "Sorteio iniciado!", "createFailed": "Erro ao iniciar o sorteio.",
         "deleted": "Sorteio cancelado.", "deleteFailed": "Erro ao cancelar o sorteio."
+      },
+      "verification": {
+        "title": "Filtro de verificação", "enable": "Ativar filtro de verificação",
+        "enableDescription": "Exija que novos membros se verifiquem antes de acessar o servidor.",
+        "embedTitle": "Título do embed", "embedDescription": "Mensagem",
+        "embedDescriptionHint": "Exibido no embed de verificação. Aceita quebras de linha e emojis.",
+        "buttonLabel": "Texto do botão", "captcha": "Exigir um captcha",
+        "captchaHint": "Proponha um desafio rápido antes de dar acesso, para bloquear bots.",
+        "whatHappens": "Ao configurar isto:",
+        "what1": "Um canal #verification é criado, visível para todos.",
+        "what2": "Um cargo Verificado é criado.",
+        "what3": "Todos os outros canais ficam ocultos para membros não verificados.",
+        "what4": "Os membros atuais continuam verificados, ninguém fica de fora.",
+        "what5": "Um botão Verificar é publicado no canal de verificação.",
+        "active": "O filtro de verificação está ativo.", "setupButton": "Configurar o filtro",
+        "settingUp": "Configurando...", "setupDone": "O filtro de verificação está ativo.",
+        "setupFailed": "Não foi possível configurar o filtro de verificação.",
+        "disableButton": "Desativar filtro",
+        "disabledToast": "Filtro de verificação desativado. Os membros voltam a ver o servidor.",
+        "saved": "Configurações de verificação salvas.", "saveFailed": "Não foi possível salvar as configurações de verificação."
       }
     }
   },
@@ -1819,6 +1924,7 @@ export const DICTS: Record<AppLang, any> = {
       "tabWelcome": "Приветствие",
       "tabGoodbye": "Прощание",
       "tabVoice": "Голос",
+      "tabVerification": "Проверка",
       "greetingWelcomeTitle": "Приветственное сообщение",
       "greetingInsertChannel": "Вставить ссылку на канал",
       "greetingWelcomeDesc": "Приветствуйте новых участников при входе.",
@@ -2154,6 +2260,26 @@ export const DICTS: Record<AppLang, any> = {
         "start": "Запустить", "saved": "Розыгрыши обновлены.", "saveFailed": "Ошибка обновления розыгрышей.",
         "created": "Розыгрыш запущен!", "createFailed": "Ошибка запуска розыгрыша.",
         "deleted": "Розыгрыш отменён.", "deleteFailed": "Ошибка отмены розыгрыша."
+      },
+      "verification": {
+        "title": "Барьер проверки", "enable": "Включить барьер проверки",
+        "enableDescription": "Требовать от новых участников проверку перед доступом к серверу.",
+        "embedTitle": "Заголовок встраивания", "embedDescription": "Сообщение",
+        "embedDescriptionHint": "Показывается во встраивании проверки. Поддерживает переносы строк и эмодзи.",
+        "buttonLabel": "Текст кнопки", "captcha": "Требовать капчу",
+        "captchaHint": "Задать быстрое испытание перед выдачей доступа, чтобы блокировать ботов.",
+        "whatHappens": "При настройке:",
+        "what1": "Создаётся канал #verification, видимый для всех.",
+        "what2": "Создаётся роль Проверенный.",
+        "what3": "Все остальные каналы скрыты от непроверенных участников.",
+        "what4": "Текущие участники остаются проверенными, никто не теряет доступ.",
+        "what5": "В канале проверки публикуется кнопка Проверить.",
+        "active": "Барьер проверки активен.", "setupButton": "Настроить барьер",
+        "settingUp": "Настройка...", "setupDone": "Барьер проверки работает.",
+        "setupFailed": "Не удалось настроить барьер проверки.",
+        "disableButton": "Отключить барьер",
+        "disabledToast": "Барьер проверки отключён. Участники снова видят сервер.",
+        "saved": "Настройки проверки сохранены.", "saveFailed": "Не удалось сохранить настройки проверки."
       }
     }
   }

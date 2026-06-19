@@ -92,6 +92,10 @@
         <svt-icon name="mic" [size]="16" />
         {{ 'discordApp.tabVoice' | localize }}
       </button>
+      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'verification'" (click)="setTab('verification')">
+        <svt-icon name="shield-check" [size]="16" />
+        {{ 'discordApp.tabVerification' | localize }}
+      </button>
       <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'leveling'" (click)="setTab('leveling')">
         <svt-icon name="trending-up" [size]="16" />
         {{ 'discordApp.tabLeveling' | localize }}
@@ -167,6 +171,11 @@
         <svt-discord-giveaways
           [clientId]="clientId()"
           [channels]="channels()"
+        />
+      } @else if (activeTab() === 'verification') {
+        <svt-discord-verification
+          [clientId]="clientId()"
+          [canEdit]="true"
         />
       }
     </div>

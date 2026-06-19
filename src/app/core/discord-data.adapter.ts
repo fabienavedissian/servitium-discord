@@ -23,6 +23,7 @@ import {
   CreateGiveawayPayload,
   ReactionRolesFeature,
   GiveawaysFeature,
+  VerificationConfig,
 } from '@servitium/discord';
 import { environment } from '../../environments/environment';
 
@@ -197,6 +198,20 @@ export class DiscordDataAdapter implements DiscordDataPort {
   }
   deleteGiveaway(clientId: string, giveawayId: string): Observable<{ message: string }> {
     return this.http.delete<{ message: string }>(`${this.base}/${clientId}/discord/giveaways/${giveawayId}`);
+  }
+
+  // Verification gate (free)
+  getVerificationConfig(clientId: string): Observable<VerificationConfig> {
+    return this.http.get<VerificationConfig>(`${this.base}/${clientId}/discord/verification`);
+  }
+  updateVerificationConfig(clientId: string, config: Partial<VerificationConfig>): Observable<{ message: string }> {
+    return this.http.put<{ message: string }>(`${this.base}/${clientId}/discord/verification`, config);
+  }
+  setupVerification(clientId: string): Observable<{ message: string; config: VerificationConfig }> {
+    return this.http.post<{ message: string; config: VerificationConfig }>(`${this.base}/${clientId}/discord/verification/setup`, {});
+  }
+  disableVerification(clientId: string): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(`${this.base}/${clientId}/discord/verification/disable`, {});
   }
 
   // Giveaways feature switch (free)

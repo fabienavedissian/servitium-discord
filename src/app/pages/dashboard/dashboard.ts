@@ -10,6 +10,7 @@ import {
   DiscordStatsComponent,
   DiscordAutomodComponent,
   DiscordGiveawaysComponent,
+  DiscordVerificationComponent,
   LocalizePipe,
   GreetingSeed,
   DiscordChannel,
@@ -53,6 +54,7 @@ type GuildState = 'idle' | 'checking' | 'needs-bot' | 'needs-connect' | 'connect
     DiscordStatsComponent,
     DiscordAutomodComponent,
     DiscordGiveawaysComponent,
+    DiscordVerificationComponent,
     LocalizePipe,
   ],
   templateUrl: './dashboard.html',
@@ -85,12 +87,12 @@ export class DashboardComponent implements OnInit {
   loading = signal<boolean>(false);
   state = signal<GuildState>('idle');
   inviteUrl = signal<string>('');
-  activeTab = signal<'welcome' | 'goodbye' | 'voice' | 'leveling' | 'reaction-roles' | 'stats' | 'automod' | 'giveaways'>('welcome');
+  activeTab = signal<'welcome' | 'goodbye' | 'voice' | 'verification' | 'leveling' | 'reaction-roles' | 'stats' | 'automod' | 'giveaways'>('welcome');
   private _config = signal<DiscordConfig | null>(null);
   channels = signal<DiscordChannel[]>([]);
   roles = signal<DiscordRole[]>([]);
 
-  setTab(tab: 'welcome' | 'goodbye' | 'voice' | 'leveling' | 'reaction-roles' | 'stats' | 'automod' | 'giveaways'): void { this.activeTab.set(tab); }
+  setTab(tab: 'welcome' | 'goodbye' | 'voice' | 'verification' | 'leveling' | 'reaction-roles' | 'stats' | 'automod' | 'giveaways'): void { this.activeTab.set(tab); }
 
   guildOptions = computed<SelectOption[]>(() =>
     this.session.guilds().map(g => ({ value: g.guildId, label: g.guildName })),
