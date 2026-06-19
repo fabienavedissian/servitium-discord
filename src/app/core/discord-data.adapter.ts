@@ -59,8 +59,8 @@ export class DiscordDataAdapter implements DiscordDataPort {
   linkToExistingGuild(clientId: string, guildId: string): Observable<{ message: string }> {
     return this.http.post<{ message: string }>(`${this.base}/${clientId}/discord/link/${clientId}/${guildId}`, {});
   }
-  unlinkDiscord(clientId: string): Observable<{ message: string }> {
-    return this.http.post<{ message: string }>(`${this.base}/${clientId}/discord/unlink`, {});
+  unlinkDiscord(clientId: string): Observable<{ message: string; botLeft?: boolean; stillUsedBy?: number }> {
+    return this.http.post<{ message: string; botLeft?: boolean; stillUsedBy?: number }>(`${this.base}/${clientId}/discord/unlink`, {});
   }
   getDiscordRoles(clientId: string): Observable<{ roles: DiscordRole[] }> {
     return this.http.get<{ roles: DiscordRole[] }>(`${this.base}/${clientId}/discord/roles`);
