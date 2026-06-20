@@ -159,6 +159,10 @@ export class DiscordDataAdapter implements DiscordDataPort {
     return this.http.post<{ url: string }>(`${this.base}/${clientId}/discord/upload-image`, form);
   }
 
+  bannerBaseUrl(): string {
+    return `${environment.apiUrl}/assets/banners`;
+  }
+
   createVoiceHub(clientId: string, body: { namePattern?: string; allowedRoleIds?: string[] }): Observable<{ message: string; hub: VoiceHub }> {
     return this.http.post<{ message: string; hub: VoiceHub }>(`${this.base}/${clientId}/discord/voice-hubs`, body);
   }
