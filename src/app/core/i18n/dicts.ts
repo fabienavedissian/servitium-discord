@@ -407,7 +407,23 @@ export const DICTS: Record<AppLang, any> = {
         "memberChannel": "Member count channel", "memberTemplate": "Member template",
         "onlineChannel": "Online count channel", "onlineTemplate": "Online template",
         "templateHint": "Use {count} as the placeholder for the number.", "rateHint": "Channels are updated every 10 minutes (Discord rate limit).",
-        "noChannel": "— None —", "saved": "Stats channels saved.", "saveFailed": "Failed to save stats channels."
+        "noChannel": "— None —",
+        "howHint": "Each counter is a voice channel the bot keeps updated (e.g. 'Members: 1,234'). Pick a channel or let the bot create one.",
+        "createChannel": "Create channel",
+        "roleCountersTitle": "Per-role counters",
+        "roleCountersHint": "A live counter for a specific role (e.g. 'Verified: 42'). The bot creates the channel for you.",
+        "addRoleCounter": "Add a role counter",
+        "pickRole": "Pick a role",
+        "counter": {
+          "member": "Members",
+          "online": "Online",
+          "humans": "Humans",
+          "bots": "Bots",
+          "boosters": "Boosters",
+          "boosts": "Boosts",
+          "roles": "Roles",
+          "channels": "Channels"
+        }, "saved": "Stats channels saved.", "saveFailed": "Failed to save stats channels."
       },
       "automod": {
         "applying": "Applying settings to your server…",
@@ -891,7 +907,23 @@ export const DICTS: Record<AppLang, any> = {
         "memberChannel": "Salon membres", "memberTemplate": "Modèle membres",
         "onlineChannel": "Salon en ligne", "onlineTemplate": "Modèle en ligne",
         "templateHint": "Utilisez {count} comme emplacement pour le nombre.", "rateHint": "Les salons sont mis à jour toutes les 10 minutes (limite Discord).",
-        "noChannel": "— Aucun —", "saved": "Compteurs enregistrés.", "saveFailed": "Échec de l'enregistrement des compteurs."
+        "noChannel": "— Aucun —",
+        "howHint": "Chaque compteur est un salon vocal que le bot met à jour (ex. 'Membres : 1 234'). Choisis un salon ou laisse le bot en créer un.",
+        "createChannel": "Créer un salon",
+        "roleCountersTitle": "Compteurs par rôle",
+        "roleCountersHint": "Un compteur en direct pour un rôle précis (ex. 'Vérifiés : 42'). Le bot crée le salon pour toi.",
+        "addRoleCounter": "Ajouter un compteur de rôle",
+        "pickRole": "Choisir un rôle",
+        "counter": {
+          "member": "Membres",
+          "online": "En ligne",
+          "humans": "Humains",
+          "bots": "Bots",
+          "boosters": "Boosters",
+          "boosts": "Boosts",
+          "roles": "Rôles",
+          "channels": "Salons"
+        }, "saved": "Compteurs enregistrés.", "saveFailed": "Échec de l'enregistrement des compteurs."
       },
       "automod": {
         "applying": "Application des réglages sur ton serveur…",
@@ -1375,7 +1407,23 @@ export const DICTS: Record<AppLang, any> = {
         "memberChannel": "Mitglieder-Kanal", "memberTemplate": "Mitglieder-Vorlage",
         "onlineChannel": "Online-Kanal", "onlineTemplate": "Online-Vorlage",
         "templateHint": "Verwende {count} als Platzhalter für die Zahl.", "rateHint": "Kanäle werden alle 10 Minuten aktualisiert (Discord-Ratenlimit).",
-        "noChannel": "— Keiner —", "saved": "Statistikkanäle gespeichert.", "saveFailed": "Speichern fehlgeschlagen."
+        "noChannel": "— Keiner —",
+        "howHint": "Jeder Zähler ist ein Sprachkanal, den der Bot aktualisiert (z. B. 'Mitglieder: 1.234'). Wähle einen Kanal oder lass den Bot einen erstellen.",
+        "createChannel": "Kanal erstellen",
+        "roleCountersTitle": "Zähler pro Rolle",
+        "roleCountersHint": "Ein Live-Zähler für eine bestimmte Rolle (z. B. 'Verifiziert: 42'). Der Bot erstellt den Kanal.",
+        "addRoleCounter": "Rollen-Zähler hinzufügen",
+        "pickRole": "Rolle wählen",
+        "counter": {
+          "member": "Mitglieder",
+          "online": "Online",
+          "humans": "Menschen",
+          "bots": "Bots",
+          "boosters": "Booster",
+          "boosts": "Boosts",
+          "roles": "Rollen",
+          "channels": "Kanäle"
+        }, "saved": "Statistikkanäle gespeichert.", "saveFailed": "Speichern fehlgeschlagen."
       },
       "automod": {
         "applying": "Einstellungen werden angewendet…",
@@ -1859,7 +1907,23 @@ export const DICTS: Record<AppLang, any> = {
         "memberChannel": "Canal de miembros", "memberTemplate": "Plantilla de miembros",
         "onlineChannel": "Canal de en línea", "onlineTemplate": "Plantilla de en línea",
         "templateHint": "Usa {count} como marcador de posición para el número.", "rateHint": "Los canales se actualizan cada 10 minutos (límite de Discord).",
-        "noChannel": "— Ninguno —", "saved": "Canales de estadísticas guardados.", "saveFailed": "Error al guardar los canales."
+        "noChannel": "— Ninguno —",
+        "howHint": "Cada contador es un canal de voz que el bot actualiza (ej. 'Miembros: 1.234'). Elige un canal o deja que el bot cree uno.",
+        "createChannel": "Crear canal",
+        "roleCountersTitle": "Contadores por rol",
+        "roleCountersHint": "Un contador en vivo para un rol concreto (ej. 'Verificados: 42'). El bot crea el canal por ti.",
+        "addRoleCounter": "Añadir contador de rol",
+        "pickRole": "Elegir un rol",
+        "counter": {
+          "member": "Miembros",
+          "online": "En línea",
+          "humans": "Humanos",
+          "bots": "Bots",
+          "boosters": "Boosters",
+          "boosts": "Boosts",
+          "roles": "Roles",
+          "channels": "Canales"
+        }, "saved": "Canales de estadísticas guardados.", "saveFailed": "Error al guardar los canales."
       },
       "automod": {
         "applying": "Aplicando ajustes a tu servidor…",
@@ -2343,7 +2407,23 @@ export const DICTS: Record<AppLang, any> = {
         "memberChannel": "Canal de membros", "memberTemplate": "Modelo de membros",
         "onlineChannel": "Canal de online", "onlineTemplate": "Modelo de online",
         "templateHint": "Use {count} como marcador para o número.", "rateHint": "Os canais são atualizados a cada 10 minutos (limite do Discord).",
-        "noChannel": "— Nenhum —", "saved": "Canais de estatísticas salvos.", "saveFailed": "Erro ao salvar os canais."
+        "noChannel": "— Nenhum —",
+        "howHint": "Cada contador é um canal de voz que o bot atualiza (ex. 'Membros: 1.234'). Escolhe um canal ou deixa o bot criar um.",
+        "createChannel": "Criar canal",
+        "roleCountersTitle": "Contadores por cargo",
+        "roleCountersHint": "Um contador ao vivo para um cargo específico (ex. 'Verificados: 42'). O bot cria o canal por ti.",
+        "addRoleCounter": "Adicionar contador de cargo",
+        "pickRole": "Escolher um cargo",
+        "counter": {
+          "member": "Membros",
+          "online": "Online",
+          "humans": "Humanos",
+          "bots": "Bots",
+          "boosters": "Boosters",
+          "boosts": "Boosts",
+          "roles": "Cargos",
+          "channels": "Canais"
+        }, "saved": "Canais de estatísticas salvos.", "saveFailed": "Erro ao salvar os canais."
       },
       "automod": {
         "applying": "A aplicar definições ao teu servidor…",
@@ -2827,7 +2907,23 @@ export const DICTS: Record<AppLang, any> = {
         "memberChannel": "Канал участников", "memberTemplate": "Шаблон участников",
         "onlineChannel": "Канал онлайн", "onlineTemplate": "Шаблон онлайн",
         "templateHint": "Используйте {count} как заполнитель для числа.", "rateHint": "Каналы обновляются каждые 10 минут (ограничение Discord).",
-        "noChannel": "— Нет —", "saved": "Каналы статистики сохранены.", "saveFailed": "Ошибка сохранения каналов."
+        "noChannel": "— Нет —",
+        "howHint": "Каждый счётчик — голосовой канал, который бот обновляет (напр. 'Участники: 1234'). Выберите канал или дайте боту создать его.",
+        "createChannel": "Создать канал",
+        "roleCountersTitle": "Счётчики по ролям",
+        "roleCountersHint": "Живой счётчик для конкретной роли (напр. 'Проверенные: 42'). Бот создаёт канал за вас.",
+        "addRoleCounter": "Добавить счётчик роли",
+        "pickRole": "Выбрать роль",
+        "counter": {
+          "member": "Участники",
+          "online": "Онлайн",
+          "humans": "Люди",
+          "bots": "Боты",
+          "boosters": "Бустеры",
+          "boosts": "Бусты",
+          "roles": "Роли",
+          "channels": "Каналы"
+        }, "saved": "Каналы статистики сохранены.", "saveFailed": "Ошибка сохранения каналов."
       },
       "automod": {
         "applying": "Применяю настройки на сервере…",
