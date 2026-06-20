@@ -39,6 +39,7 @@ import {
   ReactionRolesFeature,
   GiveawaysFeature,
   VerificationConfig,
+  OnboardingConfig,
   GreetingBlock,
 } from '@servitium/discord';
 import { environment } from '../../environments/environment';
@@ -393,6 +394,23 @@ export class DiscordDataAdapter implements DiscordDataPort {
   }
   disableVerification(clientId: string): Observable<{ message: string }> {
     return this.http.post<{ message: string }>(`${this.base}/${clientId}/discord/verification/disable`, {});
+  }
+
+  // Onboarding wizard (gate + ephemeral steps)
+  getOnboarding(clientId: string): Observable<OnboardingConfig> {
+    return this.http.get<OnboardingConfig>(`${this.base}/${clientId}/discord/onboarding`);
+  }
+  updateOnboarding(clientId: string, config: Partial<OnboardingConfig>): Observable<{ message: string }> {
+    return this.http.put<{ message: string }>(`${this.base}/${clientId}/discord/onboarding`, config);
+  }
+  setupOnboarding(clientId: string): Observable<{ message: string; config: OnboardingConfig }> {
+    return this.http.post<{ message: string; config: OnboardingConfig }>(`${this.base}/${clientId}/discord/onboarding/setup`, {});
+  }
+  disableOnboarding(clientId: string): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(`${this.base}/${clientId}/discord/onboarding/disable`, {});
+  }
+  testOnboarding(clientId: string): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(`${this.base}/${clientId}/discord/onboarding/test`, {});
   }
 
   // Giveaways feature switch (free)

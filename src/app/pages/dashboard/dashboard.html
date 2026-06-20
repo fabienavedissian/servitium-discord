@@ -79,8 +79,8 @@
             <svt-discord-message mode="goodbye" [clientId]="clientId()" [canEdit]="true" [availableChannels]="channels()" [isLoadingChannels]="loading()" [serverName]="serverName()" [greeting]="goodbyeSeed()" />
           } @else if (activeTab() === 'salon') {
             <svt-discord-welcome-channel [clientId]="clientId()" [canEdit]="true" [availableChannels]="channels()" [isLoadingChannels]="loading()" [serverName]="serverName()" [seed]="welcomeChannelSeed()" />
-          } @else if (activeTab() === 'verification') {
-            <svt-discord-verification [clientId]="clientId()" [canEdit]="true" />
+          } @else if (activeTab() === 'onboarding') {
+            <svt-discord-onboarding [clientId]="clientId()" [canEdit]="true" [roles]="roles()" [channels]="channels()" />
           } @else if (activeTab() === 'automod') {
             <svt-discord-automod [clientId]="clientId()" [canEdit]="true" [roles]="roles()" [channels]="channels()" />
           } @else if (activeTab() === 'voice') {
