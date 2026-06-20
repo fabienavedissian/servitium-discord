@@ -18,7 +18,6 @@ import {
   DiscordSuggestionsComponent,
   DiscordStreamerAlertsComponent,
   DiscordBotProfileComponent,
-  DiscordVerificationComponent,
   DiscordOnboardingComponent,
   LocalizePipe,
   GreetingSeed,
@@ -72,7 +71,6 @@ type GuildState = 'idle' | 'checking' | 'needs-bot' | 'needs-connect' | 'connect
     DiscordSuggestionsComponent,
     DiscordStreamerAlertsComponent,
     DiscordBotProfileComponent,
-    DiscordVerificationComponent,
     DiscordOnboardingComponent,
     LocalizePipe,
   ],
@@ -174,6 +172,7 @@ export class DashboardComponent implements OnInit {
     const c = (this._config() as any) || {};
     return {
       enabled: mode === 'welcome' ? c.welcomeEnabled !== false : c.goodbyeEnabled === true,
+      mode: c[`${mode}Mode`] === 'text' ? 'text' : 'embed',
       channelId: c[`${mode}ChannelId`] ?? null,
       channelName: c[`${mode}ChannelName`] ?? null,
       title: c[`${mode}Title`] ?? '',
