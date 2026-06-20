@@ -109,7 +109,51 @@ export class DashboardComponent implements OnInit {
   channels = signal<DiscordChannel[]>([]);
   roles = signal<DiscordRole[]>([]);
 
-  setTab(tab: 'welcome' | 'goodbye' | 'salon' | 'voice' | 'verification' | 'leveling' | 'reaction-roles' | 'stats' | 'automod' | 'giveaways' | 'commands' | 'reminders' | 'automations' | 'logs' | 'suggestions' | 'streamers'): void { this.activeTab.set(tab); }
+  setTab(tab: string): void { this.activeTab.set(tab as any); }
+
+  // MEE6-style grouped sidebar nav (free-tier communities; no game-only items).
+  readonly navGroups: { key: string; items: { id: string; icon: string; label: string }[] }[] = [
+    { key: 'essentials', items: [
+      { id: 'welcome', icon: 'hand', label: 'discordApp.tabWelcome' },
+      { id: 'goodbye', icon: 'door-open', label: 'discordApp.tabGoodbye' },
+      { id: 'salon', icon: 'layout-dashboard', label: 'discordApp.tabSalon' },
+      { id: 'verification', icon: 'shield-check', label: 'discordApp.tabVerification' },
+      { id: 'automod', icon: 'shield', label: 'discordApp.tabAutomod' },
+    ] },
+    { key: 'engagement', items: [
+      { id: 'voice', icon: 'mic', label: 'discordApp.tabVoice' },
+      { id: 'leveling', icon: 'trending-up', label: 'discordApp.tabLeveling' },
+      { id: 'reaction-roles', icon: 'square-check', label: 'discordApp.tabReactionRoles' },
+      { id: 'stats', icon: 'chart-bar', label: 'discordApp.tabStats' },
+      { id: 'giveaways', icon: 'gift', label: 'discordApp.tabGiveaways' },
+      { id: 'suggestions', icon: 'lightbulb', label: 'discordApp.tabSuggestions' },
+      { id: 'streamers', icon: 'radio', label: 'discordApp.tabStreamers' },
+    ] },
+    { key: 'management', items: [
+      { id: 'commands', icon: 'terminal', label: 'discordApp.tabCommands' },
+      { id: 'reminders', icon: 'bell', label: 'discordApp.tabReminders' },
+      { id: 'automations', icon: 'zap', label: 'discordApp.tabAutomations' },
+      { id: 'logs', icon: 'scroll-text', label: 'discordApp.tabLogs' },
+    ] },
+  ];
+
+  // Onboarding wizard step (0 = checking, 1 = invite bot, 2 = connect, 3 = ready).
+  wizardStep = computed(() => {
+    switch (this.state()) {
+      case 'checking': return 0;
+      case 'needs-bot': return 1;
+      case 'needs-connect': case 'connecting': return 2;
+      default: return 3;
+    }
+  });
+
+  selectGuildId(id: string): void {
+    if (id === this.session.selectedGuildId()) return;
+    this.session.selectGuild(id);
+    this.activeTab.set('welcome');
+    this.refreshGuild();
+  }
+  initials(name: string): string { return (name || '?').replace(/[^A-Za-z0-9]/g, '').slice(0, 2).toUpperCase() || '?'; }
 
   guildOptions = computed<SelectOption[]>(() =>
     this.session.guilds().map(g => ({ value: g.guildId, label: g.guildName })),

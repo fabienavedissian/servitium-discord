@@ -26,238 +26,146 @@
     </div>
   </header>
 
-  <div class="dash__guild-picker">
-    <label>{{ 'discordApp.serverLabel' | localize }}</label>
-    <svt-select
-      size="medium"
-      [options]="guildOptions()"
-      [clearable]="false"
-      [searchable]="true"
-      [placeholder]="'discordApp.selectServerPlaceholder' | localize"
-      [ngModel]="session.selectedGuildId() || ''"
-      [ngModelOptions]="{ standalone: true }"
-      (onSelect)="onGuildSelect($event)"
-    />
-  </div>
-
-  @if (!selectedGuild()) {
+  @if (!session.guilds().length) {
     <svt-card className="dash__empty">
       <svt-icon name="server" [size]="40" />
       <h3>{{ 'discordApp.pickServerTitle' | localize }}</h3>
       <p>{{ 'discordApp.pickServerDesc' | localize }}</p>
     </svt-card>
-  } @else if (state() === 'checking') {
-    <svt-card className="dash__empty">
-      <svt-icon name="loader-2" [size]="40" class="dash__spin" />
-      <p>{{ 'discordApp.checking' | localize }}</p>
-    </svt-card>
-  } @else if (state() === 'needs-bot') {
-    <svt-card className="dash__empty">
-      <svt-icon name="bot" [size]="40" />
-      <h3>{{ 'discordApp.needsBotTitle' | localize }}</h3>
-      <p>{{ 'discordApp.needsBotDesc' | localize:{ guild: selectedGuild()?.guildName } }}</p>
-      <div class="dash__actions">
-        <svt-button variant="primary" (onClick)="openInvite()">
-          <svt-icon name="plus" [size]="16" />
-          {{ 'discordApp.addBotButton' | localize }}
-        </svt-button>
-        <svt-button variant="ghost" (onClick)="refreshGuild()">
-          <svt-icon name="refresh-cw" [size]="16" />
-          {{ 'discordApp.botAddedRefresh' | localize }}
-        </svt-button>
-      </div>
-    </svt-card>
-  } @else if (state() === 'needs-connect' || state() === 'connecting') {
-    <svt-card className="dash__empty">
-      <svt-icon name="link" [size]="40" />
-      <h3>{{ 'discordApp.needsConnectTitle' | localize }}</h3>
-      <p>{{ 'discordApp.needsConnectDesc' | localize:{ guild: selectedGuild()?.guildName } }}</p>
-      <div class="dash__actions">
-        <svt-button variant="primary" [loading]="state() === 'connecting'" (onClick)="connect()">
-          {{ (state() === 'connecting' ? 'discordApp.connecting' : 'discordApp.connectButton') | localize }}
-        </svt-button>
-      </div>
-    </svt-card>
   } @else if (state() === 'ready') {
-    <svt-discord-bot-profile [clientId]="clientId()" />
-    <nav class="dash__tabs">
-      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'welcome'" (click)="setTab('welcome')">
-        <svt-icon name="hand" [size]="16" />
-        {{ 'discordApp.tabWelcome' | localize }}
-      </button>
-      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'goodbye'" (click)="setTab('goodbye')">
-        <svt-icon name="door-open" [size]="16" />
-        {{ 'discordApp.tabGoodbye' | localize }}
-      </button>
-      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'salon'" (click)="setTab('salon')">
-        <svt-icon name="layout-dashboard" [size]="16" />
-        {{ 'discordApp.tabSalon' | localize }}
-      </button>
-      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'voice'" (click)="setTab('voice')">
-        <svt-icon name="mic" [size]="16" />
-        {{ 'discordApp.tabVoice' | localize }}
-      </button>
-      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'verification'" (click)="setTab('verification')">
-        <svt-icon name="shield-check" [size]="16" />
-        {{ 'discordApp.tabVerification' | localize }}
-      </button>
-      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'leveling'" (click)="setTab('leveling')">
-        <svt-icon name="trending-up" [size]="16" />
-        {{ 'discordApp.tabLeveling' | localize }}
-      </button>
-      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'reaction-roles'" (click)="setTab('reaction-roles')">
-        <svt-icon name="square-check" [size]="16" />
-        {{ 'discordApp.tabReactionRoles' | localize }}
-      </button>
-      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'stats'" (click)="setTab('stats')">
-        <svt-icon name="chart-bar" [size]="16" />
-        {{ 'discordApp.tabStats' | localize }}
-      </button>
-      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'automod'" (click)="setTab('automod')">
-        <svt-icon name="shield" [size]="16" />
-        {{ 'discordApp.tabAutomod' | localize }}
-      </button>
-      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'giveaways'" (click)="setTab('giveaways')">
-        <svt-icon name="gift" [size]="16" />
-        {{ 'discordApp.tabGiveaways' | localize }}
-      </button>
-      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'commands'" (click)="setTab('commands')">
-        <svt-icon name="terminal" [size]="16" />
-        {{ 'discordApp.tabCommands' | localize }}
-      </button>
-      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'reminders'" (click)="setTab('reminders')">
-        <svt-icon name="bell" [size]="16" />
-        {{ 'discordApp.tabReminders' | localize }}
-      </button>
-      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'automations'" (click)="setTab('automations')">
-        <svt-icon name="zap" [size]="16" />
-        {{ 'discordApp.tabAutomations' | localize }}
-      </button>
-      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'logs'" (click)="setTab('logs')">
-        <svt-icon name="scroll-text" [size]="16" />
-        {{ 'discordApp.tabLogs' | localize }}
-      </button>
-      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'suggestions'" (click)="setTab('suggestions')">
-        <svt-icon name="lightbulb" [size]="16" />
-        {{ 'discordApp.tabSuggestions' | localize }}
-      </button>
-      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'streamers'" (click)="setTab('streamers')">
-        <svt-icon name="radio" [size]="16" />
-        {{ 'discordApp.tabStreamers' | localize }}
-      </button>
-    </nav>
 
-    <div class="dash__features">
-      @if (activeTab() === 'welcome') {
-        <svt-discord-message
-          mode="welcome"
-          [clientId]="clientId()"
-          [canEdit]="true"
-          [availableChannels]="channels()"
-          [isLoadingChannels]="loading()"
-          [serverName]="serverName()"
-          [greeting]="welcomeSeed()"
-        />
-      } @else if (activeTab() === 'goodbye') {
-        <svt-discord-message
-          mode="goodbye"
-          [clientId]="clientId()"
-          [canEdit]="true"
-          [availableChannels]="channels()"
-          [isLoadingChannels]="loading()"
-          [serverName]="serverName()"
-          [greeting]="goodbyeSeed()"
-        />
-      } @else if (activeTab() === 'salon') {
-        <svt-discord-welcome-channel
-          [clientId]="clientId()"
-          [canEdit]="true"
-          [availableChannels]="channels()"
-          [isLoadingChannels]="loading()"
-          [serverName]="serverName()"
-          [seed]="welcomeChannelSeed()"
-        />
-      } @else if (activeTab() === 'voice') {
-        <svt-discord-voice-hubs
-          [clientId]="clientId()"
-          [canEdit]="true"
-          [roles]="roles()"
-          [hubs]="voiceHubs()"
-        />
-      } @else if (activeTab() === 'leveling') {
-        <svt-discord-leveling
-          [clientId]="clientId()"
-          [roles]="roles()"
-          [channels]="channels()"
-        />
-      } @else if (activeTab() === 'reaction-roles') {
-        <svt-discord-reaction-roles
-          [clientId]="clientId()"
-          [roles]="roles()"
-          [channels]="channels()"
-        />
-      } @else if (activeTab() === 'stats') {
-        <svt-discord-stats
-          [clientId]="clientId()"
-          [roles]="roles()"
-          [channels]="channels()"
-        />
-      } @else if (activeTab() === 'automod') {
-        <svt-discord-automod
-          [clientId]="clientId()"
-          [canEdit]="true"
-          [roles]="roles()"
-          [channels]="channels()"
-        />
-      } @else if (activeTab() === 'giveaways') {
-        <svt-discord-giveaways
-          [clientId]="clientId()"
-          [channels]="channels()"
-          [roles]="roles()"
-        />
-      } @else if (activeTab() === 'commands') {
-        <svt-discord-custom-commands
-          [clientId]="clientId()"
-          [channels]="channels()"
-          [roles]="roles()"
-          [gameContext]="false"
-        />
-      } @else if (activeTab() === 'reminders') {
-        <svt-discord-reminders
-          [clientId]="clientId()"
-          [channels]="channels()"
-          [gameContext]="false"
-        />
-      } @else if (activeTab() === 'automations') {
-        <svt-discord-automations
-          [clientId]="clientId()"
-          [channels]="channels()"
-          [roles]="roles()"
-          [gameContext]="false"
-        />
-      } @else if (activeTab() === 'logs') {
-        <svt-discord-logs
-          [clientId]="clientId()"
-          [channels]="channels()"
-        />
-      } @else if (activeTab() === 'suggestions') {
-        <svt-discord-suggestions
-          [clientId]="clientId()"
-          [channels]="channels()"
-          [roles]="roles()"
-        />
-      } @else if (activeTab() === 'streamers') {
-        <svt-discord-streamer-alerts
-          [clientId]="clientId()"
-          [channels]="channels()"
-          [roles]="roles()"
-        />
-      } @else if (activeTab() === 'verification') {
-        <svt-discord-verification
-          [clientId]="clientId()"
-          [canEdit]="true"
-        />
+    <!-- ===== Dashboard: MEE6-style sidebar + content ===== -->
+    <div class="dash__shell">
+      <aside class="dash__sidebar">
+        <div class="dash__sb-server">
+          <svt-select
+            size="small"
+            [options]="guildOptions()"
+            [clearable]="false"
+            [searchable]="true"
+            [ngModel]="session.selectedGuildId() || ''"
+            [ngModelOptions]="{ standalone: true }"
+            (onSelect)="onGuildSelect($event)"
+          />
+        </div>
+        @for (group of navGroups; track group.key) {
+          <div class="dash__sb-group">
+            <span class="dash__sb-glabel">{{ ('discordApp.group.' + group.key) | localize }}</span>
+            @for (item of group.items; track item.id) {
+              <button type="button" class="dash__sb-item" [class.dash__sb-item--active]="activeTab() === item.id" (click)="setTab(item.id)">
+                <svt-icon [name]="item.icon" [size]="17" />
+                <span>{{ item.label | localize }}</span>
+              </button>
+            }
+          </div>
+        }
+      </aside>
+
+      <main class="dash__main">
+        <svt-discord-bot-profile [clientId]="clientId()" />
+
+        <div class="dash__features">
+          @if (activeTab() === 'welcome') {
+            <svt-discord-message mode="welcome" [clientId]="clientId()" [canEdit]="true" [availableChannels]="channels()" [isLoadingChannels]="loading()" [serverName]="serverName()" [greeting]="welcomeSeed()" />
+          } @else if (activeTab() === 'goodbye') {
+            <svt-discord-message mode="goodbye" [clientId]="clientId()" [canEdit]="true" [availableChannels]="channels()" [isLoadingChannels]="loading()" [serverName]="serverName()" [greeting]="goodbyeSeed()" />
+          } @else if (activeTab() === 'salon') {
+            <svt-discord-welcome-channel [clientId]="clientId()" [canEdit]="true" [availableChannels]="channels()" [isLoadingChannels]="loading()" [serverName]="serverName()" [seed]="welcomeChannelSeed()" />
+          } @else if (activeTab() === 'verification') {
+            <svt-discord-verification [clientId]="clientId()" [canEdit]="true" />
+          } @else if (activeTab() === 'automod') {
+            <svt-discord-automod [clientId]="clientId()" [canEdit]="true" [roles]="roles()" [channels]="channels()" />
+          } @else if (activeTab() === 'voice') {
+            <svt-discord-voice-hubs [clientId]="clientId()" [canEdit]="true" [roles]="roles()" [hubs]="voiceHubs()" />
+          } @else if (activeTab() === 'leveling') {
+            <svt-discord-leveling [clientId]="clientId()" [roles]="roles()" [channels]="channels()" />
+          } @else if (activeTab() === 'reaction-roles') {
+            <svt-discord-reaction-roles [clientId]="clientId()" [roles]="roles()" [channels]="channels()" />
+          } @else if (activeTab() === 'stats') {
+            <svt-discord-stats [clientId]="clientId()" [roles]="roles()" [channels]="channels()" />
+          } @else if (activeTab() === 'giveaways') {
+            <svt-discord-giveaways [clientId]="clientId()" [channels]="channels()" [roles]="roles()" />
+          } @else if (activeTab() === 'suggestions') {
+            <svt-discord-suggestions [clientId]="clientId()" [channels]="channels()" [roles]="roles()" />
+          } @else if (activeTab() === 'streamers') {
+            <svt-discord-streamer-alerts [clientId]="clientId()" [channels]="channels()" [roles]="roles()" />
+          } @else if (activeTab() === 'commands') {
+            <svt-discord-custom-commands [clientId]="clientId()" [channels]="channels()" [roles]="roles()" [gameContext]="false" />
+          } @else if (activeTab() === 'reminders') {
+            <svt-discord-reminders [clientId]="clientId()" [channels]="channels()" [gameContext]="false" />
+          } @else if (activeTab() === 'automations') {
+            <svt-discord-automations [clientId]="clientId()" [channels]="channels()" [roles]="roles()" [gameContext]="false" />
+          } @else if (activeTab() === 'logs') {
+            <svt-discord-logs [clientId]="clientId()" [channels]="channels()" />
+          }
+        </div>
+      </main>
+    </div>
+
+  } @else {
+
+    <!-- ===== Onboarding: server grid + setup wizard ===== -->
+    <div class="onb">
+      <h2 class="onb__title">{{ 'discordApp.onbTitle' | localize }}</h2>
+      <p class="onb__sub">{{ 'discordApp.onbSubtitle' | localize }}</p>
+
+      <div class="onb__grid">
+        @for (g of session.guilds(); track g.guildId) {
+          <button type="button" class="onb__server" [class.onb__server--active]="g.guildId === session.selectedGuildId()" (click)="selectGuildId(g.guildId)">
+            @if (g.iconUrl) {
+              <img class="onb__icon" [src]="g.iconUrl" alt="" />
+            } @else {
+              <span class="onb__icon onb__icon--ph">{{ initials(g.guildName) }}</span>
+            }
+            <span class="onb__sname">{{ g.guildName }}</span>
+            @if (g.guildId === session.selectedGuildId()) { <svt-icon name="check" [size]="16" class="onb__check" /> }
+          </button>
+        }
+      </div>
+
+      @if (selectedGuild()) {
+        <div class="wiz">
+          <div class="wiz__steps">
+            <div class="wiz__step" [class.wiz__step--active]="wizardStep() === 1" [class.wiz__step--done]="wizardStep() > 1">
+              <span class="wiz__num">@if (wizardStep() > 1) { <svt-icon name="check" [size]="14" /> } @else { 1 }</span>
+              <span>{{ 'discordApp.wizStep1' | localize }}</span>
+            </div>
+            <div class="wiz__bar" [class.wiz__bar--on]="wizardStep() > 1"></div>
+            <div class="wiz__step" [class.wiz__step--active]="wizardStep() === 2" [class.wiz__step--done]="wizardStep() > 2">
+              <span class="wiz__num">@if (wizardStep() > 2) { <svt-icon name="check" [size]="14" /> } @else { 2 }</span>
+              <span>{{ 'discordApp.wizStep2' | localize }}</span>
+            </div>
+            <div class="wiz__bar" [class.wiz__bar--on]="wizardStep() > 2"></div>
+            <div class="wiz__step" [class.wiz__step--active]="wizardStep() >= 3">
+              <span class="wiz__num">3</span>
+              <span>{{ 'discordApp.wizStep3' | localize }}</span>
+            </div>
+          </div>
+
+          <div class="wiz__body">
+            @if (state() === 'checking') {
+              <svt-icon name="loader-2" [size]="34" class="dash__spin" />
+              <p>{{ 'discordApp.checking' | localize }}</p>
+            } @else if (state() === 'needs-bot') {
+              <svt-icon name="bot" [size]="44" class="wiz__hero" />
+              <h3>{{ 'discordApp.needsBotTitle' | localize }}</h3>
+              <p>{{ 'discordApp.needsBotDesc' | localize:{ guild: selectedGuild()?.guildName } }}</p>
+              <div class="dash__actions">
+                <svt-button variant="primary" (onClick)="openInvite()"><svt-icon name="plus" [size]="16" /> {{ 'discordApp.addBotButton' | localize }}</svt-button>
+                <svt-button variant="ghost" (onClick)="refreshGuild()"><svt-icon name="refresh-cw" [size]="16" /> {{ 'discordApp.botAddedRefresh' | localize }}</svt-button>
+              </div>
+            } @else if (state() === 'needs-connect' || state() === 'connecting') {
+              <svt-icon name="link" [size]="44" class="wiz__hero" />
+              <h3>{{ 'discordApp.needsConnectTitle' | localize }}</h3>
+              <p>{{ 'discordApp.needsConnectDesc' | localize:{ guild: selectedGuild()?.guildName } }}</p>
+              <div class="dash__actions">
+                <svt-button variant="primary" [loading]="state() === 'connecting'" (onClick)="connect()">{{ (state() === 'connecting' ? 'discordApp.connecting' : 'discordApp.connectButton') | localize }}</svt-button>
+              </div>
+            }
+          </div>
+        </div>
       }
     </div>
+
   }
 </div>
