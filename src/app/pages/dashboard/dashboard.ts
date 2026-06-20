@@ -11,6 +11,13 @@ import {
   DiscordStatsComponent,
   DiscordAutomodComponent,
   DiscordGiveawaysComponent,
+  DiscordCustomCommandsComponent,
+  DiscordRemindersComponent,
+  DiscordAutomationsComponent,
+  DiscordLogsComponent,
+  DiscordSuggestionsComponent,
+  DiscordStreamerAlertsComponent,
+  DiscordBotProfileComponent,
   DiscordVerificationComponent,
   LocalizePipe,
   GreetingSeed,
@@ -57,6 +64,13 @@ type GuildState = 'idle' | 'checking' | 'needs-bot' | 'needs-connect' | 'connect
     DiscordStatsComponent,
     DiscordAutomodComponent,
     DiscordGiveawaysComponent,
+    DiscordCustomCommandsComponent,
+    DiscordRemindersComponent,
+    DiscordAutomationsComponent,
+    DiscordLogsComponent,
+    DiscordSuggestionsComponent,
+    DiscordStreamerAlertsComponent,
+    DiscordBotProfileComponent,
     DiscordVerificationComponent,
     LocalizePipe,
   ],
@@ -90,12 +104,12 @@ export class DashboardComponent implements OnInit {
   loading = signal<boolean>(false);
   state = signal<GuildState>('idle');
   inviteUrl = signal<string>('');
-  activeTab = signal<'welcome' | 'goodbye' | 'salon' | 'voice' | 'verification' | 'leveling' | 'reaction-roles' | 'stats' | 'automod' | 'giveaways'>('welcome');
+  activeTab = signal<'welcome' | 'goodbye' | 'salon' | 'voice' | 'verification' | 'leveling' | 'reaction-roles' | 'stats' | 'automod' | 'giveaways' | 'commands' | 'reminders' | 'automations' | 'logs' | 'suggestions' | 'streamers'>('welcome');
   private _config = signal<DiscordConfig | null>(null);
   channels = signal<DiscordChannel[]>([]);
   roles = signal<DiscordRole[]>([]);
 
-  setTab(tab: 'welcome' | 'goodbye' | 'salon' | 'voice' | 'verification' | 'leveling' | 'reaction-roles' | 'stats' | 'automod' | 'giveaways'): void { this.activeTab.set(tab); }
+  setTab(tab: 'welcome' | 'goodbye' | 'salon' | 'voice' | 'verification' | 'leveling' | 'reaction-roles' | 'stats' | 'automod' | 'giveaways' | 'commands' | 'reminders' | 'automations' | 'logs' | 'suggestions' | 'streamers'): void { this.activeTab.set(tab); }
 
   guildOptions = computed<SelectOption[]>(() =>
     this.session.guilds().map(g => ({ value: g.guildId, label: g.guildName })),

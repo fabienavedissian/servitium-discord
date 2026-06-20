@@ -21,6 +21,21 @@ import {
   StatsChannelsConfig,
   DiscordGiveaway,
   CreateGiveawayPayload,
+  CustomCommandsFeature,
+  CustomCommand,
+  CustomCommandPayload,
+  RemindersFeature,
+  DiscordReminder,
+  ReminderPayload,
+  AutomationsFeature,
+  DiscordAutomation,
+  AutomationPayload,
+  LogsConfig,
+  SuggestionsConfig,
+  DiscordSuggestion,
+  WipeAnnounceConfig,
+  StreamerAlertsConfig,
+  BotProfile,
   ReactionRolesFeature,
   GiveawaysFeature,
   VerificationConfig,
@@ -241,6 +256,125 @@ export class DiscordDataAdapter implements DiscordDataPort {
   }
   deleteGiveaway(clientId: string, giveawayId: string): Observable<{ message: string }> {
     return this.http.delete<{ message: string }>(`${this.base}/${clientId}/discord/giveaways/${giveawayId}`);
+  }
+  endGiveawayNow(clientId: string, giveawayId: string): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(`${this.base}/${clientId}/discord/giveaways/${giveawayId}/end`, {});
+  }
+  rerollGiveaway(clientId: string, giveawayId: string): Observable<{ message: string; winners: string[] }> {
+    return this.http.post<{ message: string; winners: string[] }>(`${this.base}/${clientId}/discord/giveaways/${giveawayId}/reroll`, {});
+  }
+
+  getCustomCommandsFeature(clientId: string): Observable<CustomCommandsFeature> {
+    return this.http.get<CustomCommandsFeature>(`${this.base}/${clientId}/discord/custom-commands/feature`);
+  }
+  updateCustomCommandsFeature(clientId: string, payload: Partial<CustomCommandsFeature>): Observable<CustomCommandsFeature> {
+    return this.http.put<CustomCommandsFeature>(`${this.base}/${clientId}/discord/custom-commands/feature`, payload);
+  }
+  getCustomCommands(clientId: string): Observable<CustomCommand[]> {
+    return this.http.get<CustomCommand[]>(`${this.base}/${clientId}/discord/custom-commands`);
+  }
+  restoreCustomCommands(clientId: string): Observable<{ message: string; commands: CustomCommand[] }> {
+    return this.http.post<{ message: string; commands: CustomCommand[] }>(`${this.base}/${clientId}/discord/custom-commands/restore`, {});
+  }
+
+  getRemindersFeature(clientId: string): Observable<RemindersFeature> {
+    return this.http.get<RemindersFeature>(`${this.base}/${clientId}/discord/reminders/feature`);
+  }
+  updateRemindersFeature(clientId: string, payload: Partial<RemindersFeature>): Observable<RemindersFeature> {
+    return this.http.put<RemindersFeature>(`${this.base}/${clientId}/discord/reminders/feature`, payload);
+  }
+  getReminders(clientId: string): Observable<DiscordReminder[]> {
+    return this.http.get<DiscordReminder[]>(`${this.base}/${clientId}/discord/reminders`);
+  }
+  createReminder(clientId: string, payload: ReminderPayload): Observable<{ message: string; reminder: DiscordReminder }> {
+    return this.http.post<{ message: string; reminder: DiscordReminder }>(`${this.base}/${clientId}/discord/reminders`, payload);
+  }
+  updateReminder(clientId: string, reminderId: string, payload: ReminderPayload): Observable<{ message: string; reminder: DiscordReminder }> {
+    return this.http.put<{ message: string; reminder: DiscordReminder }>(`${this.base}/${clientId}/discord/reminders/${reminderId}`, payload);
+  }
+  deleteReminder(clientId: string, reminderId: string): Observable<{ message: string }> {
+    return this.http.delete<{ message: string }>(`${this.base}/${clientId}/discord/reminders/${reminderId}`);
+  }
+  testReminder(clientId: string, reminderId: string): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(`${this.base}/${clientId}/discord/reminders/${reminderId}/test`, {});
+  }
+
+  getAutomationsFeature(clientId: string): Observable<AutomationsFeature> {
+    return this.http.get<AutomationsFeature>(`${this.base}/${clientId}/discord/automations/feature`);
+  }
+  updateAutomationsFeature(clientId: string, payload: Partial<AutomationsFeature>): Observable<AutomationsFeature> {
+    return this.http.put<AutomationsFeature>(`${this.base}/${clientId}/discord/automations/feature`, payload);
+  }
+  getAutomations(clientId: string): Observable<DiscordAutomation[]> {
+    return this.http.get<DiscordAutomation[]>(`${this.base}/${clientId}/discord/automations`);
+  }
+  createAutomation(clientId: string, payload: AutomationPayload): Observable<{ message: string; automation: DiscordAutomation }> {
+    return this.http.post<{ message: string; automation: DiscordAutomation }>(`${this.base}/${clientId}/discord/automations`, payload);
+  }
+  updateAutomation(clientId: string, automationId: string, payload: AutomationPayload): Observable<{ message: string; automation: DiscordAutomation }> {
+    return this.http.put<{ message: string; automation: DiscordAutomation }>(`${this.base}/${clientId}/discord/automations/${automationId}`, payload);
+  }
+  deleteAutomation(clientId: string, automationId: string): Observable<{ message: string }> {
+    return this.http.delete<{ message: string }>(`${this.base}/${clientId}/discord/automations/${automationId}`);
+  }
+
+  getLogs(clientId: string): Observable<LogsConfig> {
+    return this.http.get<LogsConfig>(`${this.base}/${clientId}/discord/logs`);
+  }
+  updateLogs(clientId: string, payload: Partial<LogsConfig>): Observable<LogsConfig> {
+    return this.http.put<LogsConfig>(`${this.base}/${clientId}/discord/logs`, payload);
+  }
+  testLogs(clientId: string): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(`${this.base}/${clientId}/discord/logs/test`, {});
+  }
+
+  getSuggestionsConfig(clientId: string): Observable<SuggestionsConfig> {
+    return this.http.get<SuggestionsConfig>(`${this.base}/${clientId}/discord/suggestions/config`);
+  }
+  updateSuggestionsConfig(clientId: string, payload: Partial<SuggestionsConfig>): Observable<SuggestionsConfig> {
+    return this.http.put<SuggestionsConfig>(`${this.base}/${clientId}/discord/suggestions/config`, payload);
+  }
+  postSuggestionsPanel(clientId: string): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(`${this.base}/${clientId}/discord/suggestions/panel`, {});
+  }
+  getSuggestions(clientId: string): Observable<DiscordSuggestion[]> {
+    return this.http.get<DiscordSuggestion[]>(`${this.base}/${clientId}/discord/suggestions`);
+  }
+
+  getWipeAnnounce(clientId: string): Observable<WipeAnnounceConfig> {
+    return this.http.get<WipeAnnounceConfig>(`${this.base}/${clientId}/discord/wipe-announce`);
+  }
+  updateWipeAnnounce(clientId: string, payload: Partial<WipeAnnounceConfig>): Observable<WipeAnnounceConfig> {
+    return this.http.put<WipeAnnounceConfig>(`${this.base}/${clientId}/discord/wipe-announce`, payload);
+  }
+  testWipeAnnounce(clientId: string, alert: string): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(`${this.base}/${clientId}/discord/wipe-announce/test`, { alert });
+  }
+
+  getStreamerAlerts(clientId: string): Observable<StreamerAlertsConfig> {
+    return this.http.get<StreamerAlertsConfig>(`${this.base}/${clientId}/discord/streamer-alerts`);
+  }
+  updateStreamerAlerts(clientId: string, payload: Partial<StreamerAlertsConfig>): Observable<StreamerAlertsConfig> {
+    return this.http.put<StreamerAlertsConfig>(`${this.base}/${clientId}/discord/streamer-alerts`, payload);
+  }
+  testStreamerAlerts(clientId: string): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(`${this.base}/${clientId}/discord/streamer-alerts/test`, {});
+  }
+
+  getBotProfile(clientId: string): Observable<BotProfile> {
+    return this.http.get<BotProfile>(`${this.base}/${clientId}/discord/bot-profile`);
+  }
+  updateBotProfile(clientId: string, nickname: string): Observable<BotProfile> {
+    return this.http.put<BotProfile>(`${this.base}/${clientId}/discord/bot-profile`, { nickname });
+  }
+  createCustomCommand(clientId: string, payload: CustomCommandPayload): Observable<{ message: string; command: CustomCommand }> {
+    return this.http.post<{ message: string; command: CustomCommand }>(`${this.base}/${clientId}/discord/custom-commands`, payload);
+  }
+  updateCustomCommand(clientId: string, commandId: string, payload: CustomCommandPayload): Observable<{ message: string; command: CustomCommand }> {
+    return this.http.put<{ message: string; command: CustomCommand }>(`${this.base}/${clientId}/discord/custom-commands/${commandId}`, payload);
+  }
+  deleteCustomCommand(clientId: string, commandId: string): Observable<{ message: string }> {
+    return this.http.delete<{ message: string }>(`${this.base}/${clientId}/discord/custom-commands/${commandId}`);
   }
 
   // Verification gate (free)

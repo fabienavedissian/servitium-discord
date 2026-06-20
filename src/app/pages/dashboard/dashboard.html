@@ -79,6 +79,7 @@
       </div>
     </svt-card>
   } @else if (state() === 'ready') {
+    <svt-discord-bot-profile [clientId]="clientId()" />
     <nav class="dash__tabs">
       <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'welcome'" (click)="setTab('welcome')">
         <svt-icon name="hand" [size]="16" />
@@ -119,6 +120,30 @@
       <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'giveaways'" (click)="setTab('giveaways')">
         <svt-icon name="gift" [size]="16" />
         {{ 'discordApp.tabGiveaways' | localize }}
+      </button>
+      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'commands'" (click)="setTab('commands')">
+        <svt-icon name="terminal" [size]="16" />
+        {{ 'discordApp.tabCommands' | localize }}
+      </button>
+      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'reminders'" (click)="setTab('reminders')">
+        <svt-icon name="bell" [size]="16" />
+        {{ 'discordApp.tabReminders' | localize }}
+      </button>
+      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'automations'" (click)="setTab('automations')">
+        <svt-icon name="zap" [size]="16" />
+        {{ 'discordApp.tabAutomations' | localize }}
+      </button>
+      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'logs'" (click)="setTab('logs')">
+        <svt-icon name="scroll-text" [size]="16" />
+        {{ 'discordApp.tabLogs' | localize }}
+      </button>
+      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'suggestions'" (click)="setTab('suggestions')">
+        <svt-icon name="lightbulb" [size]="16" />
+        {{ 'discordApp.tabSuggestions' | localize }}
+      </button>
+      <button type="button" class="dash__tab" [class.dash__tab--active]="activeTab() === 'streamers'" (click)="setTab('streamers')">
+        <svt-icon name="radio" [size]="16" />
+        {{ 'discordApp.tabStreamers' | localize }}
       </button>
     </nav>
 
@@ -188,6 +213,44 @@
         <svt-discord-giveaways
           [clientId]="clientId()"
           [channels]="channels()"
+          [roles]="roles()"
+        />
+      } @else if (activeTab() === 'commands') {
+        <svt-discord-custom-commands
+          [clientId]="clientId()"
+          [channels]="channels()"
+          [roles]="roles()"
+          [gameContext]="false"
+        />
+      } @else if (activeTab() === 'reminders') {
+        <svt-discord-reminders
+          [clientId]="clientId()"
+          [channels]="channels()"
+          [gameContext]="false"
+        />
+      } @else if (activeTab() === 'automations') {
+        <svt-discord-automations
+          [clientId]="clientId()"
+          [channels]="channels()"
+          [roles]="roles()"
+          [gameContext]="false"
+        />
+      } @else if (activeTab() === 'logs') {
+        <svt-discord-logs
+          [clientId]="clientId()"
+          [channels]="channels()"
+        />
+      } @else if (activeTab() === 'suggestions') {
+        <svt-discord-suggestions
+          [clientId]="clientId()"
+          [channels]="channels()"
+          [roles]="roles()"
+        />
+      } @else if (activeTab() === 'streamers') {
+        <svt-discord-streamer-alerts
+          [clientId]="clientId()"
+          [channels]="channels()"
+          [roles]="roles()"
         />
       } @else if (activeTab() === 'verification') {
         <svt-discord-verification
