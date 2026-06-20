@@ -48,6 +48,10 @@
             (onSelect)="onGuildSelect($event)"
           />
         </div>
+        <button type="button" class="dash__sb-item dash__sb-item--home" [class.dash__sb-item--active]="activeTab() === 'dashboard'" (click)="setTab('dashboard')">
+          <svt-icon name="layout-grid" [size]="17" />
+          <span>{{ 'discordApp.tabDashboard' | localize }}</span>
+        </button>
         @for (group of navGroups; track group.key) {
           <div class="dash__sb-group">
             <span class="dash__sb-glabel">{{ ('discordApp.group.' + group.key) | localize }}</span>
@@ -62,10 +66,14 @@
       </aside>
 
       <main class="dash__main">
-        <svt-discord-bot-profile [clientId]="clientId()" />
-
         <div class="dash__features">
-          @if (activeTab() === 'welcome') {
+          @if (activeTab() === 'dashboard') {
+            <div class="dash__home">
+              <h2 class="dash__home-title">{{ 'discordApp.dashHello' | localize:{ name: serverName() } }}</h2>
+              <p class="dash__home-sub">{{ 'discordApp.dashSub' | localize }}</p>
+            </div>
+            <svt-discord-bot-profile [clientId]="clientId()" />
+          } @else if (activeTab() === 'welcome') {
             <svt-discord-message mode="welcome" [clientId]="clientId()" [canEdit]="true" [availableChannels]="channels()" [isLoadingChannels]="loading()" [serverName]="serverName()" [greeting]="welcomeSeed()" />
           } @else if (activeTab() === 'goodbye') {
             <svt-discord-message mode="goodbye" [clientId]="clientId()" [canEdit]="true" [availableChannels]="channels()" [isLoadingChannels]="loading()" [serverName]="serverName()" [greeting]="goodbyeSeed()" />

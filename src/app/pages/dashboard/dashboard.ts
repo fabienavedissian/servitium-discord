@@ -104,7 +104,7 @@ export class DashboardComponent implements OnInit {
   loading = signal<boolean>(false);
   state = signal<GuildState>('idle');
   inviteUrl = signal<string>('');
-  activeTab = signal<'welcome' | 'goodbye' | 'salon' | 'voice' | 'verification' | 'leveling' | 'reaction-roles' | 'stats' | 'automod' | 'giveaways' | 'commands' | 'reminders' | 'automations' | 'logs' | 'suggestions' | 'streamers'>('welcome');
+  activeTab = signal<string>('dashboard');
   private _config = signal<DiscordConfig | null>(null);
   channels = signal<DiscordChannel[]>([]);
   roles = signal<DiscordRole[]>([]);
@@ -150,7 +150,7 @@ export class DashboardComponent implements OnInit {
   selectGuildId(id: string): void {
     if (id === this.session.selectedGuildId()) return;
     this.session.selectGuild(id);
-    this.activeTab.set('welcome');
+    this.activeTab.set('dashboard');
     this.refreshGuild();
   }
   initials(name: string): string { return (name || '?').replace(/[^A-Za-z0-9]/g, '').slice(0, 2).toUpperCase() || '?'; }
