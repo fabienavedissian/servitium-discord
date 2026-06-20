@@ -71,6 +71,12 @@ export class DiscordDataAdapter implements DiscordDataPort {
   createChannel(clientId: string, name: string): Observable<{ channel: DiscordChannel }> {
     return this.http.post<{ channel: DiscordChannel }>(`${this.base}/${clientId}/discord/channels`, { name });
   }
+  listChannelMessages(clientId: string, channelId: string): Observable<Array<{ id: string; label: string }>> {
+    return this.http.get<Array<{ id: string; label: string }>>(`${this.base}/${clientId}/discord/channels/${channelId}/messages`);
+  }
+  getGuildEmojis(clientId: string): Observable<Array<{ id: string; name: string; animated: boolean; mention: string }>> {
+    return this.http.get<Array<{ id: string; name: string; animated: boolean; mention: string }>>(`${this.base}/${clientId}/discord/emojis`);
+  }
 
   // ── Welcome channel / "Salon d'accueil" (static rich block message) ──
   getWelcomeChannelComposer(clientId: string): Observable<{ channelId: string | null; messageId: string | null; blocks: GreetingBlock[] }> {
